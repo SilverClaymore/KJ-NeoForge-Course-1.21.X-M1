@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.silverclaymore.mccourse.MCCourseMod;
+import net.silverclaymore.mccourse.block.ModBlocks;
 
 import java.util.function.Supplier;
 
@@ -29,13 +30,10 @@ public class ModCreativeModeTabs {
     public static final Supplier<CreativeModeTab> BLACK_OPAL_BLOCKS_TAB =
             CREATIVE_MODE_TABS.register("black_opal_blocks_tab", () -> CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup.mccourse.black_opal_blocks_tab"))
-                    .icon(() -> new ItemStack(ModItems.RAW_BLACK_OPAL.get()))
+                    .icon(() -> new ItemStack(ModBlocks.BLACK_OPAL_BLOCK.get()))
                     .displayItems((pParameters, pOutput) -> {
-                     //pOutput.accept(ModItems.BLACK_OPAL);
-                     //pOutput.accept(ModItems.RAW_BLACK_OPAL);
-
-                        pOutput.accept(Blocks.ANDESITE);
-                        pOutput.accept(Blocks.DEEPSLATE_DIAMOND_ORE);
+                     pOutput.accept(ModBlocks.BLACK_OPAL_BLOCK);
+                     pOutput.accept(ModBlocks.RAW_BLACK_OPAL_BLOCK);
 
                     })
                     .withTabsBefore(ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID,"black_opal_items_tab"))
