@@ -16,6 +16,15 @@
 
   "block.mccourse.magic_block": "Magic Block",
 
+
+  "tooltip.mccourse.chainsaw.tooltip.shift": "Press §eShift§r for more Information!",
+  "tooltip.mccourse.chainsaw.tooltip.1": "This chainsaw is awesome.",
+  "tooltip.mccourse.chainsaw.tooltip.2": "ALL YOUR TREES...",
+  "tooltip.mccourse.chainsaw.tooltip.3": "...§oARE BELONG TO US§r !!!",
+
+  "tooltip.mccourse.magic_block.tooltip.1": "This Block is §9MAGICAL§r",
+  "tooltip.mccourse.tomato.tooltip.1": "Tomato; §9Tomato§r",
+
   "itemGroup.mccourse.black_opal_items_tab": "Black Opal Items",
   "itemGroup.mccourse.black_opal_blocks_tab": "Black Opal Blocks"
 }
