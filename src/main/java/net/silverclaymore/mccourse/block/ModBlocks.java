@@ -42,7 +42,7 @@ public class ModBlocks {
                     BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
     public static final DeferredBlock<Block> MAGIC_BLOCK = registerBlock("magic_block",
-            () -> new MagicBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+            () -> new MagicBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().noLootTable()));
 
 
 
