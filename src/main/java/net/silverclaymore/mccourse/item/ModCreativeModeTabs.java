@@ -49,6 +49,9 @@ public class ModCreativeModeTabs {
                      pOutput.accept(ModBlocks.BLACK_OPAL_SLAB);
                      pOutput.accept(ModBlocks.BLACK_OPAL_STAIRS);
 
+                        pOutput.accept(ModBlocks.BLACK_OPAL_PRESSURE_PLATE);
+                        pOutput.accept(ModBlocks.BLACK_OPAL_BUTTON);
+
                     })
                     .withTabsBefore(ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID,"black_opal_items_tab"))
                     .build());
