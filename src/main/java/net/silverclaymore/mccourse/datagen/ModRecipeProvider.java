@@ -41,6 +41,10 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_magic_block", has(ModBlocks.MAGIC_BLOCK.get()))
                 .save(recipeOutput, "mccourse:black_opal_2");
 
+        //nineBlockStorageRecipes(recipeOutput, RecipeCategory.MISC, ModItems.RAW_BLACK_OPAL, RecipeCategory.MISC, ModBlocks.RAW_BLACK_OPAL_BLOCK,
+                //MCCourseMod.MOD_ID + ":raw_black_opal_block", "black_opal",
+                //MCCourseMod.MOD_ID + ":raw_black_opal", "black_opal");
+
         oreSmelting(recipeOutput, BLACK_OPAL_SMELTABLES, RecipeCategory.MISC, ModItems.BLACK_OPAL.get(), 0.25f, 200, "black_opal" );
         oreBlasting(recipeOutput, BLACK_OPAL_SMELTABLES, RecipeCategory.MISC, ModItems.BLACK_OPAL.get(), 0.25f, 100, "black_opal" );
 
@@ -55,6 +59,11 @@ public class ModRecipeProvider extends RecipeProvider {
         fenceBuilder(ModBlocks.BLACK_OPAL_FENCE.get(), Ingredient.of(ModItems.BLACK_OPAL.get())).group("black_opal")
                 .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get())).save(recipeOutput);
         fenceGateBuilder(ModBlocks.BLACK_OPAL_FENCE_GATE.get(), Ingredient.of(ModItems.BLACK_OPAL.get())).group("black_opal")
+                .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get())).save(recipeOutput);
+
+        doorBuilder(ModBlocks.BLACK_OPAL_DOOR.get(), Ingredient.of(ModItems.BLACK_OPAL.get())).group("black_opal")
+                .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get())).save(recipeOutput);
+        trapdoorBuilder(ModBlocks.BLACK_OPAL_TRAPDOOR.get(), Ingredient.of(ModItems.BLACK_OPAL.get())).group("black_opal")
                 .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get())).save(recipeOutput);
 
         wall(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.BLACK_OPAL_WALL.get(), ModItems.BLACK_OPAL.get());
