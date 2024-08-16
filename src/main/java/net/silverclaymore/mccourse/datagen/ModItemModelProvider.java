@@ -35,6 +35,7 @@ public class ModItemModelProvider extends ItemModelProvider {
                 .texture("texture", ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, "block/" + baseBlock.getId().getPath()));
     }
 
+    // Nine Block Storage Recipe for own Namespace (Neo 1.21.X)
     //public void fenceItem(DeferredBlock<Block> block, DeferredBlock<Block> baseBlock){
       //  this.withExistingParent(block.getId().getPath(), mcLoc("block/fence_inventory"))
         //        .texture("texture", ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, "block/" + baseBlock.getId().getPath()));
