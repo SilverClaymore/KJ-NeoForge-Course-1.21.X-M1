@@ -2,10 +2,13 @@ package net.silverclaymore.mccourse.datagen;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredItem;
 import net.silverclaymore.mccourse.MCCourseMod;
 import net.silverclaymore.mccourse.block.ModBlocks;
 import net.silverclaymore.mccourse.item.ModItems;
@@ -28,18 +31,19 @@ public class ModItemModelProvider extends ItemModelProvider {
         wallItem(ModBlocks.BLACK_OPAL_WALL, ModBlocks.BLACK_OPAL_BLOCK);
 
         basicItem(ModBlocks.BLACK_OPAL_DOOR.asItem());
+
+        handheldItem(ModItems.BLACK_OPAL_SWORD);
+        handheldItem(ModItems.BLACK_OPAL_PICKAXE);
+        handheldItem(ModItems.BLACK_OPAL_AXE);
+        handheldItem(ModItems.BLACK_OPAL_SHOVEL);
+        handheldItem(ModItems.BLACK_OPAL_HOE);
+
     }
 
     public void buttonItem(DeferredBlock<Block> block, DeferredBlock<Block> baseBlock){
         this.withExistingParent(block.getId().getPath(), mcLoc("block/button_inventory"))
                 .texture("texture", ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, "block/" + baseBlock.getId().getPath()));
     }
-
-    // Nine Block Storage Recipe for own Namespace (Neo 1.21.X)
-    //public void fenceItem(DeferredBlock<Block> block, DeferredBlock<Block> baseBlock){
-      //  this.withExistingParent(block.getId().getPath(), mcLoc("block/fence_inventory"))
-        //        .texture("texture", ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, "block/" + baseBlock.getId().getPath()));
-    //}
 
     public void fenceItem(DeferredBlock<Block> block, DeferredBlock<Block> baseBlock){
         this.baseItem(block, baseBlock, "fence");
@@ -52,6 +56,12 @@ public class ModItemModelProvider extends ItemModelProvider {
     private void baseItem(DeferredBlock<Block> block, DeferredBlock<Block> baseBlock, String name){
         this.withExistingParent(block.getId().getPath(), mcLoc("block/"+ name +"_inventory"))
                 .texture(name, ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, "block/" + baseBlock.getId().getPath()));
+    }
+
+    private ItemModelBuilder handheldItem(DeferredItem<Item> item) {
+        return withExistingParent(item.getId().getPath(),
+                ResourceLocation.parse("item/handheld")).texture("layer0",
+                ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID,"item/" + item.getId().getPath()));
     }
 
 

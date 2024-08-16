@@ -10,6 +10,9 @@ import net.silverclaymore.mccourse.MCCourseMod;
 
 public class ModTags {
     public static class Blocks {
+        public static final TagKey<Block> INCORRECT_FOR_BLACK_OPAL_TOOL = createTag("incorrect_for_black_opal_tool");
+        public static final TagKey<Block> NEEDS_BLACK_OPAL_TOOL = createTag("needs_black_opal_tool");
+
         public static TagKey<Block> createTag(String name){
             return BlockTags.create(ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, name));
         }

@@ -41,6 +41,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_magic_block", has(ModBlocks.MAGIC_BLOCK.get()))
                 .save(recipeOutput, "mccourse:black_opal_2");
 
+        // Nine Block Storage Recipe for own Namespace (Neo 1.21.X)
         //nineBlockStorageRecipes(recipeOutput, RecipeCategory.MISC, ModItems.RAW_BLACK_OPAL, RecipeCategory.MISC, ModBlocks.RAW_BLACK_OPAL_BLOCK,
                 //MCCourseMod.MOD_ID + ":raw_black_opal_block", "black_opal",
                 //MCCourseMod.MOD_ID + ":raw_black_opal", "black_opal");
