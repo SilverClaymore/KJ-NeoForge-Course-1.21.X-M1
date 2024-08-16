@@ -8,6 +8,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.silverclaymore.mccourse.MCCourseMod;
 import net.silverclaymore.mccourse.item.custom.ChainsawItem;
 import net.silverclaymore.mccourse.item.custom.FuelItem;
+import net.silverclaymore.mccourse.item.custom.HammerItem;
 import net.silverclaymore.mccourse.item.custom.PaxelItem;
 
 import java.util.List;
@@ -61,8 +62,11 @@ public class ModItems {
 
     public static final DeferredItem<Item> BLACK_OPAL_PAXEL = ITEMS.register("black_opal_paxel",
             () -> new PaxelItem(ModToolTiers.BLACK_OPAL,
-                    new Item.Properties().attributes(PickaxeItem.createAttributes(ModToolTiers.BLACK_OPAL,1,-2.8f))));
+                    new Item.Properties().attributes(PickaxeItem.createAttributes(ModToolTiers.BLACK_OPAL,1,-2))));
 
+    public static final DeferredItem<Item> BLACK_OPAL_HAMMER = ITEMS.register("black_opal_hammer",
+            () -> new HammerItem(ModToolTiers.BLACK_OPAL,
+                    new Item.Properties().attributes(PickaxeItem.createAttributes(ModToolTiers.BLACK_OPAL, 8, -3.3f))));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
