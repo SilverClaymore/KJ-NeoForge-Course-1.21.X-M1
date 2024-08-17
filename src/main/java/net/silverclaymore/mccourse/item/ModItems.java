@@ -1,15 +1,14 @@
 package net.silverclaymore.mccourse.item;
 
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.silverclaymore.mccourse.MCCourseMod;
-import net.silverclaymore.mccourse.item.custom.ChainsawItem;
-import net.silverclaymore.mccourse.item.custom.FuelItem;
-import net.silverclaymore.mccourse.item.custom.HammerItem;
-import net.silverclaymore.mccourse.item.custom.PaxelItem;
+import net.silverclaymore.mccourse.item.custom.*;
 
 import java.util.List;
 
@@ -41,8 +40,8 @@ public class ModItems {
             ITEMS.registerItem("frostfire_ice", properties -> new FuelItem(properties, 800), new Item.Properties());
 
     public static final DeferredItem<Item> BLACK_OPAL_SWORD = ITEMS.register("black_opal_sword",
-            () -> new SwordItem(ModToolTiers.BLACK_OPAL,
-                    new Item.Properties().attributes(SwordItem.createAttributes(ModToolTiers.BLACK_OPAL,3,-2.4f))));
+            () -> new ModEffectSwordItem(ModToolTiers.BLACK_OPAL,
+                    new Item.Properties().attributes(SwordItem.createAttributes(ModToolTiers.BLACK_OPAL,3,-2.4f)), MobEffects.LEVITATION));
 
     public static final DeferredItem<Item> BLACK_OPAL_PICKAXE = ITEMS.register("black_opal_pickaxe",
             () -> new PickaxeItem(ModToolTiers.BLACK_OPAL,
