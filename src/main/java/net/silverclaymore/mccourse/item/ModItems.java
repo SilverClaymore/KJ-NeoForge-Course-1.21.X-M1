@@ -40,8 +40,14 @@ public class ModItems {
             ITEMS.registerItem("frostfire_ice", properties -> new FuelItem(properties, 800), new Item.Properties());
 
     public static final DeferredItem<Item> BLACK_OPAL_SWORD = ITEMS.register("black_opal_sword",
+            () -> new SwordItem(ModToolTiers.BLACK_OPAL,
+                    new Item.Properties().attributes(SwordItem.createAttributes(ModToolTiers.BLACK_OPAL,3,-2.4f))));
+
+    public static final DeferredItem<Item> BLACK_OPAL_SWORD_LEVITATION = ITEMS.register("black_opal_sword_levitation",
             () -> new ModEffectSwordItem(ModToolTiers.BLACK_OPAL,
                     new Item.Properties().attributes(SwordItem.createAttributes(ModToolTiers.BLACK_OPAL,3,-2.4f)), MobEffects.LEVITATION));
+
+
 
     public static final DeferredItem<Item> BLACK_OPAL_PICKAXE = ITEMS.register("black_opal_pickaxe",
             () -> new PickaxeItem(ModToolTiers.BLACK_OPAL,

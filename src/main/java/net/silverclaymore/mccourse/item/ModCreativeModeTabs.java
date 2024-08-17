@@ -30,6 +30,7 @@ public class ModCreativeModeTabs {
                      pOutput.accept(ModItems.FROSTFIRE_ICE);
 
                      pOutput.accept(ModItems.BLACK_OPAL_SWORD);
+                     pOutput.accept(ModItems.BLACK_OPAL_SWORD_LEVITATION);
                      pOutput.accept(ModItems.BLACK_OPAL_PICKAXE);
                      pOutput.accept(ModItems.BLACK_OPAL_AXE);
                      pOutput.accept(ModItems.BLACK_OPAL_SHOVEL);

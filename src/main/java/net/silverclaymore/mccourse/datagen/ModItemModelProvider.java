@@ -33,6 +33,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModBlocks.BLACK_OPAL_DOOR.asItem());
 
         handheldItem(ModItems.BLACK_OPAL_SWORD);
+        handheldItem(ModItems.BLACK_OPAL_SWORD_LEVITATION);
         handheldItem(ModItems.BLACK_OPAL_PICKAXE);
         handheldItem(ModItems.BLACK_OPAL_AXE);
         handheldItem(ModItems.BLACK_OPAL_SHOVEL);
