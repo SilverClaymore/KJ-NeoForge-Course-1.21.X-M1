@@ -11,6 +11,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.silverclaymore.mccourse.MCCourseMod;
+import net.silverclaymore.mccourse.block.custom.BlackOpalLampBlock;
 import net.silverclaymore.mccourse.block.custom.MagicBlock;
 import net.silverclaymore.mccourse.item.ModItems;
 
@@ -71,6 +72,10 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> BLACK_OPAL_TRAPDOOR = registerBlock("black_opal_trapdoor",
             () -> new TrapDoorBlock(BlockSetType.IRON, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().noCollission()));
+
+    public static final DeferredBlock<Block> BLACK_OPAL_LAMP = registerBlock("black_opal_lamp",
+            () -> new BlackOpalLampBlock(BlockBehaviour.Properties.of().strength(3f)
+                    .requiresCorrectToolForDrops().lightLevel(state -> state.getValue(BlackOpalLampBlock.CLICKED) ? 15 : 0)));
 
     private static <T extends Block>DeferredBlock<T> registerBlock(String name, Supplier<T> block){
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);

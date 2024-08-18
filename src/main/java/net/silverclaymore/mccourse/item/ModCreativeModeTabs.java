@@ -75,6 +75,8 @@ public class ModCreativeModeTabs {
                      pOutput.accept(ModBlocks.BLACK_OPAL_DOOR);
                      pOutput.accept(ModBlocks.BLACK_OPAL_TRAPDOOR);
 
+                     pOutput.accept(ModBlocks.BLACK_OPAL_LAMP);
+
                     })
                     .withTabsBefore(ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID,"black_opal_items_tab"))
                     .build());

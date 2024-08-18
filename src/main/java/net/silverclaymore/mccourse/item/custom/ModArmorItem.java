@@ -77,11 +77,15 @@ public class ModArmorItem extends ArmorItem {
     }
 
     private boolean hasFullSuitOfArmorOn(Player player) {
-        ItemStack boots = player.getInventory().getArmor(0);
-        ItemStack leggings = player.getInventory().getArmor(1);
-        ItemStack chestplate = player.getInventory().getArmor(2);
-        ItemStack helmet = player.getInventory().getArmor(3);
+        var helmet = player.getInventory().getArmor(3);
+        if (helmet.isEmpty()) return false;
+        var chestplate = player.getInventory().getArmor(2);
+        if (chestplate.isEmpty()) return false;
+        var leggings = player.getInventory().getArmor(1);
+        if (leggings.isEmpty()) return false;
+        var boots = player.getInventory().getArmor(0);
+        if (boots.isEmpty()) return false;
 
-        return !boots.isEmpty() && !leggings.isEmpty() && !chestplate.isEmpty() && !helmet.isEmpty();
+        return true;
     }
 }
