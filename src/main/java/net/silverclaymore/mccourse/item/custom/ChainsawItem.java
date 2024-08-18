@@ -12,6 +12,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import net.silverclaymore.mccourse.block.component.ModDataComponentTypes;
 
 import java.util.List;
 import java.util.Objects;
@@ -32,6 +33,8 @@ public class ChainsawItem extends Item {
 
                 pContext.getItemInHand().hurtAndBreak(1, ((ServerLevel) level), ((ServerPlayer) pContext.getPlayer()),
                         item -> Objects.requireNonNull(pContext.getPlayer()).onEquippedItemBroken(item, EquipmentSlot.MAINHAND ));
+
+                pContext.getItemInHand().set(ModDataComponentTypes.COORDINATES, pContext.getClickedPos());
             }
         }
 
@@ -47,6 +50,11 @@ public class ChainsawItem extends Item {
             tooltipComponents.add(Component.translatable("tooltip.mccourse.chainsaw.tooltip.3"));
         } else {
             tooltipComponents.add(Component.translatable("tooltip.mccourse.chainsaw.tooltip.shift"));
+        }
+
+        if(stack.get(ModDataComponentTypes.COORDINATES) != null){
+            tooltipComponents.add(Component.literal("Last Tree was chopped at " + stack.get(ModDataComponentTypes.COORDINATES)));
+
         }
 
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
