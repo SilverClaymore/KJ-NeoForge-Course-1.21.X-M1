@@ -33,7 +33,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModBlocks.BLACK_OPAL_DOOR.asItem());
 
         basicItem(ModItems.METAL_DETECTOR.get());
-        basicItem(ModItems.DATA_TABLET.get());
+        //basicItem(ModItems.DATA_TABLET.get());
 
         handheldItem(ModItems.BLACK_OPAL_SWORD);
         handheldItem(ModItems.BLACK_OPAL_SWORD_LEVITATION);

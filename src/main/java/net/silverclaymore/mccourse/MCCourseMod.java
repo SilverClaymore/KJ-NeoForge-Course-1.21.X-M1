@@ -6,6 +6,7 @@ import net.silverclaymore.mccourse.component.ModDataComponentTypes;
 import net.silverclaymore.mccourse.item.ModArmorMaterials;
 import net.silverclaymore.mccourse.item.ModCreativeModeTabs;
 import net.silverclaymore.mccourse.item.ModItems;
+import net.silverclaymore.mccourse.util.ModItemProperties;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -105,6 +106,9 @@ public class MCCourseMod
             // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+
+            ModItemProperties.addCustomItemProperties();
+
         }
     }
 }
