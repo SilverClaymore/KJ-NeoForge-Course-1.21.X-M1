@@ -1,4 +1,4 @@
-package net.silverclaymore.mccourse.block.component;
+package net.silverclaymore.mccourse.component;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponentType;
@@ -17,6 +17,8 @@ public class ModDataComponentTypes {
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<BlockPos>> COORDINATES = register("coordinates",
             blockPosBuilder -> blockPosBuilder.persistent(BlockPos.CODEC));
 
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<FoundBlockData>> FOUND_BLOCK = register("found_block",
+            builder -> builder.persistent(FoundBlockData.CODEC));
 
     private static <T>DeferredHolder<DataComponentType<?>, DataComponentType<T>> register(String name, UnaryOperator<DataComponentType.Builder<T>> builderOperator){
         return DATA_COMPONENT_TYPES.register(name, () -> builderOperator.apply(DataComponentType.builder()).build());

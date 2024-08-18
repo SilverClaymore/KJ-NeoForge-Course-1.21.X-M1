@@ -32,6 +32,9 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         basicItem(ModBlocks.BLACK_OPAL_DOOR.asItem());
 
+        basicItem(ModItems.METAL_DETECTOR.get());
+        basicItem(ModItems.DATA_TABLET.get());
+
         handheldItem(ModItems.BLACK_OPAL_SWORD);
         handheldItem(ModItems.BLACK_OPAL_SWORD_LEVITATION);
         handheldItem(ModItems.BLACK_OPAL_PICKAXE);
@@ -46,6 +49,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.BLACK_OPAL_CHESTPLATE.get());
         basicItem(ModItems.BLACK_OPAL_LEGGINGS.get());
         basicItem(ModItems.BLACK_OPAL_BOOTS.get());
+
     }
 
     public void buttonItem(DeferredBlock<Block> block, DeferredBlock<Block> baseBlock){

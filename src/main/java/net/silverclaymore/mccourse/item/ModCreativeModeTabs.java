@@ -44,6 +44,9 @@ public class ModCreativeModeTabs {
                      pOutput.accept(ModItems.BLACK_OPAL_LEGGINGS);
                      pOutput.accept(ModItems.BLACK_OPAL_BOOTS);
 
+                     pOutput.accept(ModItems.METAL_DETECTOR);
+                     pOutput.accept(ModItems.DATA_TABLET);
+
 
                     }).build());
 

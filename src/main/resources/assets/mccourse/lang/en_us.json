@@ -6,6 +6,9 @@
   "item.mccourse.tomato": "Tomato",
   "item.mccourse.frostfire_ice": "Frostfire Ice",
 
+  "item.mccourse.metal_detector": "Metal Detector",
+  "item.mccourse.data_tablet": "Data Tablet",
+
   "item.mccourse.black_opal_sword": "Black Opal Sword",
   "item.mccourse.black_opal_sword_levitation": "Black Opal Sword §9of Levitation§r",
   "item.mccourse.black_opal_pickaxe": "Black Opal Pickaxe",
@@ -51,6 +54,8 @@
 
   "tooltip.mccourse.magic_block.tooltip.1": "This Block is §9MAGICAL§r",
   "tooltip.mccourse.tomato.tooltip.1": "Tomato; §9Tomato§r",
+
+  "item.mccourse.metal_detector.no_valuables": "No Valuables Found!",
 
   "itemGroup.mccourse.black_opal_items_tab": "Black Opal Items",
   "itemGroup.mccourse.black_opal_blocks_tab": "Black Opal Blocks"

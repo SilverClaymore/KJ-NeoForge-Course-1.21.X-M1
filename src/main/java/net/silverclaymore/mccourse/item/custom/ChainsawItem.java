@@ -12,7 +12,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
-import net.silverclaymore.mccourse.block.component.ModDataComponentTypes;
+import net.silverclaymore.mccourse.component.ModDataComponentTypes;
 
 import java.util.List;
 import java.util.Objects;

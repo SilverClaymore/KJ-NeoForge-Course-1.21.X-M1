@@ -2,7 +2,7 @@ package net.silverclaymore.mccourse;
 
 import net.minecraft.world.item.CreativeModeTabs;
 import net.silverclaymore.mccourse.block.ModBlocks;
-import net.silverclaymore.mccourse.block.component.ModDataComponentTypes;
+import net.silverclaymore.mccourse.component.ModDataComponentTypes;
 import net.silverclaymore.mccourse.item.ModArmorMaterials;
 import net.silverclaymore.mccourse.item.ModCreativeModeTabs;
 import net.silverclaymore.mccourse.item.ModItems;
