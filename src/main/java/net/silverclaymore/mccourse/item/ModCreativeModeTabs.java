@@ -27,6 +27,7 @@ public class ModCreativeModeTabs {
 
                      pOutput.accept(ModItems.CHAINSAW);
                      pOutput.accept(ModItems.TOMATO);
+                     pOutput.accept(ModItems.TOMATO_SEEDS);
                      pOutput.accept(ModItems.FROSTFIRE_ICE);
 
                      pOutput.accept(ModItems.BLACK_OPAL_SWORD);

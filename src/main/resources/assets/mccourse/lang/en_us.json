@@ -4,6 +4,7 @@
 
   "item.mccourse.chainsaw": "Chainsaw",
   "item.mccourse.tomato": "Tomato",
+  "item.mccourse.tomato_seeds": "Tomato Seeds",
   "item.mccourse.frostfire_ice": "Frostfire Ice",
 
   "item.mccourse.metal_detector": "Metal Detector",
@@ -48,6 +49,8 @@
   "block.mccourse.black_opal_trapdoor": "Black Opal Trapdoor",
 
   "block.mccourse.black_opal_lamp": "Black Opal Lamp",
+
+  "block.mccourse.tomato_crop": "Tomato Crop",
 
   "tooltip.mccourse.chainsaw.tooltip.shift": "Press §eShift§r for more Information!",
   "tooltip.mccourse.chainsaw.tooltip.1": "This chainsaw is awesome.",
