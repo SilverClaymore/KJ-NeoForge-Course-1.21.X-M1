@@ -23,9 +23,10 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.BLACK_OPAL.get());
         basicItem(ModItems.RAW_BLACK_OPAL.get());
         basicItem(ModItems.CHAINSAW.get());
+
         basicItem(ModItems.TOMATO.get());
         basicItem(ModItems.TOMATO_SEEDS.get());
-
+        flowerItem(ModBlocks.PETUNIA);
 
         basicItem(ModItems.FROSTFIRE_ICE.get());
 
@@ -53,6 +54,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.BLACK_OPAL_LEGGINGS.get());
         basicItem(ModItems.BLACK_OPAL_BOOTS.get());
 
+    }
+
+    public void flowerItem(DeferredBlock<Block> block) {
+        this.withExistingParent(block.getId().getPath(), mcLoc("item/generated"))
+                .texture("layer0",  ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID,
+                        "block/" + block.getId().getPath()));
     }
 
     public void buttonItem(DeferredBlock<Block> block, DeferredBlock<Block> baseBlock){

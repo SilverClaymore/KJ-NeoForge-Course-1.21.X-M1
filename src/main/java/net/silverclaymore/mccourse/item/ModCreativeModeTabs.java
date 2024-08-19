@@ -83,6 +83,8 @@ public class ModCreativeModeTabs {
 
                      pOutput.accept(ModBlocks.BLACK_OPAL_LAMP);
 
+                     pOutput.accept(ModBlocks.PETUNIA);
+
                     })
                     .withTabsBefore(ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID,"black_opal_items_tab"))
                     .build());

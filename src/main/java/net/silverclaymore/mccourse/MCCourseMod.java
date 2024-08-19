@@ -1,6 +1,7 @@
 package net.silverclaymore.mccourse;
 
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.silverclaymore.mccourse.block.ModBlocks;
 import net.silverclaymore.mccourse.component.ModDataComponentTypes;
 import net.silverclaymore.mccourse.item.ModArmorMaterials;
@@ -66,15 +67,9 @@ public class MCCourseMod
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-        // Some common setup code
-        LOGGER.info("HELLO FROM COMMON SETUP");
-
-        if (Config.logDirtBlock)
-            LOGGER.info("DIRT BLOCK >> {}", BuiltInRegistries.BLOCK.getKey(Blocks.DIRT));
-
-        LOGGER.info(Config.magicNumberIntroduction + Config.magicNumber);
-
-        Config.items.forEach((item) -> LOGGER.info("ITEM >> {}", item.toString()));
+        event.enqueueWork(() -> {
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.PETUNIA.getId(), ModBlocks.POTTED_PETUNIA);
+        });
     }
 
     // Add the example block item to the building blocks tab
