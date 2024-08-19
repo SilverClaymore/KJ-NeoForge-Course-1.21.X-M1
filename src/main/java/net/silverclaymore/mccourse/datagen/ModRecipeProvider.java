@@ -104,6 +104,16 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get()))
                 .save(recipeOutput, MCCourseMod.MOD_ID + ":" + "black_opal_recipe_hammer");
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.KAUPEN_BOW.get(), 1)
+                .pattern(" BX")
+                .pattern("S X")
+                .pattern(" BX")
+                .define('X', Items.STRING)
+                .define('B', ModItems.BLACK_OPAL)
+                .define('S', Items.STICK)
+                .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get()))
+                .save(recipeOutput, MCCourseMod.MOD_ID + ":" + "kaupen_bow_recipe_kaupen_bow");
+
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.BLACK_OPAL_HELMET.get(), 1)
                 .pattern("XXX")
                 .pattern("X X")

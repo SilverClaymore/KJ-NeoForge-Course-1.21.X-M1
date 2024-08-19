@@ -46,8 +46,6 @@ public class ModItems {
             () -> new ModEffectSwordItem(ModToolTiers.BLACK_OPAL,
                     new Item.Properties().attributes(SwordItem.createAttributes(ModToolTiers.BLACK_OPAL,3,-2.4f)), MobEffects.LEVITATION));
 
-
-
     public static final DeferredItem<Item> BLACK_OPAL_PICKAXE = ITEMS.register("black_opal_pickaxe",
             () -> new PickaxeItem(ModToolTiers.BLACK_OPAL,
                     new Item.Properties().attributes(PickaxeItem.createAttributes(ModToolTiers.BLACK_OPAL,1,-2.8f))));
@@ -89,6 +87,10 @@ public class ModItems {
             () -> new MetalDetectorItem(new Item.Properties().durability(100)));
     public static final DeferredItem<Item> DATA_TABLET = ITEMS.register("data_tablet",
             () -> new DataTabletItem(new Item.Properties().stacksTo(1)));
+
+    public static final DeferredItem<Item> KAUPEN_BOW = ITEMS.register("kaupen_bow",
+            () -> new BowItem(new Item.Properties().durability(480)));
+
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
