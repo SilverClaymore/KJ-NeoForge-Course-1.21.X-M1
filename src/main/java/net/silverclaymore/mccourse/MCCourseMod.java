@@ -8,6 +8,9 @@ import net.silverclaymore.mccourse.item.ModArmorMaterials;
 import net.silverclaymore.mccourse.item.ModCreativeModeTabs;
 import net.silverclaymore.mccourse.item.ModItems;
 import net.silverclaymore.mccourse.util.ModItemProperties;
+import net.minecraft.client.renderer.BiomeColors;
+import net.minecraft.world.level.FoliageColor;
+import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -105,5 +108,18 @@ public class MCCourseMod
             ModItemProperties.addCustomItemProperties();
 
         }
+
+        @SubscribeEvent
+        public static void registerColoredBlocks(RegisterColorHandlersEvent.Block event) {
+            event.register((pState, pLevel, pPos, pTintIndex) -> pLevel != null &&
+                    pPos != null ? BiomeColors.getAverageFoliageColor(pLevel, pPos) : FoliageColor.getDefaultColor(), ModBlocks.COLORED_LEAVES.get());
+        }
+
+        @SubscribeEvent
+        public static void registerColoredItems(RegisterColorHandlersEvent.Item event) {
+            event.register((pStack, pTintIndex) -> FoliageColor.getDefaultColor(), ModBlocks.COLORED_LEAVES);
+        }
+
+
     }
 }
