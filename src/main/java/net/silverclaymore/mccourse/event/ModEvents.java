@@ -1,6 +1,11 @@
 package net.silverclaymore.mccourse.event;
 
+import net.neoforged.neoforge.event.RegisterCommandsEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
+import net.neoforged.neoforge.server.command.ConfigCommand;
 import net.silverclaymore.mccourse.MCCourseMod;
+import net.silverclaymore.mccourse.command.ReturnHomeCommand;
+import net.silverclaymore.mccourse.command.SetHomeCommand;
 import net.silverclaymore.mccourse.item.ModItems;
 import net.silverclaymore.mccourse.item.custom.HammerItem;
 import net.minecraft.network.chat.Component;
@@ -72,4 +77,19 @@ public class ModEvents {
             }
         }
     }
+
+    @SubscribeEvent
+    public static void onCommandsRegister(RegisterCommandsEvent event) {
+        new SetHomeCommand(event.getDispatcher());
+        new ReturnHomeCommand(event.getDispatcher());
+
+        ConfigCommand.register(event.getDispatcher());
+    }
+
+    @SubscribeEvent
+    public static void onPlayerCloned(PlayerEvent.Clone event) {
+        event.getEntity().getPersistentData().putIntArray("mccourse.homepos",
+                event.getOriginal().getPersistentData().getIntArray("mccourse.homepos"));
+    }
+
 }
