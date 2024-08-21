@@ -16,6 +16,7 @@ import net.silverclaymore.mccourse.block.custom.BlackOpalLampBlock;
 import net.silverclaymore.mccourse.block.custom.MagicBlock;
 import net.silverclaymore.mccourse.block.custom.TomatoCropBlock;
 import net.silverclaymore.mccourse.item.ModItems;
+import net.silverclaymore.mccourse.sound.ModSounds;
 
 import java.util.function.Supplier;
 
@@ -34,7 +35,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> BLACK_OPAL_DEEPSLATE_ORE = registerBlock("black_opal_deepslate_ore",
             () -> new DropExperienceBlock(UniformInt.of(3 ,6),
-                    BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+                    BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
 
     public static final DeferredBlock<Block> BLACK_OPAL_END_ORE = registerBlock("black_opal_end_ore",
             () -> new DropExperienceBlock(UniformInt.of(2 ,4),
@@ -42,10 +43,10 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> BLACK_OPAL_NETHER_ORE = registerBlock("black_opal_nether_ore",
             () -> new DropExperienceBlock(UniformInt.of(4 ,7),
-                    BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+                    BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().sound(SoundType.NETHERRACK)));
 
     public static final DeferredBlock<Block> MAGIC_BLOCK = registerBlock("magic_block",
-            () -> new MagicBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().noLootTable()));
+            () -> new MagicBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().noLootTable().sound(ModSounds.MAGIC_BLOCK_SOUNDS)));
 
     public static final DeferredBlock<Block> BLACK_OPAL_STAIRS = registerBlock("black_opal_stairs",
             () -> new StairBlock(ModBlocks.BLACK_OPAL_BLOCK.get().defaultBlockState(),

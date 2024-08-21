@@ -48,6 +48,12 @@
   "block.mccourse.black_opal_door": "Black Opal Door",
   "block.mccourse.black_opal_trapdoor": "Black Opal Trapdoor",
 
+  "sounds.mccourse.chainsaw_cut": "Chainsaw Cutting Sound",
+  "sounds.mccourse.chainsaw_pull": "Chainsaw Pulling Sound",
+
+  "item.mccourse.bar_brawl_music_disc": "Bar Brawl Music Disc",
+  "item.mccourse.bar_brawl_music_disc.desc": "Bryan Tech - Bar Brawl (CC0)",
+
   "block.mccourse.black_opal_lamp": "Black Opal Lamp",
 
   "block.mccourse.tomato_crop": "Tomato Crop",

@@ -54,6 +54,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.BLACK_OPAL_LEGGINGS.get());
         basicItem(ModItems.BLACK_OPAL_BOOTS.get());
 
+        basicItem(ModItems.BAR_BRAWL_MUSIC_DISC.get());
+
     }
 
     public void flowerItem(DeferredBlock<Block> block) {

@@ -30,6 +30,8 @@ public class ModCreativeModeTabs {
                      pOutput.accept(ModItems.TOMATO_SEEDS);
                      pOutput.accept(ModItems.FROSTFIRE_ICE);
 
+                     pOutput.accept(ModItems.BAR_BRAWL_MUSIC_DISC);
+
                      pOutput.accept(ModItems.BLACK_OPAL_SWORD);
                      pOutput.accept(ModItems.BLACK_OPAL_SWORD_LEVITATION);
                      pOutput.accept(ModItems.BLACK_OPAL_PICKAXE);
