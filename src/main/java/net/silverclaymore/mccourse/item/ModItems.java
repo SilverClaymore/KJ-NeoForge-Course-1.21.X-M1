@@ -99,7 +99,8 @@ public class ModItems {
     public static final DeferredItem<Item> KAUPEN_BOW = ITEMS.register("kaupen_bow",
             () -> new BowItem(new Item.Properties().durability(480)));
 
-
+    public static final DeferredItem<Item> RADIATION_STAFF = ITEMS.registerItem("radiation_staff",
+            properties -> new Item(properties.stacksTo(1)));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

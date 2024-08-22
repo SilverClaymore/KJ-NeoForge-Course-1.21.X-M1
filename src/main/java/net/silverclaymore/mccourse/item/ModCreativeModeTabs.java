@@ -52,8 +52,7 @@ public class ModCreativeModeTabs {
 
                      pOutput.accept(ModItems.KAUPEN_BOW);
 
-                     pOutput.accept(ModBlocks.PEDESTAL);
-
+                     pOutput.accept(ModItems.RADIATION_STAFF);
 
                     }).build());
 
@@ -89,6 +88,8 @@ public class ModCreativeModeTabs {
 
                      pOutput.accept(ModBlocks.PETUNIA);
                      pOutput.accept(ModBlocks.COLORED_LEAVES);
+
+                     pOutput.accept(ModBlocks.PEDESTAL);
 
                     })
                     .withTabsBefore(ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID,"black_opal_items_tab"))
