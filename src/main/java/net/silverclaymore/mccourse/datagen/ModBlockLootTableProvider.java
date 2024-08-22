@@ -71,6 +71,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.add(ModBlocks.POTTED_PETUNIA.get(), createPotFlowerItemTable(ModBlocks.PETUNIA));
 
         dropSelf(ModBlocks.COLORED_LEAVES.get());
+        dropSelf(ModBlocks.PEDESTAL.get());
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block block, Item item, float minDrops, float maxDrops) {

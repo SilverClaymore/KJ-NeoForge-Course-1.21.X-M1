@@ -52,6 +52,8 @@ public class ModCreativeModeTabs {
 
                      pOutput.accept(ModItems.KAUPEN_BOW);
 
+                     pOutput.accept(ModBlocks.PEDESTAL);
+
 
                     }).build());
 
