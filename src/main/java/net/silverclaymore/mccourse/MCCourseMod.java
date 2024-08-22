@@ -8,6 +8,7 @@ import net.silverclaymore.mccourse.effect.ModEffects;
 import net.silverclaymore.mccourse.item.ModArmorMaterials;
 import net.silverclaymore.mccourse.item.ModCreativeModeTabs;
 import net.silverclaymore.mccourse.item.ModItems;
+import net.silverclaymore.mccourse.potion.ModPotions;
 import net.silverclaymore.mccourse.sound.ModSounds;
 import net.silverclaymore.mccourse.util.ModItemProperties;
 import net.minecraft.client.renderer.BiomeColors;
@@ -60,6 +61,7 @@ public class MCCourseMod
 
         ModSounds.register(modEventBus);
         ModEffects.register(modEventBus);
+        ModPotions.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.

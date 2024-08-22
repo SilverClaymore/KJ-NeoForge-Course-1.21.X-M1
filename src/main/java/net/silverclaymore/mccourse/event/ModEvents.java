@@ -1,6 +1,9 @@
 package net.silverclaymore.mccourse.event;
 
+import net.minecraft.world.item.alchemy.PotionBrewing;
+import net.minecraft.world.item.alchemy.Potions;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
+import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.server.command.ConfigCommand;
 import net.silverclaymore.mccourse.MCCourseMod;
@@ -21,6 +24,7 @@ import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.level.BlockEvent;
+import net.silverclaymore.mccourse.potion.ModPotions;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -92,4 +96,10 @@ public class ModEvents {
                 event.getOriginal().getPersistentData().getIntArray("mccourse.homepos"));
     }
 
+    @SubscribeEvent
+    public static void onBrewingRecipeRegister(RegisterBrewingRecipesEvent event) {
+        PotionBrewing.Builder builder = event.getBuilder();
+
+        builder.addMix(Potions.AWKWARD, Items.SLIME_BALL, ModPotions.SLIMEY_POTION);
+    }
 }

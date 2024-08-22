@@ -64,7 +64,11 @@
 
   "block.mccourse.pedestal": "Pedestal",
   "item.mccourse.radiation_staff": "Radiation Staff",
+
   "effect.mccourse.slimey": "Slimey",
+  "item.minecraft.potion.effect.slimey_potion": "Slimey Potion",
+  "item.minecraft.splash_potion.effect.slimey_potion": "Slimey Splash Potion",
+  "item.minecraft.lingering_potion.effect.slimey_potion": "Slimey Lingering Potion",
 
   "tooltip.mccourse.chainsaw.tooltip.shift": "Press §eShift§r for more Information!",
   "tooltip.mccourse.chainsaw.tooltip.1": "This chainsaw is awesome.",
