@@ -64,6 +64,7 @@
 
   "block.mccourse.pedestal": "Pedestal",
   "item.mccourse.radiation_staff": "Radiation Staff",
+  "effect.mccourse.slimey": "Slimey",
 
   "tooltip.mccourse.chainsaw.tooltip.shift": "Press §eShift§r for more Information!",
   "tooltip.mccourse.chainsaw.tooltip.1": "This chainsaw is awesome.",
