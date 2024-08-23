@@ -32,6 +32,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.silverclaymore.mccourse.potion.ModPotions;
+import net.silverclaymore.mccourse.villager.ModVillagers;
 
 import java.util.HashSet;
 import java.util.List;
@@ -141,6 +142,29 @@ public class ModEvents {
                     new ItemStack(ModItems.CHAINSAW.get(), 1), 1, 9, 0.05f
             ));
         }
+
+        if(event.getType() == ModVillagers.KAUPENGER.value()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+
+            trades.get(1).add((pTrader, pRandom) -> new MerchantOffer(
+                    new ItemCost(Items.EMERALD, 19),
+                    new ItemStack(ModItems.CHAINSAW.get(), 1), 1, 9, 0.05f
+            ));
+            trades.get(1).add((pTrader, pRandom) -> new MerchantOffer(
+                    new ItemCost(Items.EMERALD, 6),
+                    new ItemStack(ModItems.FROSTFIRE_ICE.get(), 1), 1, 12, 0.05f
+            ));
+
+            trades.get(2).add((pTrader, pRandom) -> new MerchantOffer(
+                    new ItemCost(Items.EMERALD, 6),
+                    new ItemStack(ModItems.RADIATION_STAFF.get(), 1), 1, 12, 0.05f
+            ));
+            trades.get(2).add((pTrader, pRandom) -> new MerchantOffer(
+                    new ItemCost(Items.DIAMOND, 32),
+                    new ItemStack(ModItems.BLACK_OPAL.get(), 1), 4, 16, 0.05f
+            ));
+        }
+
     }
 
     @SubscribeEvent

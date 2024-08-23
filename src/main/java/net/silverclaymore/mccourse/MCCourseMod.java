@@ -14,6 +14,7 @@ import net.silverclaymore.mccourse.util.ModItemProperties;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.world.level.FoliageColor;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
+import net.silverclaymore.mccourse.villager.ModVillagers;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -62,6 +63,7 @@ public class MCCourseMod
         ModSounds.register(modEventBus);
         ModEffects.register(modEventBus);
         ModPotions.register(modEventBus);
+        ModVillagers.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
