@@ -10,6 +10,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.silverclaymore.mccourse.MCCourseMod;
 import net.silverclaymore.mccourse.block.ModBlocks;
+import net.silverclaymore.mccourse.fluid.ModFluids;
 
 import java.util.function.Supplier;
 
@@ -53,6 +54,8 @@ public class ModCreativeModeTabs {
                      pOutput.accept(ModItems.KAUPEN_BOW);
 
                      pOutput.accept(ModItems.RADIATION_STAFF);
+
+                     pOutput.accept(ModFluids.BLACK_OPAL_WATER_BUCKET);
 
                     }).build());
 

@@ -11,6 +11,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.silverclaymore.mccourse.MCCourseMod;
 import net.silverclaymore.mccourse.block.ModBlocks;
+import net.silverclaymore.mccourse.fluid.ModFluids;
 import net.silverclaymore.mccourse.item.ModItems;
 
 public class ModItemModelProvider extends ItemModelProvider {
@@ -55,6 +56,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.BLACK_OPAL_BOOTS.get());
 
         basicItem(ModItems.BAR_BRAWL_MUSIC_DISC.get());
+        basicItem(ModFluids.BLACK_OPAL_WATER_BUCKET.get());
 
     }
 
