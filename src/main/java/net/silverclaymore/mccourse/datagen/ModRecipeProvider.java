@@ -18,6 +18,7 @@ public class ModRecipeProvider extends RecipeProvider {
         super(output, registries);
     }
 
+
     @Override
     protected void buildRecipes(RecipeOutput recipeOutput) {
 

@@ -1,5 +1,6 @@
 package net.silverclaymore.mccourse.datagen;
 
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
@@ -65,13 +66,40 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 blockTexture(ModBlocks.PETUNIA.get())).renderType("cutout"));
 
         leavesBlock(ModBlocks.COLORED_LEAVES);
+
+        logBlock(((RotatedPillarBlock) ModBlocks.EBONY_LOG.get()));
+        axisBlock(((RotatedPillarBlock) ModBlocks.EBONY_WOOD.get()), blockTexture(ModBlocks.EBONY_LOG.get()), blockTexture(ModBlocks.EBONY_LOG.get()));
+        logBlock(((RotatedPillarBlock) ModBlocks.STRIPPED_EBONY_LOG.get()));
+        axisBlock(((RotatedPillarBlock) ModBlocks.STRIPPED_EBONY_WOOD.get()), blockTexture(ModBlocks.STRIPPED_EBONY_LOG.get()), blockTexture(ModBlocks.STRIPPED_EBONY_LOG.get()));
+
+        blockItem(ModBlocks.EBONY_LOG);
+        blockItem(ModBlocks.EBONY_WOOD);
+        blockItem(ModBlocks.STRIPPED_EBONY_LOG);
+        blockItem(ModBlocks.STRIPPED_EBONY_WOOD);
+
+        blockWithItem(ModBlocks.EBONY_PLANKS);
+
+        leavesBlock(ModBlocks.EBONY_LEAVES);
+        saplingBlock(ModBlocks.EBONY_SAPLING);
+
     }
+
+    //private void leavesBlock(DeferredBlock<Block> deferredBlock) {
+        //simpleBlockWithItem(deferredBlock.get(),
+                //models().singleTexture(deferredBlock.getId().getPath(), ResourceLocation.parse("minecraft:block/leaves"),
+                        //"all", blockTexture(deferredBlock.get())).renderType("cutout"));
+    //}
 
     private void leavesBlock(DeferredBlock<Block> deferredBlock) {
         simpleBlockWithItem(deferredBlock.get(),
-                models().singleTexture(deferredBlock.getId().getPath(), ResourceLocation.parse("minecraft:block/leaves"),
+                models().singleTexture(BuiltInRegistries.BLOCK.getKey(deferredBlock.get()).getPath(), ResourceLocation.parse("minecraft:block/leaves"),
                         "all", blockTexture(deferredBlock.get())).renderType("cutout"));
     }
+
+    private void saplingBlock(DeferredBlock<Block> deferredBlock) {
+        simpleBlock(deferredBlock.get(), models().cross(BuiltInRegistries.BLOCK.getKey(deferredBlock.get()).getPath(), blockTexture(deferredBlock.get())).renderType("cutout"));
+    }
+
 
     public void makeCrop(CropBlock block, String modelName, String textureName) {
         Function<BlockState, ConfiguredModel[]> function = state -> states(state, block, modelName, textureName);

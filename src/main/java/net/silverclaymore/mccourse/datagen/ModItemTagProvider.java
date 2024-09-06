@@ -3,10 +3,12 @@ package net.silverclaymore.mccourse.datagen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.silverclaymore.mccourse.MCCourseMod;
+import net.silverclaymore.mccourse.block.ModBlocks;
 import net.silverclaymore.mccourse.item.ModItems;
 import net.silverclaymore.mccourse.util.ModTags;
 import org.jetbrains.annotations.Nullable;
@@ -25,5 +27,15 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(Items.COAL)
                 .add(Items.DANDELION)
                 .add(Items.COMPASS);
+
+        tag(ItemTags.LOGS_THAT_BURN)
+                .add(ModBlocks.EBONY_LOG.get().asItem())
+                .add(ModBlocks.EBONY_WOOD.get().asItem())
+                .add(ModBlocks.STRIPPED_EBONY_LOG.get().asItem())
+                .add(ModBlocks.STRIPPED_EBONY_WOOD.get().asItem());
+
+        tag(ItemTags.PLANKS)
+                .add(ModBlocks.EBONY_PLANKS.get().asItem());
+
     }
 }
