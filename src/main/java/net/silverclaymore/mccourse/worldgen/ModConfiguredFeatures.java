@@ -48,8 +48,8 @@ public class ModConfiguredFeatures {
                 BlockStateProvider.simple(ModBlocks.EBONY_LEAVES.get()),
                 new BlobFoliagePlacer(ConstantInt.of(4), ConstantInt.of(2), 4),
 
-                new TwoLayersFeatureSize(1, 0, 2)).build());
-
+                //new TwoLayersFeatureSize(1, 0, 2)).build()) // <-- Normal Generator that have to be changed to make the sapling grow on a different block
+                new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(Blocks.NETHERRACK)).build());
 
         RuleTest stoneReplaceables = new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES);
         RuleTest deepslateReplaceables = new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);

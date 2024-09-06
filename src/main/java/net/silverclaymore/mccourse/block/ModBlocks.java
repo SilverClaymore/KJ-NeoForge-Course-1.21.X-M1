@@ -143,8 +143,8 @@ public class ModBlocks {
             });
 
     public static final DeferredBlock<Block> EBONY_SAPLING = registerBlock("ebony_sapling",
-            () -> new SaplingBlock(ModTreeGrowers.EBONY, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-
+            //() -> new SaplingBlock(ModTreeGrowers.EBONY, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
+            () -> new ModSaplingBlock(ModTreeGrowers.EBONY, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING), Blocks.NETHERRACK));
 
 
     private static <T extends Block>DeferredBlock<T> registerBlock(String name, Supplier<T> block){
