@@ -94,6 +94,14 @@ public class ModCreativeModeTabs {
 
                      pOutput.accept(ModBlocks.PEDESTAL);
 
+                     pOutput.accept(ModBlocks.EBONY_LOG);
+                     pOutput.accept(ModBlocks.EBONY_WOOD);
+                     pOutput.accept(ModBlocks.STRIPPED_EBONY_LOG);
+                     pOutput.accept(ModBlocks.STRIPPED_EBONY_WOOD);
+                     pOutput.accept(ModBlocks.EBONY_LEAVES);
+                     pOutput.accept(ModBlocks.EBONY_PLANKS);
+                     pOutput.accept(ModBlocks.EBONY_SAPLING);
+
                     })
                     .withTabsBefore(ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID,"black_opal_items_tab"))
                     .build());
