@@ -6,6 +6,7 @@ import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import net.silverclaymore.mccourse.block.ModBlocks;
+import net.silverclaymore.mccourse.block.entity.ModBlockEntities;
 import net.silverclaymore.mccourse.component.ModDataComponentTypes;
 import net.silverclaymore.mccourse.effect.ModEffects;
 import net.silverclaymore.mccourse.fluid.BaseFluidType;
@@ -61,6 +62,7 @@ public class MCCourseMod
 
         ModItems.register((modEventBus));
         ModBlocks.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
 
         ModArmorMaterials.register(modEventBus);
 
