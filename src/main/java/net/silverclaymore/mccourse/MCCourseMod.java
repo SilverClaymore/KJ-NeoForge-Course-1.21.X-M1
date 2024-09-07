@@ -4,9 +4,11 @@ import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.FlowerPotBlock;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import net.silverclaymore.mccourse.block.ModBlocks;
 import net.silverclaymore.mccourse.block.entity.ModBlockEntities;
+import net.silverclaymore.mccourse.block.entity.renderer.PedestalBlockEntityRenderer;
 import net.silverclaymore.mccourse.component.ModDataComponentTypes;
 import net.silverclaymore.mccourse.effect.ModEffects;
 import net.silverclaymore.mccourse.fluid.BaseFluidType;
@@ -26,8 +28,6 @@ import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
@@ -144,6 +144,11 @@ public class MCCourseMod
         public static void onClientExtensions(RegisterClientExtensionsEvent event) {
             event.registerFluidType(((BaseFluidType) ModFluidTypes.BLACK_OPAL_WATER_FLUID_TYPE.get()).getClientFluidTypeExtensions(),
                     ModFluidTypes.BLACK_OPAL_WATER_FLUID_TYPE.get());
+        }
+
+        @SubscribeEvent
+        public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
+            event.registerBlockEntityRenderer(ModBlockEntities.PEDESTAL_BE.get(), PedestalBlockEntityRenderer::new);
         }
 
     }
