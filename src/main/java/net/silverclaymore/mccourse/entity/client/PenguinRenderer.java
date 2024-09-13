@@ -1,6 +1,8 @@
 package net.silverclaymore.mccourse.entity.client;
 
+import com.google.common.collect.Maps;
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.Util;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
@@ -8,14 +10,26 @@ import net.minecraft.resources.ResourceLocation;
 import net.silverclaymore.mccourse.MCCourseMod;
 import net.silverclaymore.mccourse.entity.custom.PenguinEntity;
 
+import java.util.Map;
+
 public class PenguinRenderer extends MobRenderer<PenguinEntity, PenguinModel> {
+    private static final Map<PenguinVariant, ResourceLocation> LOCATION_BY_VARIANT =
+            Util.make(Maps.newEnumMap(PenguinVariant.class), map -> {
+                map.put(PenguinVariant.DEFAULT,
+                        ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, "textures/entity/penguin/penguin.png"));
+                map.put(PenguinVariant.ALBINO,
+                        ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, "textures/entity/penguin/penguin_albino.png"));
+                map.put(PenguinVariant.CLUB,
+                        ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, "textures/entity/penguin/penguin_club.png"));
+            });
+
     public PenguinRenderer(EntityRendererProvider.Context pContext) {
         super(pContext, new PenguinModel(pContext.bakeLayer(ModModelLayers.PENGUIN)), 0.75f);
     }
 
     @Override
     public ResourceLocation getTextureLocation(PenguinEntity pEntity) {
-        return ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, "textures/entity/penguin/penguin.png");
+        return LOCATION_BY_VARIANT.get(pEntity.getVariant());
     }
 
     @Override
