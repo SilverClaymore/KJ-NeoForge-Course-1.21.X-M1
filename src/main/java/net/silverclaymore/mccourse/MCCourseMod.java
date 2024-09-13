@@ -2,6 +2,7 @@ package net.silverclaymore.mccourse;
 
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
@@ -11,6 +12,8 @@ import net.silverclaymore.mccourse.block.entity.ModBlockEntities;
 import net.silverclaymore.mccourse.block.entity.renderer.PedestalBlockEntityRenderer;
 import net.silverclaymore.mccourse.component.ModDataComponentTypes;
 import net.silverclaymore.mccourse.effect.ModEffects;
+import net.silverclaymore.mccourse.entity.ModEntities;
+import net.silverclaymore.mccourse.entity.client.PenguinRenderer;
 import net.silverclaymore.mccourse.fluid.BaseFluidType;
 import net.silverclaymore.mccourse.fluid.ModFluidTypes;
 import net.silverclaymore.mccourse.fluid.ModFluids;
@@ -72,6 +75,7 @@ public class MCCourseMod
         ModEffects.register(modEventBus);
         ModPotions.register(modEventBus);
         ModVillagers.register(modEventBus);
+        ModEntities.register(modEventBus);
 
         ModFluidTypes.register(modEventBus);
         ModFluids.register(modEventBus);
@@ -127,6 +131,8 @@ public class MCCourseMod
                 ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_BLACK_OPAL_WATER.get(), RenderType.translucent());
                 ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_BLACK_OPAL_WATER.get(), RenderType.translucent());
             });
+
+            EntityRenderers.register(ModEntities.PENGUIN.get(), PenguinRenderer::new);
         }
 
         @SubscribeEvent

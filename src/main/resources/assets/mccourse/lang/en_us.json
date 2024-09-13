@@ -102,6 +102,8 @@
 
   "item.mccourse.metal_detector.no_valuables": "No Valuables Found!",
 
+  "item.mccourse.penguin_spawn_egg": "Penguin Spawn Egg",
+
   "itemGroup.mccourse.black_opal_items_tab": "Black Opal Items",
   "itemGroup.mccourse.black_opal_blocks_tab": "Black Opal Blocks"
 }
