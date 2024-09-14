@@ -32,6 +32,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.FROSTFIRE_ICE.get());
 
         buttonItem(ModBlocks.BLACK_OPAL_BUTTON, ModBlocks.BLACK_OPAL_BLOCK);
+        buttonItem(ModBlocks.EBONY_BUTTON, ModBlocks.EBONY_PLANKS);
+
         fenceItem(ModBlocks.BLACK_OPAL_FENCE, ModBlocks.BLACK_OPAL_BLOCK);
         wallItem(ModBlocks.BLACK_OPAL_WALL, ModBlocks.BLACK_OPAL_BLOCK);
 

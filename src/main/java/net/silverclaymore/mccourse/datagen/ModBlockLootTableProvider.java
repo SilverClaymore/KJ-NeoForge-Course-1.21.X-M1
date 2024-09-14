@@ -46,8 +46,14 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
                 block -> createMultipleOreDrops(ModBlocks.BLACK_OPAL_DEEPSLATE_ORE.get(), ModItems.RAW_BLACK_OPAL.get(), 4, 9));
 
         dropSelf(ModBlocks.BLACK_OPAL_STAIRS.get());
+
+        //dropSelf(ModBlocks.EBONY_STAIRS.get());
+        dropSelf(ModBlocks.EBONY_BUTTON.get());
+
         this.add(ModBlocks.BLACK_OPAL_SLAB.get(),
                 block -> createSlabItemTable(ModBlocks.BLACK_OPAL_SLAB.get()));
+        //this.add(ModBlocks.EBONY_SLAB.get(),
+                //block -> createSlabItemTable(ModBlocks.EBONY_SLAB.get()));
 
         dropSelf(ModBlocks.BLACK_OPAL_PRESSURE_PLATE.get());
         dropSelf(ModBlocks.BLACK_OPAL_BUTTON.get());

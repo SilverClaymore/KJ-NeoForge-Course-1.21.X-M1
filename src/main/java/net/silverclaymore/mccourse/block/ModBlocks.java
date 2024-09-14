@@ -55,14 +55,24 @@ public class ModBlocks {
             () -> new StairBlock(ModBlocks.BLACK_OPAL_BLOCK.get().defaultBlockState(),
                     BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
+    //public static final DeferredBlock<Block> EBONY_STAIRS = registerBlock("ebony_stairs",
+            //() -> new StairBlock(ModBlocks.EBONY_PLANKS.get().defaultBlockState(),
+                    //BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+
     public static final DeferredBlock<Block> BLACK_OPAL_SLAB = registerBlock("black_opal_slab",
             () -> new SlabBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+
+    //public static final DeferredBlock<Block> EBONY_SLAB = registerBlock("ebony_slab",
+            //() -> new SlabBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
     public static final DeferredBlock<Block> BLACK_OPAL_PRESSURE_PLATE = registerBlock("black_opal_pressure_plate",
             () -> new PressurePlateBlock(BlockSetType.IRON, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
     public static final DeferredBlock<Block> BLACK_OPAL_BUTTON = registerBlock("black_opal_button",
             () -> new ButtonBlock(BlockSetType.IRON, 10, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().noCollission()));
+
+    public static final DeferredBlock<Block> EBONY_BUTTON = registerBlock("ebony_button",
+            () -> new ButtonBlock(BlockSetType.OAK, 10, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().noCollission()));
 
     public static final DeferredBlock<Block> BLACK_OPAL_FENCE = registerBlock("black_opal_fence",
             () -> new FenceBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));

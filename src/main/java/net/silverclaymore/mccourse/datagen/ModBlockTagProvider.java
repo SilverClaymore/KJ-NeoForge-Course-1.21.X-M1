@@ -31,10 +31,15 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.BLACK_OPAL_SLAB.get())
         ;
 
+        //this.tag(BlockTags.MINEABLE_WITH_AXE)
+                //.add(ModBlocks.EBONY_STAIRS.get())
+                //.add(ModBlocks.EBONY_SLAB.get())
+        ;
+
         this.tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.BLACK_OPAL_ORE.get())
                 .add(ModBlocks.BLACK_OPAL_DEEPSLATE_ORE.get())
-                .add(ModBlocks.BLACK_OPAL_STAIRS.get())
+                //.add(ModBlocks.BLACK_OPAL_STAIRS.get())
                 .add(ModBlocks.BLACK_OPAL_SLAB.get())
         ;
 
