@@ -160,6 +160,7 @@ public class ModRecipeProvider extends RecipeProvider {
         buttonBuilder(ModBlocks.BLACK_OPAL_BUTTON.get(), Ingredient.of(ModItems.BLACK_OPAL.get())).group("black_opal")
                 .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get())).save(recipeOutput);
 
+        pressurePlate(recipeOutput, ModBlocks.EBONY_PRESSURE_PLATE.get(), ModBlocks.EBONY_PLANKS.get());
         buttonBuilder(ModBlocks.EBONY_BUTTON.get(), Ingredient.of(ModBlocks.EBONY_PLANKS.get())).group("ebony")
                 .unlockedBy("has_ebony", has(ModBlocks.EBONY_PLANKS.get())).save(recipeOutput);
 
