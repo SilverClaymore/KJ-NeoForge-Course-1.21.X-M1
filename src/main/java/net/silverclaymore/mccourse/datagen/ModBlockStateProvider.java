@@ -59,6 +59,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockItem(ModBlocks.BLACK_OPAL_STAIRS);
         blockItem(ModBlocks.BLACK_OPAL_SLAB);
         blockItem(ModBlocks.BLACK_OPAL_PRESSURE_PLATE);
+        blockItem(ModBlocks.EBONY_PRESSURE_PLATE);
         blockItem(ModBlocks.BLACK_OPAL_FENCE_GATE);
 
         blockItem(ModBlocks.BLACK_OPAL_TRAPDOOR, "_bottom");
