@@ -9,6 +9,7 @@ import net.minecraft.world.level.ItemLike;
 import net.silverclaymore.mccourse.MCCourseMod;
 import net.silverclaymore.mccourse.block.ModBlocks;
 import net.silverclaymore.mccourse.item.ModItems;
+import net.silverclaymore.mccourse.util.ModTags;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -152,6 +153,9 @@ public class ModRecipeProvider extends RecipeProvider {
                         .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get())).save(recipeOutput);
         //stairBuilder(ModBlocks.EBONY_STAIRS.get(), Ingredient.of(ModBlocks.EBONY_SLAB.asItem())).group("ebony")
                 //.unlockedBy("has_ebony", has(ModBlocks.EBONY_SLAB.get())).save(recipeOutput);
+
+
+        planksFromLogs(recipeOutput, ModBlocks.EBONY_PLANKS.get(), ModTags.Items.EBONY_LOG, 4);
 
         slab(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.BLACK_OPAL_SLAB.get(), ModItems.BLACK_OPAL.get());
         //slab(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.EBONY_SLAB.get(), ModBlocks.EBONY_PLANKS.asItem());
