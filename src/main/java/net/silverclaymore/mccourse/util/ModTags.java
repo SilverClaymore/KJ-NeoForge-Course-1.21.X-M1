@@ -23,7 +23,7 @@ public class ModTags {
     public static class Items {
         public static final TagKey<Item> TRANSFORMABLE_ITEMS = createTag("transformable_items");
 
-        public static final TagKey<Item> EBONY_LOG = createTag("ebony_log");
+        public static final TagKey<Item> EBONY_LOG_TAGS = createTag("ebony_log_tags");
 
 
         public static TagKey<Item> createTag(String name){

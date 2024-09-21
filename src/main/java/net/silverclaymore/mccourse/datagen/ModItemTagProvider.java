@@ -34,8 +34,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModBlocks.STRIPPED_EBONY_LOG.get().asItem())
                 .add(ModBlocks.STRIPPED_EBONY_WOOD.get().asItem());
 
-        //tag(ItemTags.PLANKS)
-                //.add(ModBlocks.EBONY_PLANKS.get().asItem());
+        tag(ModTags.Items.EBONY_LOG_TAGS)
+                .add(ModBlocks.EBONY_LOG.get().asItem());
 
     }
 }

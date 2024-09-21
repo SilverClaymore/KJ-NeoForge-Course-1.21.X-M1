@@ -155,7 +155,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 //.unlockedBy("has_ebony", has(ModBlocks.EBONY_SLAB.get())).save(recipeOutput);
 
 
-        planksFromLogs(recipeOutput, ModBlocks.EBONY_PLANKS.get(), ModTags.Items.EBONY_LOG, 4);
+        planksFromLogs(recipeOutput, ModBlocks.EBONY_PLANKS.get(), ModTags.Items.EBONY_LOG_TAGS,4);
 
         slab(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.BLACK_OPAL_SLAB.get(), ModItems.BLACK_OPAL.get());
         //slab(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.EBONY_SLAB.get(), ModBlocks.EBONY_PLANKS.asItem());
