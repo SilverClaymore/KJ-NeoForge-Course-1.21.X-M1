@@ -36,7 +36,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.MAGIC_BLOCK);
 
         stairsBlock(((StairBlock) ModBlocks.BLACK_OPAL_STAIRS.get()), blockTexture(ModBlocks.BLACK_OPAL_BLOCK.get()));
-        //stairsBlock(((StairBlock) ModBlocks.EBONY_STAIRS.get()), blockTexture(ModBlocks.EBONY_PLANKS.get()));
+        stairsBlock(((StairBlock) ModBlocks.EBONY_STAIRS.get()), blockTexture(ModBlocks.EBONY_PLANKS.get()));
 
         slabBlock(((SlabBlock) ModBlocks.BLACK_OPAL_SLAB.get()), blockTexture(ModBlocks.BLACK_OPAL_BLOCK.get()), blockTexture(ModBlocks.BLACK_OPAL_BLOCK.get()));
         slabBlock(((SlabBlock) ModBlocks.EBONY_SLAB.get()), blockTexture(Blocks.DARK_OAK_PLANKS), blockTexture(ModBlocks.EBONY_PLANKS.get()));
@@ -56,6 +56,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         trapdoorBlockWithRenderType(((TrapDoorBlock) ModBlocks.BLACK_OPAL_TRAPDOOR.get()), modLoc("block/black_opal_trapdoor"), true, "cutout");
         
         blockItem(ModBlocks.BLACK_OPAL_STAIRS);
+        blockItem(ModBlocks.EBONY_STAIRS);
 
         blockItem(ModBlocks.BLACK_OPAL_SLAB);
         blockItem(ModBlocks.EBONY_SLAB);

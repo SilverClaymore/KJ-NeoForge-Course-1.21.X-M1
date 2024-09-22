@@ -80,7 +80,7 @@ public class ModCreativeModeTabs {
                      pOutput.accept(ModBlocks.EBONY_SLAB);
 
                      pOutput.accept(ModBlocks.BLACK_OPAL_STAIRS);
-                     //pOutput.accept(ModBlocks.EBONY_STAIRS);
+                     pOutput.accept(ModBlocks.EBONY_STAIRS);
 
                      pOutput.accept(ModBlocks.BLACK_OPAL_PRESSURE_PLATE);
                      pOutput.accept(ModBlocks.BLACK_OPAL_BUTTON);

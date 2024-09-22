@@ -178,7 +178,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 ModBlocks.BLACK_OPAL_PRESSURE_PLATE, ModBlocks.BLACK_OPAL_BUTTON, ModBlocks.BLACK_OPAL_SLAB, ModBlocks.BLACK_OPAL_STAIRS, ModBlocks.BLACK_OPAL_FENCE, ModBlocks.BLACK_OPAL_FENCE_GATE, ModBlocks.BLACK_OPAL_WALL, ModBlocks.BLACK_OPAL_DOOR, ModBlocks.BLACK_OPAL_TRAPDOOR);
 
         commonRecipes(recipeOutput, ModBlocks.EBONY_PLANKS, ModTags.Items.EBONY_LOG_TAGS, "ebony",
-                ModBlocks.EBONY_PRESSURE_PLATE, ModBlocks.EBONY_BUTTON, ModBlocks.EBONY_SLAB, null, null, null, null, null, null);
+                ModBlocks.EBONY_PRESSURE_PLATE, ModBlocks.EBONY_BUTTON, ModBlocks.EBONY_SLAB, ModBlocks.EBONY_STAIRS, null, null, null, null, null);
     }
 
     protected static void commonRecipes(RecipeOutput recipeOutput, DeferredBlock<Block> material, TagKey<Item> logsTag, String group,
@@ -192,10 +192,10 @@ public class ModRecipeProvider extends RecipeProvider {
 
         slab(recipeOutput, RecipeCategory.BUILDING_BLOCKS, slabs.get(), material.get());
 
-        if (logsTag == null) {
-            stairBuilder(stairs, Ingredient.of(material)).group(group)
-                    .unlockedBy("has_" + group, has(material)).save(recipeOutput);
+        stairBuilder(stairs, Ingredient.of(material)).group(group)
+                .unlockedBy("has_" + group, has(material)).save(recipeOutput);
 
+        if (logsTag == null) {
             fenceBuilder(fence, Ingredient.of(material)).group(group)
                     .unlockedBy("has_" + group, has(material)).save(recipeOutput);
             fenceGateBuilder(fenceGate, Ingredient.of(material)).group(group)

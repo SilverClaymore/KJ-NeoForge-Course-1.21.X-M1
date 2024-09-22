@@ -32,7 +32,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         ;
 
         this.tag(BlockTags.MINEABLE_WITH_AXE)
-                //.add(ModBlocks.EBONY_STAIRS.get())
+                .add(ModBlocks.EBONY_STAIRS.get())
                 .add(ModBlocks.EBONY_SLAB.get())
                 .add(ModBlocks.EBONY_LOG.get())
                 .add(ModBlocks.EBONY_WOOD.get())
