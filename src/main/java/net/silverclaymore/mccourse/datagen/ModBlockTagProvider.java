@@ -28,7 +28,13 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.BLACK_OPAL_NETHER_ORE.get())
                 .add(ModBlocks.MAGIC_BLOCK.get())
                 .add(ModBlocks.BLACK_OPAL_STAIRS.get())
+                .add(ModBlocks.BISMUTH_STAIRS.get())
                 .add(ModBlocks.BLACK_OPAL_SLAB.get())
+                .add(ModBlocks.BISMUTH_SLAB.get())
+
+                .add(ModBlocks.BISMUTH_BLOCK.get())
+                .add(ModBlocks.RAW_BISMUTH_BLOCK.get())
+                .add(ModBlocks.BISMUTH_ORE.get())
         ;
 
         this.tag(BlockTags.MINEABLE_WITH_AXE)
@@ -46,6 +52,9 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.BLACK_OPAL_DEEPSLATE_ORE.get())
                 //.add(ModBlocks.BLACK_OPAL_STAIRS.get())
                 .add(ModBlocks.BLACK_OPAL_SLAB.get())
+                .add(ModBlocks.BISMUTH_SLAB.get())
+
+                .add(ModBlocks.BISMUTH_ORE.get())
         ;
 
         this.tag(BlockTags.NEEDS_DIAMOND_TOOL)

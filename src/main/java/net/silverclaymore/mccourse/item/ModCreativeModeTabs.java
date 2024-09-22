@@ -61,6 +61,17 @@ public class ModCreativeModeTabs {
 
                     }).build());
 
+    public static final Supplier<CreativeModeTab> BISMUTH_ITEMS_TAB =
+            CREATIVE_MODE_TABS.register("bismuth_items_tab", () -> CreativeModeTab.builder()
+                    .title(Component.translatable("itemGroup.mccourse.bismuth_items_tab"))
+                    .icon(() -> new ItemStack(ModItems.BISMUTH.get()))
+                    .displayItems((pParameters, pOutput) -> {
+                        pOutput.accept(ModItems.BISMUTH);
+                        pOutput.accept(ModItems.RAW_BISMUTH);
+
+                    }).build());
+
+
     public static final Supplier<CreativeModeTab> BLACK_OPAL_BLOCKS_TAB =
             CREATIVE_MODE_TABS.register("black_opal_blocks_tab", () -> CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup.mccourse.black_opal_blocks_tab"))
@@ -112,6 +123,29 @@ public class ModCreativeModeTabs {
 
                     })
                     .withTabsBefore(ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID,"black_opal_items_tab"))
+                    .build());
+
+    public static final Supplier<CreativeModeTab> BISMUTH_BLOCKS_TAB =
+            CREATIVE_MODE_TABS.register("bismuth_blocks_tab", () -> CreativeModeTab.builder()
+                    .title(Component.translatable("itemGroup.mccourse.bismuth_blocks_tab"))
+                    .icon(() -> new ItemStack(ModBlocks.BISMUTH_BLOCK.get()))
+                    .displayItems((pParameters, pOutput) -> {
+                        pOutput.accept(ModBlocks.BISMUTH_BLOCK);
+                        pOutput.accept(ModBlocks.RAW_BISMUTH_BLOCK);
+
+                        pOutput.accept(ModBlocks.BISMUTH_ORE);
+
+                        pOutput.accept(ModBlocks.BISMUTH_PRESSURE_PLATE);
+                        pOutput.accept(ModBlocks.BISMUTH_SLAB);
+                        pOutput.accept(ModBlocks.BISMUTH_BUTTON);
+                        pOutput.accept(ModBlocks.BISMUTH_STAIRS);
+
+                        //pOutput.accept(ModBlocks.BISMUTH_DEEPSLATE_ORE);
+                        //pOutput.accept(ModBlocks.BISMUTH_END_ORE);
+                        //pOutput.accept(ModBlocks.BISMUTH_NETHER_ORE);
+
+                    })
+                    .withTabsBefore(ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID,"bismuth_items_tab"))
                     .build());
 
     public static void register(IEventBus eventBus){

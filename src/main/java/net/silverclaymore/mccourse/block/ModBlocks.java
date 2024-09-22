@@ -49,10 +49,19 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
     public static final DeferredBlock<Block> RAW_BLACK_OPAL_BLOCK = registerBlock("raw_black_opal_block",
             () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
-
     public static final DeferredBlock<Block> BLACK_OPAL_ORE = registerBlock("black_opal_ore",
             () -> new DropExperienceBlock(UniformInt.of(2 ,5),
                     BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<Block> BISMUTH_BLOCK = registerBlock("bismuth_block",
+            () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> RAW_BISMUTH_BLOCK = registerBlock("raw_bismuth_block",
+            () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> BISMUTH_ORE = registerBlock("bismuth_ore",
+            () -> new DropExperienceBlock(UniformInt.of(2 ,5),
+                    BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+
+
 
     public static final DeferredBlock<Block> BLACK_OPAL_DEEPSLATE_ORE = registerBlock("black_opal_deepslate_ore",
             () -> new DropExperienceBlock(UniformInt.of(3 ,6),
@@ -73,11 +82,18 @@ public class ModBlocks {
             () -> new StairBlock(ModBlocks.BLACK_OPAL_BLOCK.get().defaultBlockState(),
                     BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
+    public static final DeferredBlock<Block> BISMUTH_STAIRS = registerBlock("bismuth_stairs",
+            () -> new StairBlock(ModBlocks.BISMUTH_BLOCK.get().defaultBlockState(),
+                    BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+
     public static final DeferredBlock<Block> EBONY_STAIRS = registerBlock("ebony_stairs",
             () -> new StairBlock(ModBlocks.EBONY_PLANKS.get().defaultBlockState(),
                     BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
     public static final DeferredBlock<Block> BLACK_OPAL_SLAB = registerBlock("black_opal_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<Block> BISMUTH_SLAB = registerBlock("bismuth_slab",
             () -> new SlabBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
     public static final DeferredBlock<Block> EBONY_SLAB = registerBlock("ebony_slab",
@@ -86,7 +102,13 @@ public class ModBlocks {
     public static final DeferredBlock<Block> BLACK_OPAL_PRESSURE_PLATE = registerBlock("black_opal_pressure_plate",
             () -> new PressurePlateBlock(BlockSetType.IRON, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
+    public static final DeferredBlock<Block> BISMUTH_PRESSURE_PLATE = registerBlock("bismuth_pressure_plate",
+            () -> new PressurePlateBlock(BlockSetType.IRON, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+
     public static final DeferredBlock<Block> BLACK_OPAL_BUTTON = registerBlock("black_opal_button",
+            () -> new ButtonBlock(BlockSetType.IRON, 10, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().noCollission()));
+
+    public static final DeferredBlock<Block> BISMUTH_BUTTON = registerBlock("bismuth_button",
             () -> new ButtonBlock(BlockSetType.IRON, 10, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().noCollission()));
 
     public static final DeferredBlock<Block> EBONY_PRESSURE_PLATE = registerBlock("ebony_pressure_plate",

@@ -23,6 +23,10 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         basicItem(ModItems.BLACK_OPAL.get());
         basicItem(ModItems.RAW_BLACK_OPAL.get());
+
+        basicItem(ModItems.BISMUTH.get());
+        basicItem(ModItems.RAW_BISMUTH.get());
+
         basicItem(ModItems.CHAINSAW.get());
 
         basicItem(ModItems.TOMATO.get());
@@ -32,6 +36,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.FROSTFIRE_ICE.get());
 
         buttonItem(ModBlocks.BLACK_OPAL_BUTTON, ModBlocks.BLACK_OPAL_BLOCK);
+        buttonItem(ModBlocks.BISMUTH_BUTTON, ModBlocks.BISMUTH_BLOCK);
         buttonItem(ModBlocks.EBONY_BUTTON, ModBlocks.EBONY_PLANKS);
 
         fenceItem(ModBlocks.BLACK_OPAL_FENCE, ModBlocks.BLACK_OPAL_BLOCK);

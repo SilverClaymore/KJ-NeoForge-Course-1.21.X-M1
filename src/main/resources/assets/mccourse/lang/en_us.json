@@ -28,24 +28,36 @@
   "item.mccourse.black_opal_boots": "Black Opal Boots",
 
   "block.mccourse.black_opal_block": "Block of Black Opal",
+  "block.mccourse.bismuth_block": "Block of Bismuth",
+
   "block.mccourse.raw_black_opal_block": "Raw Black Opal Block",
+  "block.mccourse.raw_bismuth_block": "Raw Bismuth Block",
 
   "block.mccourse.black_opal_ore": "Black Opal Ore",
   "block.mccourse.black_opal_deepslate_ore": "Black Opal Deepslate Ore",
   "block.mccourse.black_opal_end_ore": "Black Opal End Ore",
   "block.mccourse.black_opal_nether_ore": "Black Opal Nether Ore",
 
+  "block.mccourse.bismuth_ore": "Bismuth Ore",
+
   "block.mccourse.magic_block": "Magic Block",
 
   "block.mccourse.black_opal_stairs": "Black Opal Stairs",
+  "block.mccourse.bismuth_stairs": "Bismuth Stairs",
   "block.mccourse.ebony_stairs": "Ebony Stairs",
+
   "block.mccourse.black_opal_slab": "Black Opal Slab",
+  "block.mccourse.bismuth_slab": "Bismuth Opal Slab",
   "block.mccourse.ebony_slab": "Ebony Slab",
 
   "block.mccourse.black_opal_pressure_plate": "Black Opal Pressure Plate",
-  "block.mccourse.black_opal_button": "Black Opal Button",
+  "block.mccourse.bismuth_plate": "Bismuth Pressure Plate",
   "block.mccourse.ebony_pressure_plate": "Ebony Pressure Plate",
+
+  "block.mccourse.black_opal_button": "Black Opal Button",
+  "block.mccourse.bismuth_button": "Bismuth Button",
   "block.mccourse.ebony_button": "Ebony Button",
+
   "block.mccourse.black_opal_fence": "Black Opal Fence",
   "block.mccourse.black_opal_fence_gate": "Black Opal Fence Gate",
   "block.mccourse.black_opal_wall": "Black Opal Wall",

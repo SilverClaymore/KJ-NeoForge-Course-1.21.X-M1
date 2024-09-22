@@ -33,8 +33,14 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.BLACK_OPAL_BLOCK.get());
         dropSelf(ModBlocks.RAW_BLACK_OPAL_BLOCK.get());
 
+        dropSelf(ModBlocks.BISMUTH_BLOCK.get());
+        dropSelf(ModBlocks.RAW_BISMUTH_BLOCK.get());
+
         this.add(ModBlocks.BLACK_OPAL_ORE.get(),
                 block -> createOreDrop(ModBlocks.BLACK_OPAL_ORE.get(), ModItems.RAW_BLACK_OPAL.get()));
+
+        this.add(ModBlocks.BISMUTH_ORE.get(),
+                block -> createOreDrop(ModBlocks.BISMUTH_ORE.get(), ModItems.RAW_BISMUTH.get()));
 
         this.add(ModBlocks.BLACK_OPAL_DEEPSLATE_ORE.get(),
                 block -> createMultipleOreDrops(ModBlocks.BLACK_OPAL_DEEPSLATE_ORE.get(), ModItems.RAW_BLACK_OPAL.get(), 2, 5));
@@ -46,17 +52,22 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
                 block -> createMultipleOreDrops(ModBlocks.BLACK_OPAL_DEEPSLATE_ORE.get(), ModItems.RAW_BLACK_OPAL.get(), 4, 9));
 
         dropSelf(ModBlocks.BLACK_OPAL_STAIRS.get());
+        dropSelf(ModBlocks.BISMUTH_STAIRS.get());
         dropSelf(ModBlocks.EBONY_STAIRS.get());
 
         this.add(ModBlocks.BLACK_OPAL_SLAB.get(),
                 block -> createSlabItemTable(ModBlocks.BLACK_OPAL_SLAB.get()));
+        this.add(ModBlocks.BISMUTH_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.BISMUTH_SLAB.get()));
         this.add(ModBlocks.EBONY_SLAB.get(),
                 block -> createSlabItemTable(ModBlocks.EBONY_SLAB.get()));
 
         dropSelf(ModBlocks.BLACK_OPAL_PRESSURE_PLATE.get());
-        dropSelf(ModBlocks.BLACK_OPAL_BUTTON.get());
-
+        dropSelf(ModBlocks.BISMUTH_PRESSURE_PLATE.get());
         dropSelf(ModBlocks.EBONY_PRESSURE_PLATE.get());
+
+        dropSelf(ModBlocks.BLACK_OPAL_BUTTON.get());
+        dropSelf(ModBlocks.BISMUTH_BUTTON.get());
         dropSelf(ModBlocks.EBONY_BUTTON.get());
 
         dropSelf(ModBlocks.BLACK_OPAL_FENCE.get());
