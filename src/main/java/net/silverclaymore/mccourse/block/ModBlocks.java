@@ -62,8 +62,8 @@ public class ModBlocks {
     public static final DeferredBlock<Block> BLACK_OPAL_SLAB = registerBlock("black_opal_slab",
             () -> new SlabBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
-    //public static final DeferredBlock<Block> EBONY_SLAB = registerBlock("ebony_slab",
-            //() -> new SlabBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> EBONY_SLAB = registerBlock("ebony_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.of().strength(4f)));
 
     public static final DeferredBlock<Block> BLACK_OPAL_PRESSURE_PLATE = registerBlock("black_opal_pressure_plate",
             () -> new PressurePlateBlock(BlockSetType.IRON, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));

@@ -3,9 +3,14 @@ package net.silverclaymore.mccourse.datagen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.PressurePlateBlock;
+import net.neoforged.neoforge.registries.DeferredBlock;
 import net.silverclaymore.mccourse.MCCourseMod;
 import net.silverclaymore.mccourse.block.ModBlocks;
 import net.silverclaymore.mccourse.item.ModItems;
@@ -149,38 +154,65 @@ public class ModRecipeProvider extends RecipeProvider {
         oreSmelting(recipeOutput, BLACK_OPAL_SMELTABLES, RecipeCategory.MISC, ModItems.BLACK_OPAL.get(), 0.25f, 200, "black_opal" );
         oreBlasting(recipeOutput, BLACK_OPAL_SMELTABLES, RecipeCategory.MISC, ModItems.BLACK_OPAL.get(), 0.25f, 100, "black_opal" );
 
-        stairBuilder(ModBlocks.BLACK_OPAL_STAIRS.get(), Ingredient.of(ModItems.BLACK_OPAL.get())).group("black_opal")
-                        .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get())).save(recipeOutput);
-        //stairBuilder(ModBlocks.EBONY_STAIRS.get(), Ingredient.of(ModBlocks.EBONY_SLAB.asItem())).group("ebony")
-                //.unlockedBy("has_ebony", has(ModBlocks.EBONY_SLAB.get())).save(recipeOutput);
+        //stairBuilder(ModBlocks.BLACK_OPAL_STAIRS.get(), Ingredient.of(ModItems.BLACK_OPAL.get())).group("black_opal")
+                        //.unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get())).save(recipeOutput);
+
+        //slab(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.BLACK_OPAL_SLAB.get(), ModItems.BLACK_OPAL.get());
+        //pressurePlate(recipeOutput, ModBlocks.BLACK_OPAL_PRESSURE_PLATE.get(), ModItems.BLACK_OPAL.get());
+        //buttonBuilder(ModBlocks.BLACK_OPAL_BUTTON.get(), Ingredient.of(ModItems.BLACK_OPAL.get())).group("black_opal")
+                //.unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get())).save(recipeOutput);
+
+        //fenceBuilder(ModBlocks.BLACK_OPAL_FENCE.get(), Ingredient.of(ModItems.BLACK_OPAL.get())).group("black_opal")
+                //.unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get())).save(recipeOutput);
+        //fenceGateBuilder(ModBlocks.BLACK_OPAL_FENCE_GATE.get(), Ingredient.of(ModItems.BLACK_OPAL.get())).group("black_opal")
+                //.unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get())).save(recipeOutput);
+
+        //doorBuilder(ModBlocks.BLACK_OPAL_DOOR.get(), Ingredient.of(ModItems.BLACK_OPAL.get())).group("black_opal")
+                //.unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get())).save(recipeOutput);
+        //trapdoorBuilder(ModBlocks.BLACK_OPAL_TRAPDOOR.get(), Ingredient.of(ModItems.BLACK_OPAL.get())).group("black_opal")
+                //.unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get())).save(recipeOutput);
+
+        //wall(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.BLACK_OPAL_WALL.get(), ModItems.BLACK_OPAL.get());
+
+        commonRecipes(recipeOutput, ModBlocks.BLACK_OPAL_BLOCK, null, "black_opal",
+                ModBlocks.BLACK_OPAL_PRESSURE_PLATE, ModBlocks.BLACK_OPAL_BUTTON, ModBlocks.BLACK_OPAL_SLAB, ModBlocks.BLACK_OPAL_STAIRS, ModBlocks.BLACK_OPAL_FENCE, ModBlocks.BLACK_OPAL_FENCE_GATE, ModBlocks.BLACK_OPAL_WALL, ModBlocks.BLACK_OPAL_DOOR, ModBlocks.BLACK_OPAL_TRAPDOOR);
+
+        commonRecipes(recipeOutput, ModBlocks.EBONY_PLANKS, ModTags.Items.EBONY_LOG_TAGS, "ebony",
+                ModBlocks.EBONY_PRESSURE_PLATE, ModBlocks.EBONY_BUTTON, ModBlocks.EBONY_SLAB, null, null, null, null, null, null);
+    }
+
+    protected static void commonRecipes(RecipeOutput recipeOutput, DeferredBlock<Block> material, TagKey<Item> logsTag, String group,
+                                        DeferredBlock<Block> pressurePlate, DeferredBlock<Block> button, DeferredBlock<Block> slabs, DeferredBlock<Block> stairs, DeferredBlock<Block> fence, DeferredBlock<Block> fenceGate, DeferredBlock<Block> wallBlock, DeferredBlock<Block> door, DeferredBlock<Block> trapdoor) {
+        if (logsTag != null)
+            planksFromLogs(recipeOutput, material, logsTag,4);
+
+        pressurePlate(recipeOutput, pressurePlate, material);
+        buttonBuilder(button, Ingredient.of(material)).group(group)
+                .unlockedBy("has_" + group, has(material)).save(recipeOutput);
+
+        slab(recipeOutput, RecipeCategory.BUILDING_BLOCKS, slabs.get(), material.get());
+
+        if (logsTag == null) {
+            stairBuilder(stairs, Ingredient.of(material)).group(group)
+                    .unlockedBy("has_" + group, has(material)).save(recipeOutput);
+
+            fenceBuilder(fence, Ingredient.of(material)).group(group)
+                    .unlockedBy("has_" + group, has(material)).save(recipeOutput);
+            fenceGateBuilder(fenceGate, Ingredient.of(material)).group(group)
+                    .unlockedBy("has_" + group, has(material)).save(recipeOutput);
+
+            wall(recipeOutput, RecipeCategory.BUILDING_BLOCKS, wallBlock, material);
+
+            doorBuilder(door, Ingredient.of(material)).group(group)
+                    .unlockedBy("has_" + group, has(material)).save(recipeOutput);
+            trapdoorBuilder(trapdoor, Ingredient.of(material)).group(group)
+                    .unlockedBy("has_" + group, has(material)).save(recipeOutput);
 
 
-        planksFromLogs(recipeOutput, ModBlocks.EBONY_PLANKS.get(), ModTags.Items.EBONY_LOG_TAGS,4);
-
-        slab(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.BLACK_OPAL_SLAB.get(), ModItems.BLACK_OPAL.get());
-        //slab(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.EBONY_SLAB.get(), ModBlocks.EBONY_PLANKS.asItem());
-
-        pressurePlate(recipeOutput, ModBlocks.BLACK_OPAL_PRESSURE_PLATE.get(), ModItems.BLACK_OPAL.get());
-        buttonBuilder(ModBlocks.BLACK_OPAL_BUTTON.get(), Ingredient.of(ModItems.BLACK_OPAL.get())).group("black_opal")
-                .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get())).save(recipeOutput);
-
-        pressurePlate(recipeOutput, ModBlocks.EBONY_PRESSURE_PLATE.get(), ModBlocks.EBONY_PLANKS.get());
-        buttonBuilder(ModBlocks.EBONY_BUTTON.get(), Ingredient.of(ModBlocks.EBONY_PLANKS.get())).group("ebony")
-                .unlockedBy("has_ebony", has(ModBlocks.EBONY_PLANKS.get())).save(recipeOutput);
-
-        fenceBuilder(ModBlocks.BLACK_OPAL_FENCE.get(), Ingredient.of(ModItems.BLACK_OPAL.get())).group("black_opal")
-                .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get())).save(recipeOutput);
-        fenceGateBuilder(ModBlocks.BLACK_OPAL_FENCE_GATE.get(), Ingredient.of(ModItems.BLACK_OPAL.get())).group("black_opal")
-                .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get())).save(recipeOutput);
-
-        doorBuilder(ModBlocks.BLACK_OPAL_DOOR.get(), Ingredient.of(ModItems.BLACK_OPAL.get())).group("black_opal")
-                .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get())).save(recipeOutput);
-        trapdoorBuilder(ModBlocks.BLACK_OPAL_TRAPDOOR.get(), Ingredient.of(ModItems.BLACK_OPAL.get())).group("black_opal")
-                .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get())).save(recipeOutput);
-
-        wall(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.BLACK_OPAL_WALL.get(), ModItems.BLACK_OPAL.get());
+        }
 
     }
+
 
     protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> ingredients, RecipeCategory category, ItemLike result,
                                       float experience, int cookingTime, String group) {

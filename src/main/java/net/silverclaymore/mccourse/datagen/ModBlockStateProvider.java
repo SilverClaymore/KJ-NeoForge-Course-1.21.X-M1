@@ -15,7 +15,6 @@ import net.silverclaymore.mccourse.block.ModBlocks;
 import net.silverclaymore.mccourse.block.custom.BlackOpalLampBlock;
 import net.silverclaymore.mccourse.block.custom.TomatoCropBlock;
 
-import java.awt.*;
 import java.util.function.Function;
 
 public class ModBlockStateProvider extends BlockStateProvider {
@@ -40,7 +39,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         //stairsBlock(((StairBlock) ModBlocks.EBONY_STAIRS.get()), blockTexture(ModBlocks.EBONY_PLANKS.get()));
 
         slabBlock(((SlabBlock) ModBlocks.BLACK_OPAL_SLAB.get()), blockTexture(ModBlocks.BLACK_OPAL_BLOCK.get()), blockTexture(ModBlocks.BLACK_OPAL_BLOCK.get()));
-        //slabBlock(((SlabBlock) ModBlocks.EBONY_SLAB.get()), blockTexture(ModBlocks.EBONY_PLANKS.get()), blockTexture(ModBlocks.EBONY_PLANKS.get()));
+        slabBlock(((SlabBlock) ModBlocks.EBONY_SLAB.get()), blockTexture(Blocks.DARK_OAK_PLANKS), blockTexture(ModBlocks.EBONY_PLANKS.get()));
 
         pressurePlateBlock(((PressurePlateBlock) ModBlocks.BLACK_OPAL_PRESSURE_PLATE.get()), blockTexture(ModBlocks.BLACK_OPAL_BLOCK.get()));
         buttonBlock(((ButtonBlock) ModBlocks.BLACK_OPAL_BUTTON.get()), blockTexture(ModBlocks.BLACK_OPAL_BLOCK.get()));
@@ -57,7 +56,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
         trapdoorBlockWithRenderType(((TrapDoorBlock) ModBlocks.BLACK_OPAL_TRAPDOOR.get()), modLoc("block/black_opal_trapdoor"), true, "cutout");
         
         blockItem(ModBlocks.BLACK_OPAL_STAIRS);
+
         blockItem(ModBlocks.BLACK_OPAL_SLAB);
+        blockItem(ModBlocks.EBONY_SLAB);
+
         blockItem(ModBlocks.BLACK_OPAL_PRESSURE_PLATE);
         blockItem(ModBlocks.EBONY_PRESSURE_PLATE);
         blockItem(ModBlocks.BLACK_OPAL_FENCE_GATE);
