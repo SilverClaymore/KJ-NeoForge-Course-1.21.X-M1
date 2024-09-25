@@ -72,6 +72,8 @@
 
   "block.mccourse.black_opal_door": "Black Opal Door",
   "block.mccourse.black_opal_trapdoor": "Black Opal Trapdoor",
+  "block.mccourse.bismuth_door": "Bismuth Door",
+  "block.mccourse.bismuth_trapdoor": "Bismuth Trapdoor",
 
   "sounds.mccourse.chainsaw_cut": "Chainsaw Cutting Sound",
   "sounds.mccourse.chainsaw_pull": "Chainsaw Pulling Sound",
