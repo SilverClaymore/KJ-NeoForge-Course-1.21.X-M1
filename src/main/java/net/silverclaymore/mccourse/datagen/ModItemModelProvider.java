@@ -95,9 +95,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         this.baseItem(block, baseBlock, "wall", "wall");
     }
 
-    private void baseItem(DeferredBlock<Block> block, DeferredBlock<Block> baseBlock, String name, String textureName){
+    private void baseItem(DeferredBlock<Block> block, DeferredBlock<Block> baseBlock, String name, String key){
         this.withExistingParent(block.getId().getPath(), mcLoc("block/"+ name +"_inventory"))
-                .texture(textureName, ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, "block/" + baseBlock.getId().getPath()));
+                .texture(key, ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, "block/" + baseBlock.getId().getPath()));
     }
 
     private ItemModelBuilder handheldItem(DeferredItem<Item> item) {
