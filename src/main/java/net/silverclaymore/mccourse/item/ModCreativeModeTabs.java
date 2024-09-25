@@ -69,6 +69,12 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.BISMUTH);
                         pOutput.accept(ModItems.RAW_BISMUTH);
 
+                        pOutput.accept(ModItems.BISMUTH_SWORD);
+                        pOutput.accept(ModItems.BISMUTH_PICKAXE);
+                        pOutput.accept(ModItems.BISMUTH_AXE);
+                        pOutput.accept(ModItems.BISMUTH_SHOVEL);
+                        pOutput.accept(ModItems.BISMUTH_HOE);
+
                     }).build());
 
 

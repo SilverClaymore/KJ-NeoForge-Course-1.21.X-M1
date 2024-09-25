@@ -37,5 +37,25 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ModTags.Items.EBONY_LOG_TAGS)
                 .add(ModBlocks.EBONY_LOG.get().asItem());
 
+        tag(ItemTags.SWORDS)
+                .add(ModItems.BLACK_OPAL_SWORD.get())
+                .add(ModItems.BISMUTH_SWORD.get());
+
+        tag(ItemTags.PICKAXES)
+                .add(ModItems.BLACK_OPAL_PICKAXE.get())
+                .add(ModItems.BISMUTH_PICKAXE.get());
+
+        tag(ItemTags.AXES)
+                .add(ModItems.BLACK_OPAL_AXE.get())
+                .add(ModItems.BISMUTH_AXE.get());
+
+        tag(ItemTags.SHOVELS)
+                .add(ModItems.BLACK_OPAL_SHOVEL.get())
+                .add(ModItems.BISMUTH_SHOVEL.get());
+
+        tag(ItemTags.HOES)
+                .add(ModItems.BLACK_OPAL_HOE.get())
+                .add(ModItems.BISMUTH_HOE.get());
+
     }
 }

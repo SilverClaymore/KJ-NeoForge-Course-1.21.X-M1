@@ -57,6 +57,10 @@ public class ModItems {
             () -> new SwordItem(ModToolTiers.BLACK_OPAL,
                     new Item.Properties().attributes(SwordItem.createAttributes(ModToolTiers.BLACK_OPAL,3,-2.4f))));
 
+    public static final DeferredItem<Item> BISMUTH_SWORD = ITEMS.register("bismuth_sword",
+            () -> new SwordItem(ModToolTiers.BISMUTH,
+                    new Item.Properties().attributes(SwordItem.createAttributes(ModToolTiers.BISMUTH,5,-2.4f))));
+
     public static final DeferredItem<Item> BLACK_OPAL_SWORD_LEVITATION = ITEMS.register("black_opal_sword_levitation",
             () -> new ModEffectSwordItem(ModToolTiers.BLACK_OPAL,
                     new Item.Properties().attributes(SwordItem.createAttributes(ModToolTiers.BLACK_OPAL,3,-2.4f)), MobEffects.LEVITATION));
@@ -65,17 +69,33 @@ public class ModItems {
             () -> new PickaxeItem(ModToolTiers.BLACK_OPAL,
                     new Item.Properties().attributes(PickaxeItem.createAttributes(ModToolTiers.BLACK_OPAL,1,-2.8f))));
 
+    public static final DeferredItem<Item> BISMUTH_PICKAXE = ITEMS.register("bismuth_pickaxe",
+            () -> new PickaxeItem(ModToolTiers.BISMUTH,
+                    new Item.Properties().attributes(PickaxeItem.createAttributes(ModToolTiers.BISMUTH,1,-2.8f))));
+
     public static final DeferredItem<Item> BLACK_OPAL_SHOVEL = ITEMS.register("black_opal_shovel",
             () -> new ShovelItem(ModToolTiers.BLACK_OPAL,
                     new Item.Properties().attributes(ShovelItem.createAttributes(ModToolTiers.BLACK_OPAL,1.5f,-3.0f))));
+
+    public static final DeferredItem<Item> BISMUTH_SHOVEL = ITEMS.register("bismuth_shovel",
+            () -> new ShovelItem(ModToolTiers.BISMUTH,
+                    new Item.Properties().attributes(ShovelItem.createAttributes(ModToolTiers.BISMUTH,1.5f,-3.0f))));
 
     public static final DeferredItem<Item> BLACK_OPAL_AXE = ITEMS.register("black_opal_axe",
             () -> new AxeItem(ModToolTiers.BLACK_OPAL,
                     new Item.Properties().attributes(AxeItem.createAttributes(ModToolTiers.BLACK_OPAL,6,-3.2f))));
 
+    public static final DeferredItem<Item> BISMUTH_AXE = ITEMS.register("bismuth_axe",
+            () -> new AxeItem(ModToolTiers.BISMUTH,
+                    new Item.Properties().attributes(AxeItem.createAttributes(ModToolTiers.BISMUTH,6,-3.2f))));
+
     public static final DeferredItem<Item> BLACK_OPAL_HOE = ITEMS.register("black_opal_hoe",
             () -> new HoeItem(ModToolTiers.BLACK_OPAL,
                     new Item.Properties().attributes(HoeItem.createAttributes(ModToolTiers.BLACK_OPAL,0,-3.0f))));
+
+    public static final DeferredItem<Item> BISMUTH_HOE = ITEMS.register("bismuth_hoe",
+            () -> new HoeItem(ModToolTiers.BISMUTH,
+                    new Item.Properties().attributes(HoeItem.createAttributes(ModToolTiers.BISMUTH,0,-3.0f))));
 
     public static final DeferredItem<Item> BLACK_OPAL_PAXEL = ITEMS.register("black_opal_paxel",
             () -> new PaxelItem(ModToolTiers.BLACK_OPAL,

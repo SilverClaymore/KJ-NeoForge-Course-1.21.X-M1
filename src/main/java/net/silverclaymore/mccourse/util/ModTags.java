@@ -13,6 +13,10 @@ public class ModTags {
         public static final TagKey<Block> INCORRECT_FOR_BLACK_OPAL_TOOL = createTag("incorrect_for_black_opal_tool");
         public static final TagKey<Block> NEEDS_BLACK_OPAL_TOOL = createTag("needs_black_opal_tool");
 
+        public static final TagKey<Block> INCORRECT_FOR_BISMUTH_TOOL = createTag("incorrect_for_bismuth_tool");
+        public static final TagKey<Block> NEEDS_BISMUTH_TOOL = createTag("needs_bismuth_tool");
+
+
         public static final TagKey<Block> PAXEL_MINEABLE = createTag("mineable/paxel");
 
         public static TagKey<Block> createTag(String name){
