@@ -3,8 +3,11 @@ package net.silverclaymore.mccourse.datagen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredBlock;
 import net.silverclaymore.mccourse.MCCourseMod;
 import net.silverclaymore.mccourse.block.ModBlocks;
 import net.silverclaymore.mccourse.util.ModTags;
@@ -17,35 +20,58 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         super(output, lookupProvider, MCCourseMod.MOD_ID, existingFileHelper);
     }
 
+    protected void addCommonTags(TagKey<Block> mineableWith, DeferredBlock<Block> block, DeferredBlock<Block> rawBlock, DeferredBlock<Block> ore, DeferredBlock<Block> deepslateOre, DeferredBlock<Block> endOre, DeferredBlock<Block> netherOre, DeferredBlock<Block> stairs, DeferredBlock<Block> slab, DeferredBlock<Block> pressurePlate, DeferredBlock<Block> button, DeferredBlock<Block> fence, DeferredBlock<Block> fenceGate, DeferredBlock<Block> wall) {
+        addCommonTag(mineableWith, block);
+        addCommonTag(mineableWith, rawBlock);
+        addCommonTag(mineableWith, ore);
+        addCommonTag(mineableWith, deepslateOre);
+        addCommonTag(mineableWith, endOre);
+        addCommonTag(mineableWith, netherOre);
+        addCommonTag(mineableWith, stairs);
+        addCommonTag(mineableWith, slab);
+        addCommonTag(mineableWith, pressurePlate);
+        addCommonTag(mineableWith, button);
+        addCommonTag(mineableWith, fence);
+        addCommonTag(mineableWith, fenceGate);
+        addCommonTag(mineableWith, wall);
+
+        if (fence != null) this.tag(BlockTags.FENCES).add(fence.get());
+        if (fenceGate != null) tag(BlockTags.FENCE_GATES).add(fenceGate.get());
+        if (wall != null) tag(BlockTags.WALLS).add(wall.get());
+    }
+
+    protected void addCommonWoodTags(TagKey<Block> mineableWith, DeferredBlock<Block> log, DeferredBlock<Block> planks, DeferredBlock<Block> wood, DeferredBlock<Block> strippedLog, DeferredBlock<Block> strippedWood, DeferredBlock<Block> stairs, DeferredBlock<Block> slab, DeferredBlock<Block> pressurePlate, DeferredBlock<Block> button, DeferredBlock<Block> fence, DeferredBlock<Block> fenceGate, DeferredBlock<Block> wall) {
+        addCommonTag(mineableWith, log);
+        addCommonTag(mineableWith, planks);
+        addCommonTag(mineableWith, wood);
+        addCommonTag(mineableWith, strippedLog);
+        addCommonTag(mineableWith, strippedWood);
+        addCommonTag(mineableWith, stairs);
+        addCommonTag(mineableWith, slab);
+        addCommonTag(mineableWith, pressurePlate);
+        addCommonTag(mineableWith, button);
+
+        if (fence != null) tag(BlockTags.FENCES).add(fence.get());
+        if (fenceGate != null) tag(BlockTags.FENCE_GATES).add(fenceGate.get());
+        if (wall != null) tag(BlockTags.WALLS).add(wall.get());
+    }
+
+    protected void addCommonTag(TagKey<Block> mineableWith, DeferredBlock<Block> block){
+        if (block != null) this.tag(mineableWith).add(block.get());
+    }
+
     @Override
     protected void addTags(HolderLookup.Provider provider) {
+
+        addCommonTags(BlockTags.MINEABLE_WITH_PICKAXE, ModBlocks.BLACK_OPAL_BLOCK, ModBlocks.RAW_BLACK_OPAL_BLOCK, ModBlocks.BLACK_OPAL_ORE, ModBlocks.BLACK_OPAL_DEEPSLATE_ORE, ModBlocks.BLACK_OPAL_END_ORE, ModBlocks.BLACK_OPAL_NETHER_ORE, ModBlocks.BLACK_OPAL_STAIRS, ModBlocks.BLACK_OPAL_SLAB, ModBlocks.BLACK_OPAL_PRESSURE_PLATE, ModBlocks.BLACK_OPAL_BUTTON, ModBlocks.BLACK_OPAL_FENCE, ModBlocks.BLACK_OPAL_FENCE_GATE, ModBlocks.BLACK_OPAL_WALL );
+        addCommonTags(BlockTags.MINEABLE_WITH_PICKAXE, ModBlocks.BISMUTH_BLOCK, ModBlocks.RAW_BISMUTH_BLOCK, ModBlocks.BISMUTH_ORE, null, null, null, ModBlocks.BISMUTH_STAIRS, ModBlocks.BISMUTH_SLAB, ModBlocks.BISMUTH_PRESSURE_PLATE, ModBlocks.BISMUTH_BUTTON, null, null, null );
+        addCommonWoodTags(BlockTags.MINEABLE_WITH_AXE, ModBlocks.EBONY_LOG, ModBlocks.EBONY_PLANKS, ModBlocks.EBONY_WOOD, ModBlocks.STRIPPED_EBONY_LOG, ModBlocks.STRIPPED_EBONY_WOOD, ModBlocks.EBONY_STAIRS, ModBlocks.EBONY_SLAB, ModBlocks.EBONY_PRESSURE_PLATE, ModBlocks.EBONY_BUTTON, null, null, null );
+
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(ModBlocks.BLACK_OPAL_BLOCK.get())
-                .add(ModBlocks.RAW_BLACK_OPAL_BLOCK.get())
-                .add(ModBlocks.BLACK_OPAL_ORE.get())
-                .add(ModBlocks.BLACK_OPAL_DEEPSLATE_ORE.get())
-                .add(ModBlocks.BLACK_OPAL_END_ORE.get())
-                .add(ModBlocks.BLACK_OPAL_NETHER_ORE.get())
                 .add(ModBlocks.MAGIC_BLOCK.get())
-                .add(ModBlocks.BLACK_OPAL_STAIRS.get())
-                .add(ModBlocks.BISMUTH_STAIRS.get())
-                .add(ModBlocks.BLACK_OPAL_SLAB.get())
-                .add(ModBlocks.BISMUTH_SLAB.get())
-
-                .add(ModBlocks.BISMUTH_BLOCK.get())
-                .add(ModBlocks.RAW_BISMUTH_BLOCK.get())
-                .add(ModBlocks.BISMUTH_ORE.get())
         ;
 
-        this.tag(BlockTags.MINEABLE_WITH_AXE)
-                .add(ModBlocks.EBONY_STAIRS.get())
-                .add(ModBlocks.EBONY_SLAB.get())
-                .add(ModBlocks.EBONY_LOG.get())
-                .add(ModBlocks.EBONY_WOOD.get())
-        ;
-
-        //this.tag(BlockTags.PLANKS)
-                //.add(ModBlocks.EBONY_PLANKS.get());
+        tag(BlockTags.PLANKS).add(ModBlocks.EBONY_PLANKS.get());
 
         this.tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.BLACK_OPAL_ORE.get())
@@ -62,10 +88,6 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.BLACK_OPAL_NETHER_ORE.get())
         ;
 
-        tag(BlockTags.FENCES).add(ModBlocks.BLACK_OPAL_FENCE.get());
-        tag(BlockTags.FENCE_GATES).add(ModBlocks.BLACK_OPAL_FENCE_GATE.get());
-        tag(BlockTags.WALLS).add(ModBlocks.BLACK_OPAL_WALL.get());
-
         this.tag(ModTags.Blocks.PAXEL_MINEABLE)
                 .addTag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .addTag(BlockTags.MINEABLE_WITH_AXE)
@@ -78,6 +100,5 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.STRIPPED_EBONY_LOG.get())
                 .add(ModBlocks.STRIPPED_EBONY_WOOD.get())
         ;
-
     }
 }

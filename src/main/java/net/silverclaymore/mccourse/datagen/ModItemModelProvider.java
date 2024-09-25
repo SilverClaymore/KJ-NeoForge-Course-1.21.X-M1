@@ -19,13 +19,36 @@ public class ModItemModelProvider extends ItemModelProvider {
         super(output, MCCourseMod.MOD_ID, existingFileHelper);
     }
 
+    protected void commonItems(DeferredItem<Item> ore, DeferredItem<Item> rawOre, DeferredBlock<Block> baseBlock, DeferredBlock<Block> button, DeferredBlock<Block> fence, DeferredBlock<Block> wall, DeferredBlock<Block> door, DeferredItem<Item> sword, DeferredItem<Item> axe, DeferredItem<Item> pickaxe, DeferredItem<Item> shovel, DeferredItem<Item> hoe, DeferredItem<Item> paxel, DeferredItem<Item> hammer, DeferredItem<Item> helmet, DeferredItem<Item> chestplate, DeferredItem<Item> leggings, DeferredItem<Item> boots){
+        if (ore != null) basicItem(ore.get());
+        if (rawOre != null) basicItem(rawOre.get());
+
+        if (button != null) buttonItem(button, baseBlock);
+        if (fence != null) fenceItem(fence, baseBlock);
+        if (wall != null) wallItem(wall, baseBlock);
+
+        if (door != null) basicItem(door.asItem());
+
+        if (sword != null) handheldItem(sword);
+        if (pickaxe != null) handheldItem(pickaxe);
+        if (axe != null) handheldItem(axe);
+        if (shovel != null) handheldItem(shovel);
+        if (hoe != null) handheldItem(hoe);
+        if (paxel != null) handheldItem(paxel);
+        if (hammer != null) handheldItem(hammer);
+
+        if (helmet != null) basicItem(helmet.get());
+        if (chestplate != null) basicItem(chestplate.get());
+        if (leggings != null) basicItem(leggings.get());
+        if (boots != null) basicItem(boots.get());
+    }
+
     @Override
     protected void registerModels() {
-        basicItem(ModItems.BLACK_OPAL.get());
-        basicItem(ModItems.RAW_BLACK_OPAL.get());
 
-        basicItem(ModItems.BISMUTH.get());
-        basicItem(ModItems.RAW_BISMUTH.get());
+        commonItems(ModItems.BLACK_OPAL, ModItems.RAW_BLACK_OPAL, ModBlocks.BLACK_OPAL_BLOCK, ModBlocks.BLACK_OPAL_BUTTON, ModBlocks.BLACK_OPAL_FENCE, ModBlocks.BLACK_OPAL_WALL, ModBlocks.BLACK_OPAL_DOOR, ModItems.BLACK_OPAL_SWORD, ModItems.BLACK_OPAL_AXE, ModItems.BLACK_OPAL_PICKAXE, ModItems.BLACK_OPAL_SHOVEL, ModItems.BLACK_OPAL_HOE, ModItems.BLACK_OPAL_PAXEL, ModItems.BLACK_OPAL_HAMMER, ModItems.BLACK_OPAL_HELMET, ModItems.BLACK_OPAL_CHESTPLATE, ModItems.BLACK_OPAL_LEGGINGS, ModItems.BLACK_OPAL_BOOTS);
+        commonItems(ModItems.BISMUTH, ModItems.RAW_BISMUTH, ModBlocks.BISMUTH_BLOCK, ModBlocks.BISMUTH_BUTTON, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+        commonItems(null, null, ModBlocks.EBONY_PLANKS, ModBlocks.EBONY_BUTTON, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
 
         basicItem(ModItems.CHAINSAW.get());
 
@@ -35,32 +58,10 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         basicItem(ModItems.FROSTFIRE_ICE.get());
 
-        buttonItem(ModBlocks.BLACK_OPAL_BUTTON, ModBlocks.BLACK_OPAL_BLOCK);
-        buttonItem(ModBlocks.BISMUTH_BUTTON, ModBlocks.BISMUTH_BLOCK);
-        buttonItem(ModBlocks.EBONY_BUTTON, ModBlocks.EBONY_PLANKS);
-
-        fenceItem(ModBlocks.BLACK_OPAL_FENCE, ModBlocks.BLACK_OPAL_BLOCK);
-        wallItem(ModBlocks.BLACK_OPAL_WALL, ModBlocks.BLACK_OPAL_BLOCK);
-
-        basicItem(ModBlocks.BLACK_OPAL_DOOR.asItem());
-
         basicItem(ModItems.METAL_DETECTOR.get());
         //basicItem(ModItems.DATA_TABLET.get());
 
-        handheldItem(ModItems.BLACK_OPAL_SWORD);
         handheldItem(ModItems.BLACK_OPAL_SWORD_LEVITATION);
-        handheldItem(ModItems.BLACK_OPAL_PICKAXE);
-        handheldItem(ModItems.BLACK_OPAL_AXE);
-        handheldItem(ModItems.BLACK_OPAL_SHOVEL);
-        handheldItem(ModItems.BLACK_OPAL_HOE);
-
-        handheldItem(ModItems.BLACK_OPAL_PAXEL);
-        handheldItem(ModItems.BLACK_OPAL_HAMMER);
-
-        basicItem(ModItems.BLACK_OPAL_HELMET.get());
-        basicItem(ModItems.BLACK_OPAL_CHESTPLATE.get());
-        basicItem(ModItems.BLACK_OPAL_LEGGINGS.get());
-        basicItem(ModItems.BLACK_OPAL_BOOTS.get());
 
         basicItem(ModItems.BAR_BRAWL_MUSIC_DISC.get());
         basicItem(ModFluids.BLACK_OPAL_WATER_BUCKET.get());
@@ -68,7 +69,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         saplingItem(ModBlocks.EBONY_SAPLING);
 
         withExistingParent(ModItems.PENGUIN_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
-
     }
 
     public void flowerItem(DeferredBlock<Block> block) {
@@ -106,6 +106,4 @@ public class ModItemModelProvider extends ItemModelProvider {
                 ResourceLocation.parse("item/handheld")).texture("layer0",
                 ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID,"item/" + item.getId().getPath()));
     }
-
-
 }

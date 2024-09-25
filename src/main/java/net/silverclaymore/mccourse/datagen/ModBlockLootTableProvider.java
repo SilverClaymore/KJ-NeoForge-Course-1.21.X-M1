@@ -17,6 +17,8 @@ import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
+import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredItem;
 import net.silverclaymore.mccourse.block.ModBlocks;
 import net.silverclaymore.mccourse.block.custom.TomatoCropBlock;
 import net.silverclaymore.mccourse.item.ModItems;
@@ -36,49 +38,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.BISMUTH_BLOCK.get());
         dropSelf(ModBlocks.RAW_BISMUTH_BLOCK.get());
 
-        this.add(ModBlocks.BLACK_OPAL_ORE.get(),
-                block -> createOreDrop(ModBlocks.BLACK_OPAL_ORE.get(), ModItems.RAW_BLACK_OPAL.get()));
-
-        this.add(ModBlocks.BISMUTH_ORE.get(),
-                block -> createOreDrop(ModBlocks.BISMUTH_ORE.get(), ModItems.RAW_BISMUTH.get()));
-
-        this.add(ModBlocks.BLACK_OPAL_DEEPSLATE_ORE.get(),
-                block -> createMultipleOreDrops(ModBlocks.BLACK_OPAL_DEEPSLATE_ORE.get(), ModItems.RAW_BLACK_OPAL.get(), 2, 5));
-
-        this.add(ModBlocks.BLACK_OPAL_END_ORE.get(),
-                block -> createMultipleOreDrops(ModBlocks.BLACK_OPAL_DEEPSLATE_ORE.get(), ModItems.RAW_BLACK_OPAL.get(), 3, 7));
-
-        this.add(ModBlocks.BLACK_OPAL_NETHER_ORE.get(),
-                block -> createMultipleOreDrops(ModBlocks.BLACK_OPAL_DEEPSLATE_ORE.get(), ModItems.RAW_BLACK_OPAL.get(), 4, 9));
-
-        dropSelf(ModBlocks.BLACK_OPAL_STAIRS.get());
-        dropSelf(ModBlocks.BISMUTH_STAIRS.get());
-        dropSelf(ModBlocks.EBONY_STAIRS.get());
-
-        this.add(ModBlocks.BLACK_OPAL_SLAB.get(),
-                block -> createSlabItemTable(ModBlocks.BLACK_OPAL_SLAB.get()));
-        this.add(ModBlocks.BISMUTH_SLAB.get(),
-                block -> createSlabItemTable(ModBlocks.BISMUTH_SLAB.get()));
-        this.add(ModBlocks.EBONY_SLAB.get(),
-                block -> createSlabItemTable(ModBlocks.EBONY_SLAB.get()));
-
-        dropSelf(ModBlocks.BLACK_OPAL_PRESSURE_PLATE.get());
-        dropSelf(ModBlocks.BISMUTH_PRESSURE_PLATE.get());
-        dropSelf(ModBlocks.EBONY_PRESSURE_PLATE.get());
-
-        dropSelf(ModBlocks.BLACK_OPAL_BUTTON.get());
-        dropSelf(ModBlocks.BISMUTH_BUTTON.get());
-        dropSelf(ModBlocks.EBONY_BUTTON.get());
-
-        dropSelf(ModBlocks.BLACK_OPAL_FENCE.get());
-        dropSelf(ModBlocks.BLACK_OPAL_FENCE_GATE.get());
-        dropSelf(ModBlocks.BLACK_OPAL_WALL.get());
-
-        dropSelf(ModBlocks.BLACK_OPAL_TRAPDOOR.get());
-        this.add(ModBlocks.BLACK_OPAL_DOOR.get(),
-                block -> createDoorTable(ModBlocks.BLACK_OPAL_DOOR.get()));
-
-        dropSelf(ModBlocks.BLACK_OPAL_LAMP.get());
+        addOre(ModItems.RAW_BLACK_OPAL, ModBlocks.BLACK_OPAL_ORE, ModBlocks.BLACK_OPAL_DEEPSLATE_ORE, ModBlocks.BLACK_OPAL_END_ORE, ModBlocks.BLACK_OPAL_NETHER_ORE);
+        addOre(ModItems.RAW_BISMUTH, ModBlocks.BISMUTH_ORE, null, null, null);
 
         LootItemCondition.Builder lootItemConditionBuilder = LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.TOMATO_CROP.get())
                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(TomatoCropBlock.AGE, 5));
@@ -101,6 +62,37 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         this.add(ModBlocks.EBONY_LEAVES.get(), block ->
                 createLeavesDrops(block, ModBlocks.EBONY_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+
+        commonDrops(ModBlocks.BLACK_OPAL_STAIRS, ModBlocks.BLACK_OPAL_SLAB, ModBlocks.BLACK_OPAL_PRESSURE_PLATE, ModBlocks.BLACK_OPAL_BUTTON, ModBlocks.BLACK_OPAL_FENCE, ModBlocks.BLACK_OPAL_FENCE_GATE, ModBlocks.BLACK_OPAL_WALL, ModBlocks.BLACK_OPAL_TRAPDOOR, ModBlocks.BLACK_OPAL_DOOR, ModBlocks.BLACK_OPAL_LAMP);
+        commonDrops(ModBlocks.BISMUTH_STAIRS, ModBlocks.BISMUTH_SLAB, ModBlocks.BISMUTH_PRESSURE_PLATE, ModBlocks.BISMUTH_BUTTON, null, null, null, null, null, null);
+        commonDrops(ModBlocks.EBONY_STAIRS, ModBlocks.EBONY_SLAB, ModBlocks.EBONY_PRESSURE_PLATE, ModBlocks.EBONY_BUTTON, null, null, null, null, null, null);
+    }
+
+    protected void addOre (DeferredItem<Item> item, DeferredBlock<Block> ore, DeferredBlock<Block> deepslateOre, DeferredBlock<Block> endOre, DeferredBlock<Block> netherOre){
+        this.add(ore.get(), block -> createOreDrop(ore.get(), item.get()));
+        if (deepslateOre != null) this.add(deepslateOre.get(), block -> createMultipleOreDrops(deepslateOre.get(), item.get(), 2, 5));
+        if (endOre != null)this.add(endOre.get(), block -> createMultipleOreDrops(endOre.get(), item.get(), 3, 7));
+        if (netherOre != null)this.add(netherOre.get(), block -> createMultipleOreDrops(netherOre.get(), item.get(), 4, 9));
+    }
+
+    protected void commonDrops(DeferredBlock<Block> stairs, DeferredBlock<Block> slab, DeferredBlock<Block> pressurePlate, DeferredBlock<Block> button, DeferredBlock<Block> fence, DeferredBlock<Block> fenceGate, DeferredBlock<Block> wall, DeferredBlock<Block> trapdoor, DeferredBlock<Block> door, DeferredBlock<Block> lamp){
+        if (stairs != null) dropSelf(stairs.get());
+
+        if (slab != null) this.add(slab.get(),
+                block -> createSlabItemTable(slab.get()));
+
+        if (pressurePlate != null) dropSelf(pressurePlate.get());
+        if (button != null) dropSelf(button.get());
+
+        if (fence != null) dropSelf(fence.get());
+        if (fenceGate != null) dropSelf(fenceGate.get());
+        if (wall != null) dropSelf(wall.get());
+
+        if (trapdoor != null) dropSelf(trapdoor.get());
+        if (door != null) this.add(door.get(),
+                block -> createDoorTable(door.get()));
+
+        if (lamp != null) dropSelf(lamp.get());
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block block, Item item, float minDrops, float maxDrops) {

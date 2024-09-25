@@ -24,7 +24,6 @@ public class ModRecipeProvider extends RecipeProvider {
         super(output, registries);
     }
 
-
     @Override
     protected void buildRecipes(RecipeOutput recipeOutput) {
 
@@ -158,32 +157,11 @@ public class ModRecipeProvider extends RecipeProvider {
         oreSmelting(recipeOutput, MOD_SMELTABLES, RecipeCategory.MISC, ModItems.BISMUTH.get(), 0.25f, 200, "bismuth" );
         oreBlasting(recipeOutput, MOD_SMELTABLES, RecipeCategory.MISC, ModItems.BISMUTH.get(), 0.25f, 100, "bismuth" );
 
-        //stairBuilder(ModBlocks.BLACK_OPAL_STAIRS.get(), Ingredient.of(ModItems.BLACK_OPAL.get())).group("black_opal")
-                        //.unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get())).save(recipeOutput);
-
-        //slab(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.BLACK_OPAL_SLAB.get(), ModItems.BLACK_OPAL.get());
-        //pressurePlate(recipeOutput, ModBlocks.BLACK_OPAL_PRESSURE_PLATE.get(), ModItems.BLACK_OPAL.get());
-        //buttonBuilder(ModBlocks.BLACK_OPAL_BUTTON.get(), Ingredient.of(ModItems.BLACK_OPAL.get())).group("black_opal")
-                //.unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get())).save(recipeOutput);
-
-        //fenceBuilder(ModBlocks.BLACK_OPAL_FENCE.get(), Ingredient.of(ModItems.BLACK_OPAL.get())).group("black_opal")
-                //.unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get())).save(recipeOutput);
-        //fenceGateBuilder(ModBlocks.BLACK_OPAL_FENCE_GATE.get(), Ingredient.of(ModItems.BLACK_OPAL.get())).group("black_opal")
-                //.unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get())).save(recipeOutput);
-
-        //doorBuilder(ModBlocks.BLACK_OPAL_DOOR.get(), Ingredient.of(ModItems.BLACK_OPAL.get())).group("black_opal")
-                //.unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get())).save(recipeOutput);
-        //trapdoorBuilder(ModBlocks.BLACK_OPAL_TRAPDOOR.get(), Ingredient.of(ModItems.BLACK_OPAL.get())).group("black_opal")
-                //.unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get())).save(recipeOutput);
-
-        //wall(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.BLACK_OPAL_WALL.get(), ModItems.BLACK_OPAL.get());
-
         commonRecipes(recipeOutput, ModBlocks.BLACK_OPAL_BLOCK, null, "black_opal",
                 ModBlocks.BLACK_OPAL_PRESSURE_PLATE, ModBlocks.BLACK_OPAL_BUTTON, ModBlocks.BLACK_OPAL_SLAB, ModBlocks.BLACK_OPAL_STAIRS, ModBlocks.BLACK_OPAL_FENCE, ModBlocks.BLACK_OPAL_FENCE_GATE, ModBlocks.BLACK_OPAL_WALL, ModBlocks.BLACK_OPAL_DOOR, ModBlocks.BLACK_OPAL_TRAPDOOR);
 
         commonRecipes(recipeOutput, ModBlocks.BISMUTH_BLOCK, null, "bismuth",
                 ModBlocks.BISMUTH_PRESSURE_PLATE, ModBlocks.BISMUTH_BUTTON, ModBlocks.BISMUTH_SLAB, ModBlocks.BISMUTH_STAIRS, null, null, null, null, null);
-
 
         commonRecipes(recipeOutput, ModBlocks.EBONY_PLANKS, ModTags.Items.EBONY_LOG_TAGS, "ebony",
                 ModBlocks.EBONY_PRESSURE_PLATE, ModBlocks.EBONY_BUTTON, ModBlocks.EBONY_SLAB, ModBlocks.EBONY_STAIRS, null, null, null, null, null);
@@ -203,20 +181,18 @@ public class ModRecipeProvider extends RecipeProvider {
         if (stairs != null) stairBuilder(stairs, Ingredient.of(material)).group(group)
                 .unlockedBy("has_" + group, has(material)).save(recipeOutput);
 
-        if (logsTag == null) {
-            if (fence != null) fenceBuilder(fence, Ingredient.of(material)).group(group)
-                    .unlockedBy("has_" + group, has(material)).save(recipeOutput);
-            if (fenceGate != null) fenceGateBuilder(fenceGate, Ingredient.of(material)).group(group)
-                    .unlockedBy("has_" + group, has(material)).save(recipeOutput);
+        if (fence != null) fenceBuilder(fence, Ingredient.of(material)).group(group)
+                .unlockedBy("has_" + group, has(material)).save(recipeOutput);
+        if (fenceGate != null) fenceGateBuilder(fenceGate, Ingredient.of(material)).group(group)
+                .unlockedBy("has_" + group, has(material)).save(recipeOutput);
 
-            if (wallBlock != null) wall(recipeOutput, RecipeCategory.BUILDING_BLOCKS, wallBlock, material);
+        if (wallBlock != null) wall(recipeOutput, RecipeCategory.BUILDING_BLOCKS, wallBlock, material);
 
-            if (door != null) doorBuilder(door, Ingredient.of(material)).group(group)
-                    .unlockedBy("has_" + group, has(material)).save(recipeOutput);
-            if (trapdoor != null) trapdoorBuilder(trapdoor, Ingredient.of(material)).group(group)
-                    .unlockedBy("has_" + group, has(material)).save(recipeOutput);
+        if (door != null) doorBuilder(door, Ingredient.of(material)).group(group)
+                .unlockedBy("has_" + group, has(material)).save(recipeOutput);
+        if (trapdoor != null) trapdoorBuilder(trapdoor, Ingredient.of(material)).group(group)
+                .unlockedBy("has_" + group, has(material)).save(recipeOutput);
 
-        }
     }
 
     protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> ingredients, RecipeCategory category, ItemLike result,

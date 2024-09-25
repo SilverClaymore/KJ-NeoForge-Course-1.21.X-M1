@@ -25,58 +25,14 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        blockWithItem(ModBlocks.BLACK_OPAL_BLOCK);
-        blockWithItem(ModBlocks.RAW_BLACK_OPAL_BLOCK);
-        blockWithItem(ModBlocks.BLACK_OPAL_ORE);
+        commonBlocksWithItem(ModBlocks.BLACK_OPAL_BLOCK, ModBlocks.RAW_BLACK_OPAL_BLOCK, ModBlocks.BLACK_OPAL_ORE, ModBlocks.BLACK_OPAL_DEEPSLATE_ORE, ModBlocks.BLACK_OPAL_END_ORE, ModBlocks.BLACK_OPAL_NETHER_ORE, ModBlocks.MAGIC_BLOCK);
+        commonBlocksWithItem(ModBlocks.BISMUTH_BLOCK, ModBlocks.RAW_BISMUTH_BLOCK, ModBlocks.BISMUTH_ORE, null, null, null, null);
 
-        blockWithItem(ModBlocks.BISMUTH_BLOCK);
-        blockWithItem(ModBlocks.RAW_BISMUTH_BLOCK);
-        blockWithItem(ModBlocks.BISMUTH_ORE);
+        commonWoodenBlocks(ModBlocks.EBONY_LOG, ModBlocks.EBONY_PLANKS, ModBlocks.EBONY_WOOD, ModBlocks.STRIPPED_EBONY_LOG, ModBlocks.STRIPPED_EBONY_WOOD, ModBlocks.EBONY_LEAVES, ModBlocks.EBONY_SAPLING);
 
-        blockWithItem(ModBlocks.BLACK_OPAL_DEEPSLATE_ORE);
-        blockWithItem(ModBlocks.BLACK_OPAL_END_ORE);
-        blockWithItem(ModBlocks.BLACK_OPAL_NETHER_ORE);
-
-        blockWithItem(ModBlocks.MAGIC_BLOCK);
-
-        stairsBlock(((StairBlock) ModBlocks.BLACK_OPAL_STAIRS.get()), blockTexture(ModBlocks.BLACK_OPAL_BLOCK.get()));
-        stairsBlock(((StairBlock) ModBlocks.BISMUTH_STAIRS.get()), blockTexture(ModBlocks.BISMUTH_BLOCK.get()));
-        stairsBlock(((StairBlock) ModBlocks.EBONY_STAIRS.get()), blockTexture(ModBlocks.EBONY_PLANKS.get()));
-
-        slabBlock(((SlabBlock) ModBlocks.BLACK_OPAL_SLAB.get()), blockTexture(ModBlocks.BLACK_OPAL_BLOCK.get()), blockTexture(ModBlocks.BLACK_OPAL_BLOCK.get()));
-        slabBlock(((SlabBlock) ModBlocks.BISMUTH_SLAB.get()), blockTexture(ModBlocks.BISMUTH_BLOCK.get()), blockTexture(ModBlocks.BISMUTH_BLOCK.get()));
-        slabBlock(((SlabBlock) ModBlocks.EBONY_SLAB.get()), blockTexture(Blocks.DARK_OAK_PLANKS), blockTexture(ModBlocks.EBONY_PLANKS.get()));
-
-        pressurePlateBlock(((PressurePlateBlock) ModBlocks.BLACK_OPAL_PRESSURE_PLATE.get()), blockTexture(ModBlocks.BLACK_OPAL_BLOCK.get()));
-        pressurePlateBlock(((PressurePlateBlock) ModBlocks.BISMUTH_PRESSURE_PLATE.get()), blockTexture(ModBlocks.BISMUTH_BLOCK.get()));
-        pressurePlateBlock(((PressurePlateBlock) ModBlocks.EBONY_PRESSURE_PLATE.get()), blockTexture(ModBlocks.EBONY_PLANKS.get()));
-
-        buttonBlock(((ButtonBlock) ModBlocks.BLACK_OPAL_BUTTON.get()), blockTexture(ModBlocks.BLACK_OPAL_BLOCK.get()));
-        buttonBlock(((ButtonBlock) ModBlocks.BISMUTH_BUTTON.get()), blockTexture(ModBlocks.BISMUTH_BLOCK.get()));
-        buttonBlock(((ButtonBlock) ModBlocks.EBONY_BUTTON.get()), blockTexture(ModBlocks.EBONY_PLANKS.get()));
-
-        fenceBlock(((FenceBlock) ModBlocks.BLACK_OPAL_FENCE.get()), blockTexture(ModBlocks.BLACK_OPAL_BLOCK.get()));
-        fenceGateBlock(((FenceGateBlock) ModBlocks.BLACK_OPAL_FENCE_GATE.get()), blockTexture(ModBlocks.BLACK_OPAL_BLOCK.get()));
-        wallBlock(((WallBlock) ModBlocks.BLACK_OPAL_WALL.get()), blockTexture(ModBlocks.BLACK_OPAL_BLOCK.get()));
-
-        doorBlockWithRenderType(((DoorBlock) ModBlocks.BLACK_OPAL_DOOR.get()), modLoc("block/black_opal_door_bottom"), modLoc("block/black_opal_door_top"), "cutout");
-        trapdoorBlockWithRenderType(((TrapDoorBlock) ModBlocks.BLACK_OPAL_TRAPDOOR.get()), modLoc("block/black_opal_trapdoor"), true, "cutout");
-        
-        blockItem(ModBlocks.BLACK_OPAL_STAIRS);
-        blockItem(ModBlocks.BISMUTH_STAIRS);
-        blockItem(ModBlocks.EBONY_STAIRS);
-
-        blockItem(ModBlocks.BLACK_OPAL_SLAB);
-        blockItem(ModBlocks.BISMUTH_SLAB);
-        blockItem(ModBlocks.EBONY_SLAB);
-
-        blockItem(ModBlocks.BLACK_OPAL_PRESSURE_PLATE);
-        blockItem(ModBlocks.BISMUTH_PRESSURE_PLATE);
-        blockItem(ModBlocks.EBONY_PRESSURE_PLATE);
-
-        blockItem(ModBlocks.BLACK_OPAL_FENCE_GATE);
-
-        blockItem(ModBlocks.BLACK_OPAL_TRAPDOOR, "_bottom");
+        commonBlocksWithTexture(ModBlocks.BLACK_OPAL_BLOCK, "black_opal", ModBlocks.BLACK_OPAL_STAIRS, ModBlocks.BLACK_OPAL_SLAB, ModBlocks.BLACK_OPAL_PRESSURE_PLATE, ModBlocks.BLACK_OPAL_BUTTON, ModBlocks.BLACK_OPAL_FENCE, ModBlocks.BLACK_OPAL_FENCE_GATE, ModBlocks.BLACK_OPAL_WALL, ModBlocks.BLACK_OPAL_DOOR, ModBlocks.BLACK_OPAL_TRAPDOOR);
+        commonBlocksWithTexture(ModBlocks.BISMUTH_BLOCK, "bismuth", ModBlocks.BISMUTH_STAIRS, ModBlocks.BISMUTH_SLAB, ModBlocks.BISMUTH_PRESSURE_PLATE, ModBlocks.BISMUTH_BUTTON, null, null, null, null, null);
+        commonBlocksWithTexture(ModBlocks.EBONY_PLANKS, "ebony", ModBlocks.EBONY_STAIRS, ModBlocks.EBONY_SLAB, ModBlocks.EBONY_PRESSURE_PLATE, ModBlocks.EBONY_BUTTON, null, null, null, null, null);
 
         customLamp();
 
@@ -88,21 +44,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 blockTexture(ModBlocks.PETUNIA.get())).renderType("cutout"));
 
         leavesBlock(ModBlocks.COLORED_LEAVES);
-
-        logBlock(((RotatedPillarBlock) ModBlocks.EBONY_LOG.get()));
-        axisBlock(((RotatedPillarBlock) ModBlocks.EBONY_WOOD.get()), blockTexture(ModBlocks.EBONY_LOG.get()), blockTexture(ModBlocks.EBONY_LOG.get()));
-        logBlock(((RotatedPillarBlock) ModBlocks.STRIPPED_EBONY_LOG.get()));
-        axisBlock(((RotatedPillarBlock) ModBlocks.STRIPPED_EBONY_WOOD.get()), blockTexture(ModBlocks.STRIPPED_EBONY_LOG.get()), blockTexture(ModBlocks.STRIPPED_EBONY_LOG.get()));
-
-        blockItem(ModBlocks.EBONY_LOG);
-        blockItem(ModBlocks.EBONY_WOOD);
-        blockItem(ModBlocks.STRIPPED_EBONY_LOG);
-        blockItem(ModBlocks.STRIPPED_EBONY_WOOD);
-
-        blockWithItem(ModBlocks.EBONY_PLANKS);
-
-        leavesBlock(ModBlocks.EBONY_LEAVES);
-        saplingBlock(ModBlocks.EBONY_SAPLING);
 
     }
 
@@ -152,13 +93,58 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, "block/" + "black_opal_lamp_on")));
     }
 
+    private void commonWoodenBlocks(DeferredBlock<Block> log, DeferredBlock<Block> planks, DeferredBlock<Block> wood, DeferredBlock<Block> strippedLog, DeferredBlock<Block> strippedWood, DeferredBlock<Block> leaves, DeferredBlock<Block> sapling){
+        logBlock(((RotatedPillarBlock) log.get()));
+        axisBlock(((RotatedPillarBlock) wood.get()), blockTexture(log.get()), blockTexture(log.get()));
+        logBlock(((RotatedPillarBlock) strippedLog.get()));
+        axisBlock(((RotatedPillarBlock) strippedWood.get()), blockTexture(strippedLog.get()), blockTexture(strippedLog.get()));
+
+        blockWithItem(planks);
+
+        blockItem(planks);
+        blockItem(log);
+        blockItem(wood);
+        blockItem(strippedLog);
+        blockItem(strippedWood);
+
+        leavesBlock(leaves);
+        saplingBlock(sapling);
+    }
+
+    private void commonBlocksWithTexture(DeferredBlock<Block> blockAsTexture, String group, DeferredBlock<Block> stairs, DeferredBlock<Block> slab, DeferredBlock<Block> pressurePlate, DeferredBlock<Block> button, DeferredBlock<Block> fence, DeferredBlock<Block> fenceGate, DeferredBlock<Block> wall, DeferredBlock<Block> door, DeferredBlock<Block> trapdoor){
+        if (stairs != null) stairsBlock(((StairBlock) stairs.get()), blockTexture(blockAsTexture.get()));
+        if (slab != null) slabBlock(((SlabBlock) slab.get()), blockTexture(blockAsTexture.get()), blockTexture(blockAsTexture.get()));
+        if (pressurePlate != null) pressurePlateBlock(((PressurePlateBlock) pressurePlate.get()), blockTexture(blockAsTexture.get()));
+        if (button != null) buttonBlock(((ButtonBlock) button.get()), blockTexture(blockAsTexture.get()));
+        if (fence != null) fenceBlock(((FenceBlock) fence.get()), blockTexture(blockAsTexture.get()));
+        if (fenceGate != null) fenceGateBlock(((FenceGateBlock) fenceGate.get()), blockTexture(blockAsTexture.get()));
+        if (wall != null) wallBlock(((WallBlock) wall.get()), blockTexture(blockAsTexture.get()));
+
+        if (door != null) doorBlockWithRenderType(((DoorBlock) door.get()), modLoc("block/" + group + "_door_bottom"), modLoc("block/" + group + "_door_top"), "cutout");
+        if (trapdoor != null) trapdoorBlockWithRenderType(((TrapDoorBlock) trapdoor.get()), modLoc("block/" + group + "_trapdoor"), true, "cutout");
+
+        if (stairs != null) blockItem(stairs);
+        if (slab != null) blockItem(slab);
+        if (pressurePlate != null) blockItem(pressurePlate);
+        if (fenceGate != null) blockItem(fenceGate);
+        if (trapdoor != null) blockItem(trapdoor,"_bottom");
+    }
+
+    private void commonBlocksWithItem(DeferredBlock<Block> block, DeferredBlock<Block> rawBlock, DeferredBlock<Block> ore, DeferredBlock<Block> deepslateOre, DeferredBlock<Block> endOre, DeferredBlock<Block> netherOre, DeferredBlock<Block> magicBlock){
+        if (block != null) blockWithItem(block);
+        if (rawBlock != null) blockWithItem(rawBlock);
+        if (ore != null) blockWithItem(ore);
+        if (deepslateOre != null) blockWithItem(deepslateOre);
+        if (endOre != null) blockWithItem(endOre);
+        if (netherOre != null) blockWithItem(netherOre);
+        if (magicBlock != null) blockWithItem(magicBlock);
+    }
 
     private void blockWithItem(DeferredBlock<Block> deferredBlock){
         simpleBlockWithItem(deferredBlock.get(), cubeAll(deferredBlock.get()));
     }
 
     private void blockItem(DeferredBlock<Block> deferredBlock){
-        //simpleBlockItem(deferredBlock.get(), new ModelFile.UncheckedModelFile("mccourse:block/" + deferredBlock.getId().getPath()));
         blockItem(deferredBlock,"");
     }
 
