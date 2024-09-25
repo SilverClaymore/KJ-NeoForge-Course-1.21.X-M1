@@ -146,6 +146,9 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModBlocks.BISMUTH_BUTTON);
                         pOutput.accept(ModBlocks.BISMUTH_STAIRS);
 
+                        pOutput.accept(ModBlocks.BISMUTH_DOOR);
+                        pOutput.accept(ModBlocks.BISMUTH_TRAPDOOR);
+
                         //pOutput.accept(ModBlocks.BISMUTH_DEEPSLATE_ORE);
                         //pOutput.accept(ModBlocks.BISMUTH_END_ORE);
                         //pOutput.accept(ModBlocks.BISMUTH_NETHER_ORE);
