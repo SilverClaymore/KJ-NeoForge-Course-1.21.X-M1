@@ -55,34 +55,40 @@
 
   "block.mccourse.magic_block": "Magic Block",
 
-  "block.mccourse.black_opal_stairs": "Black Opal Stairs",
+  "block.mccourse.alexandrite_stairs": "Alexandrite Stairs",
+  "block.mccourse.alexandrite_slab": "Alexandrite Slab",
+  "block.mccourse.alexandrite_pressure_plate": "Alexandrite Pressure Plate",
+  "block.mccourse.alexandrite_button": "Alexandrite Button",
+  "block.mccourse.alexandrite_fence": "Alexandrite Fence",
+  "block.mccourse.alexandrite_fence_gate": "Alexandrite Fence Gate",
+  "block.mccourse.alexandrite_wall": "Alexandrite Wall",
+  "block.mccourse.alexandrite_door": "Alexandrite Door",
+  "block.mccourse.alexandrite_trapdoor": "Alexandrite Trapdoor",
+
   "block.mccourse.bismuth_stairs": "Bismuth Stairs",
-  "block.mccourse.ebony_stairs": "Ebony Stairs",
-
-  "block.mccourse.black_opal_slab": "Black Opal Slab",
-  "block.mccourse.bismuth_slab": "Bismuth Opal Slab",
-  "block.mccourse.ebony_slab": "Ebony Slab",
-
-  "block.mccourse.black_opal_pressure_plate": "Black Opal Pressure Plate",
+  "block.mccourse.bismuth_slab": "Bismuth Slab",
   "block.mccourse.bismuth_pressure_plate": "Bismuth Pressure Plate",
-  "block.mccourse.ebony_pressure_plate": "Ebony Pressure Plate",
-
-  "block.mccourse.black_opal_button": "Black Opal Button",
   "block.mccourse.bismuth_button": "Bismuth Button",
-  "block.mccourse.ebony_button": "Ebony Button",
-
-  "block.mccourse.black_opal_fence": "Black Opal Fence",
-  "block.mccourse.black_opal_fence_gate": "Black Opal Fence Gate",
-  "block.mccourse.black_opal_wall": "Black Opal Wall",
-
   "block.mccourse.bismuth_fence": "Bismuth Fence",
   "block.mccourse.bismuth_fence_gate": "Bismuth Fence Gate",
   "block.mccourse.bismuth_wall": "Bismuth Wall",
-
-  "block.mccourse.black_opal_door": "Black Opal Door",
-  "block.mccourse.black_opal_trapdoor": "Black Opal Trapdoor",
   "block.mccourse.bismuth_door": "Bismuth Door",
   "block.mccourse.bismuth_trapdoor": "Bismuth Trapdoor",
+
+  "block.mccourse.black_opal_stairs": "Black Opal Stairs",
+  "block.mccourse.black_opal_slab": "Black Opal Slab",
+  "block.mccourse.black_opal_pressure_plate": "Black Opal Pressure Plate",
+  "block.mccourse.black_opal_button": "Black Opal Button",
+  "block.mccourse.black_opal_fence": "Black Opal Fence",
+  "block.mccourse.black_opal_fence_gate": "Black Opal Fence Gate",
+  "block.mccourse.black_opal_wall": "Black Opal Wall",
+  "block.mccourse.black_opal_door": "Black Opal Door",
+  "block.mccourse.black_opal_trapdoor": "Black Opal Trapdoor",
+
+  "block.mccourse.ebony_stairs": "Ebony Stairs",
+  "block.mccourse.ebony_slab": "Ebony Slab",
+  "block.mccourse.ebony_pressure_plate": "Ebony Pressure Plate",
+  "block.mccourse.ebony_button": "Ebony Button",
 
   "sounds.mccourse.chainsaw_cut": "Chainsaw Cutting Sound",
   "sounds.mccourse.chainsaw_pull": "Chainsaw Pulling Sound",

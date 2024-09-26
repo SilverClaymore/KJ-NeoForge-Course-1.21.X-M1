@@ -153,7 +153,7 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("itemGroup.mccourse.alexandrite_blocks_tab"))
                     .icon(() -> new ItemStack(ModBlocks.ALEXANDRITE_BLOCK.get()))
                     .displayItems((pParameters, pOutput) -> {
-                        addCommonBlocks(pOutput, ModBlocks.ALEXANDRITE_BLOCK, ModBlocks.RAW_ALEXANDRITE_BLOCK, ModBlocks.ALEXANDRITE_ORE, ModBlocks.ALEXANDRITE_DEEPSLATE_ORE, null, null, null, null, null, null, null, null, null, null, null);
+                        addCommonBlocks(pOutput, ModBlocks.ALEXANDRITE_BLOCK, ModBlocks.RAW_ALEXANDRITE_BLOCK, ModBlocks.ALEXANDRITE_ORE, ModBlocks.ALEXANDRITE_DEEPSLATE_ORE, null, null, ModBlocks.ALEXANDRITE_SLAB, ModBlocks.ALEXANDRITE_STAIRS, ModBlocks.ALEXANDRITE_PRESSURE_PLATE, ModBlocks.ALEXANDRITE_BUTTON, ModBlocks.ALEXANDRITE_FENCE, ModBlocks.ALEXANDRITE_FENCE_GATE, ModBlocks.ALEXANDRITE_WALL, ModBlocks.ALEXANDRITE_DOOR, ModBlocks.ALEXANDRITE_TRAPDOOR);
                     })
                     .withTabsBefore(ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID,"alexandrite_items_tab"))
                     .build());

@@ -11,4 +11,7 @@ public class ModToolTiers {
 
     public static final Tier BISMUTH = new SimpleTier(ModTags.Blocks.INCORRECT_FOR_BISMUTH_TOOL,
             1400, 4f, 3f, 28, () -> Ingredient.of(ModItems.BISMUTH.get()));
+
+    public static final Tier ALEXANDRITE = new SimpleTier(ModTags.Blocks.INCORRECT_FOR_ALEXANDRITE_TOOL,
+            1400, 4f, 3f, 28, () -> Ingredient.of(ModItems.ALEXANDRITE.get()));
 }

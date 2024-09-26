@@ -96,6 +96,10 @@ public class ModBlocks {
             () -> new StairBlock(ModBlocks.BISMUTH_BLOCK.get().defaultBlockState(),
                     BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
+    public static final DeferredBlock<Block> ALEXANDRITE_STAIRS = registerBlock("alexandrite_stairs",
+            () -> new StairBlock(ModBlocks.ALEXANDRITE_BLOCK.get().defaultBlockState(),
+                    BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+
     public static final DeferredBlock<Block> EBONY_STAIRS = registerBlock("ebony_stairs",
             () -> new StairBlock(ModBlocks.EBONY_PLANKS.get().defaultBlockState(),
                     BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
@@ -104,6 +108,9 @@ public class ModBlocks {
             () -> new SlabBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
     public static final DeferredBlock<Block> BISMUTH_SLAB = registerBlock("bismuth_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<Block> ALEXANDRITE_SLAB = registerBlock("alexandrite_slab",
             () -> new SlabBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
     public static final DeferredBlock<Block> EBONY_SLAB = registerBlock("ebony_slab",
@@ -115,6 +122,9 @@ public class ModBlocks {
     public static final DeferredBlock<Block> BISMUTH_PRESSURE_PLATE = registerBlock("bismuth_pressure_plate",
             () -> new PressurePlateBlock(BlockSetType.IRON, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
+    public static final DeferredBlock<Block> ALEXANDRITE_PRESSURE_PLATE = registerBlock("alexandrite_pressure_plate",
+            () -> new PressurePlateBlock(BlockSetType.IRON, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+
     public static final DeferredBlock<Block> EBONY_PRESSURE_PLATE = registerBlock("ebony_pressure_plate",
             () -> new PressurePlateBlock(BlockSetType.OAK, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
@@ -122,6 +132,9 @@ public class ModBlocks {
             () -> new ButtonBlock(BlockSetType.IRON, 10, BlockBehaviour.Properties.of().strength(0.5F).requiresCorrectToolForDrops().noCollission()));
 
     public static final DeferredBlock<Block> BISMUTH_BUTTON = registerBlock("bismuth_button",
+            () -> new ButtonBlock(BlockSetType.IRON, 10, BlockBehaviour.Properties.of().strength(0.5F).requiresCorrectToolForDrops().noCollission()));
+
+    public static final DeferredBlock<Block> ALEXANDRITE_BUTTON = registerBlock("alexandrite_button",
             () -> new ButtonBlock(BlockSetType.IRON, 10, BlockBehaviour.Properties.of().strength(0.5F).requiresCorrectToolForDrops().noCollission()));
 
     public static final DeferredBlock<Block> EBONY_BUTTON = registerBlock("ebony_button",
@@ -133,10 +146,16 @@ public class ModBlocks {
     public static final DeferredBlock<Block> BISMUTH_FENCE = registerBlock("bismuth_fence",
             () -> new FenceBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
+    public static final DeferredBlock<Block> ALEXANDRITE_FENCE = registerBlock("alexandrite_fence",
+            () -> new FenceBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+
     public static final DeferredBlock<Block> BLACK_OPAL_FENCE_GATE = registerBlock("black_opal_fence_gate",
             () -> new FenceGateBlock(WoodType.ACACIA, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
     public static final DeferredBlock<Block> BISMUTH_FENCE_GATE = registerBlock("bismuth_fence_gate",
+            () -> new FenceGateBlock(WoodType.ACACIA, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<Block> ALEXANDRITE_FENCE_GATE = registerBlock("alexandrite_fence_gate",
             () -> new FenceGateBlock(WoodType.ACACIA, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
     public static final DeferredBlock<Block> BLACK_OPAL_WALL = registerBlock("black_opal_wall",
@@ -145,16 +164,25 @@ public class ModBlocks {
     public static final DeferredBlock<Block> BISMUTH_WALL = registerBlock("bismuth_wall",
             () -> new WallBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
+    public static final DeferredBlock<Block> ALEXANDRITE_WALL = registerBlock("alexandrite_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+
     public static final DeferredBlock<Block> BLACK_OPAL_DOOR = registerBlock("black_opal_door",
             () -> new DoorBlock(BlockSetType.IRON, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().noOcclusion()));
 
     public static final DeferredBlock<Block> BISMUTH_DOOR = registerBlock("bismuth_door",
             () -> new DoorBlock(BlockSetType.IRON, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().noOcclusion()));
 
+    public static final DeferredBlock<Block> ALEXANDRITE_DOOR = registerBlock("alexandrite_door",
+            () -> new DoorBlock(BlockSetType.IRON, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().noOcclusion()));
+
     public static final DeferredBlock<Block> BLACK_OPAL_TRAPDOOR = registerBlock("black_opal_trapdoor",
             () -> new TrapDoorBlock(BlockSetType.IRON, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().noCollission()));
 
     public static final DeferredBlock<Block> BISMUTH_TRAPDOOR = registerBlock("bismuth_trapdoor",
+            () -> new TrapDoorBlock(BlockSetType.IRON, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().noCollission()));
+
+    public static final DeferredBlock<Block> ALEXANDRITE_TRAPDOOR = registerBlock("alexandrite_trapdoor",
             () -> new TrapDoorBlock(BlockSetType.IRON, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().noCollission()));
 
     public static final DeferredBlock<Block> BLACK_OPAL_LAMP = registerBlock("black_opal_lamp",

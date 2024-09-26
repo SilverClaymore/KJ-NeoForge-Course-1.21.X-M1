@@ -48,7 +48,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         commonItems(ModItems.BLACK_OPAL, ModItems.RAW_BLACK_OPAL, ModBlocks.BLACK_OPAL_BLOCK, ModBlocks.BLACK_OPAL_BUTTON, ModBlocks.BLACK_OPAL_FENCE, ModBlocks.BLACK_OPAL_WALL, ModBlocks.BLACK_OPAL_DOOR, ModItems.BLACK_OPAL_SWORD, ModItems.BLACK_OPAL_AXE, ModItems.BLACK_OPAL_PICKAXE, ModItems.BLACK_OPAL_SHOVEL, ModItems.BLACK_OPAL_HOE, ModItems.BLACK_OPAL_PAXEL, ModItems.BLACK_OPAL_HAMMER, ModItems.BLACK_OPAL_HELMET, ModItems.BLACK_OPAL_CHESTPLATE, ModItems.BLACK_OPAL_LEGGINGS, ModItems.BLACK_OPAL_BOOTS);
         commonItems(ModItems.BISMUTH, ModItems.RAW_BISMUTH, ModBlocks.BISMUTH_BLOCK, ModBlocks.BISMUTH_BUTTON, ModBlocks.BISMUTH_FENCE, ModBlocks.BISMUTH_WALL, ModBlocks.BISMUTH_DOOR, ModItems.BISMUTH_SWORD, ModItems.BISMUTH_AXE, ModItems.BISMUTH_PICKAXE, ModItems.BISMUTH_SHOVEL, ModItems.BISMUTH_HOE, null, null, null, null, null, null);
-        commonItems(ModItems.ALEXANDRITE, ModItems.RAW_ALEXANDRITE, ModBlocks.ALEXANDRITE_BLOCK, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+        commonItems(ModItems.ALEXANDRITE, ModItems.RAW_ALEXANDRITE, ModBlocks.ALEXANDRITE_BLOCK, ModBlocks.ALEXANDRITE_BUTTON, ModBlocks.ALEXANDRITE_FENCE, ModBlocks.ALEXANDRITE_WALL, ModBlocks.ALEXANDRITE_DOOR, null, null, null, null, null, null, null, null, null, null, null);
         commonItems(null, null, ModBlocks.EBONY_PLANKS, ModBlocks.EBONY_BUTTON, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
 
         basicItem(ModItems.CHAINSAW.get());
