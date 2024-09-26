@@ -44,6 +44,32 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_black_opal_block", has(ModBlocks.BLACK_OPAL_BLOCK.get()))
                 .save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BISMUTH_BLOCK.get())
+                .pattern("XXX")
+                .pattern("XXX")
+                .pattern("XXX")
+                .define('X', ModItems.BISMUTH.get())
+                .unlockedBy("has_bismuth", has(ModItems.BISMUTH.get()))
+                .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.BISMUTH.get(),9)
+                .requires(ModBlocks.BISMUTH_BLOCK.get())
+                .unlockedBy("has_bismuth_block", has(ModBlocks.BISMUTH_BLOCK.get()))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.ALEXANDRITE_BLOCK.get())
+                .pattern("XXX")
+                .pattern("XXX")
+                .pattern("XXX")
+                .define('X', ModItems.ALEXANDRITE.get())
+                .unlockedBy("has_alexandrite", has(ModItems.ALEXANDRITE.get()))
+                .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.ALEXANDRITE.get(),9)
+                .requires(ModBlocks.ALEXANDRITE_BLOCK.get())
+                .unlockedBy("has_alexandrite_block", has(ModBlocks.ALEXANDRITE_BLOCK.get()))
+                .save(recipeOutput);
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.BLACK_OPAL.get(),9)
                 .requires(ModBlocks.MAGIC_BLOCK.get())
                 .unlockedBy("has_magic_block", has(ModBlocks.MAGIC_BLOCK.get()))
@@ -156,6 +182,9 @@ public class ModRecipeProvider extends RecipeProvider {
 
         oreSmelting(recipeOutput, MOD_SMELTABLES, RecipeCategory.MISC, ModItems.BISMUTH.get(), 0.25f, 200, "bismuth" );
         oreBlasting(recipeOutput, MOD_SMELTABLES, RecipeCategory.MISC, ModItems.BISMUTH.get(), 0.25f, 100, "bismuth" );
+
+        oreSmelting(recipeOutput, MOD_SMELTABLES, RecipeCategory.MISC, ModItems.ALEXANDRITE.get(), 0.25f, 200, "alexandrite" );
+        oreBlasting(recipeOutput, MOD_SMELTABLES, RecipeCategory.MISC, ModItems.ALEXANDRITE.get(), 0.25f, 100, "alexandrite" );
 
         commonRecipes(recipeOutput, ModBlocks.BLACK_OPAL_BLOCK, null, "black_opal",
                 ModBlocks.BLACK_OPAL_PRESSURE_PLATE, ModBlocks.BLACK_OPAL_BUTTON, ModBlocks.BLACK_OPAL_SLAB, ModBlocks.BLACK_OPAL_STAIRS, ModBlocks.BLACK_OPAL_FENCE, ModBlocks.BLACK_OPAL_FENCE_GATE, ModBlocks.BLACK_OPAL_WALL, ModBlocks.BLACK_OPAL_DOOR, ModBlocks.BLACK_OPAL_TRAPDOOR);

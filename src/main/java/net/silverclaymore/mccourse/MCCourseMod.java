@@ -107,6 +107,8 @@ public class MCCourseMod
             event.accept(ModItems.RAW_BLACK_OPAL);
             event.accept(ModItems.BISMUTH);
             event.accept(ModItems.RAW_BISMUTH);
+            event.accept(ModItems.ALEXANDRITE);
+            event.accept(ModItems.RAW_ALEXANDRITE);
         }
     }
 

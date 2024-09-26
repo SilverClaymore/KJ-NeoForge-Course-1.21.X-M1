@@ -38,8 +38,12 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.BISMUTH_BLOCK.get());
         dropSelf(ModBlocks.RAW_BISMUTH_BLOCK.get());
 
+        dropSelf(ModBlocks.ALEXANDRITE_BLOCK.get());
+        dropSelf(ModBlocks.RAW_ALEXANDRITE_BLOCK.get());
+
         addOre(ModItems.RAW_BLACK_OPAL, ModBlocks.BLACK_OPAL_ORE, ModBlocks.BLACK_OPAL_DEEPSLATE_ORE, ModBlocks.BLACK_OPAL_END_ORE, ModBlocks.BLACK_OPAL_NETHER_ORE);
         addOre(ModItems.RAW_BISMUTH, ModBlocks.BISMUTH_ORE, null, null, null);
+        addOre(ModItems.RAW_ALEXANDRITE, ModBlocks.ALEXANDRITE_ORE, ModBlocks.ALEXANDRITE_DEEPSLATE_ORE, null, null);
 
         LootItemCondition.Builder lootItemConditionBuilder = LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.TOMATO_CROP.get())
                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(TomatoCropBlock.AGE, 5));
@@ -65,6 +69,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         commonDrops(ModBlocks.BLACK_OPAL_STAIRS, ModBlocks.BLACK_OPAL_SLAB, ModBlocks.BLACK_OPAL_PRESSURE_PLATE, ModBlocks.BLACK_OPAL_BUTTON, ModBlocks.BLACK_OPAL_FENCE, ModBlocks.BLACK_OPAL_FENCE_GATE, ModBlocks.BLACK_OPAL_WALL, ModBlocks.BLACK_OPAL_TRAPDOOR, ModBlocks.BLACK_OPAL_DOOR, ModBlocks.BLACK_OPAL_LAMP);
         commonDrops(ModBlocks.BISMUTH_STAIRS, ModBlocks.BISMUTH_SLAB, ModBlocks.BISMUTH_PRESSURE_PLATE, ModBlocks.BISMUTH_BUTTON, ModBlocks.BISMUTH_FENCE, ModBlocks.BISMUTH_FENCE_GATE, ModBlocks.BISMUTH_WALL, ModBlocks.BISMUTH_TRAPDOOR, ModBlocks.BISMUTH_DOOR, null);
+        commonDrops(null, null, null, null, null, null, null, null, null, null);
+
         commonDrops(ModBlocks.EBONY_STAIRS, ModBlocks.EBONY_SLAB, ModBlocks.EBONY_PRESSURE_PLATE, ModBlocks.EBONY_BUTTON, null, null, null, null, null, null);
     }
 

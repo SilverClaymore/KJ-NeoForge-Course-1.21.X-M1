@@ -16,6 +16,9 @@ public class ModTags {
         public static final TagKey<Block> INCORRECT_FOR_BISMUTH_TOOL = createTag("incorrect_for_bismuth_tool");
         public static final TagKey<Block> NEEDS_BISMUTH_TOOL = createTag("needs_bismuth_tool");
 
+        public static final TagKey<Block> INCORRECT_FOR_ALEXANDRITE_TOOL = createTag("incorrect_for_alexandrite_tool");
+        public static final TagKey<Block> NEEDS_ALEXANDRITE_TOOL = createTag("needs_alexandrite_tool");
+
 
         public static final TagKey<Block> PAXEL_MINEABLE = createTag("mineable/paxel");
 
@@ -29,11 +32,8 @@ public class ModTags {
 
         public static final TagKey<Item> EBONY_LOG_TAGS = createTag("ebony_log_tags");
 
-
         public static TagKey<Item> createTag(String name){
             return ItemTags.create(ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, name));
         }
     }
-
-
 }

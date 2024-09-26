@@ -28,6 +28,12 @@ public class ModItems {
     public static final DeferredItem<Item> RAW_BISMUTH =
             ITEMS.registerItem("raw_bismuth", Item::new, new Item.Properties());
 
+    public static final DeferredItem<Item> ALEXANDRITE = ITEMS.registerSimpleItem("alexandrite");
+
+    public static final DeferredItem<Item> RAW_ALEXANDRITE =
+            ITEMS.registerItem("raw_alexandrite", Item::new, new Item.Properties());
+
+
     public static final DeferredItem<Item> CHAINSAW =
             ITEMS.registerItem("chainsaw", ChainsawItem::new, new Item.Properties().durability(32));
 

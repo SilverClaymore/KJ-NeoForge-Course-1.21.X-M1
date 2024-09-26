@@ -3,6 +3,8 @@
   "item.mccourse.raw_black_opal": "Raw Black Opal",
   "item.mccourse.bismuth": "Bismuth",
   "item.mccourse.raw_bismuth": "Raw Bismuth",
+  "item.mccourse.alexandrite": "Alexandrite Gem",
+  "item.mccourse.raw_alexandrite": "Raw Alexandrite",
 
   "item.mccourse.chainsaw": "Chainsaw",
   "item.mccourse.tomato": "Tomato",
@@ -36,17 +38,20 @@
   "item.mccourse.black_opal_boots": "Black Opal Boots",
 
   "block.mccourse.black_opal_block": "Block of Black Opal",
-  "block.mccourse.bismuth_block": "Block of Bismuth",
-
   "block.mccourse.raw_black_opal_block": "Raw Black Opal Block",
-  "block.mccourse.raw_bismuth_block": "Raw Bismuth Block",
-
   "block.mccourse.black_opal_ore": "Black Opal Ore",
   "block.mccourse.black_opal_deepslate_ore": "Black Opal Deepslate Ore",
   "block.mccourse.black_opal_end_ore": "Black Opal End Ore",
   "block.mccourse.black_opal_nether_ore": "Black Opal Nether Ore",
 
+  "block.mccourse.bismuth_block": "Block of Bismuth",
+  "block.mccourse.raw_bismuth_block": "Raw Bismuth Block",
   "block.mccourse.bismuth_ore": "Bismuth Ore",
+
+  "block.mccourse.alexandrite_block": "Block of Alexandrite",
+  "block.mccourse.raw_alexandrite_block": "Raw Alexandrite Block",
+  "block.mccourse.alexandrite_ore": "Alexandrite Ore",
+  "block.mccourse.alexandrite_deepslate_ore": "Alexandrite Deepslate Ore",
 
   "block.mccourse.magic_block": "Magic Block",
 
@@ -138,5 +143,7 @@
   "itemGroup.mccourse.black_opal_items_tab": "Black Opal Items",
   "itemGroup.mccourse.black_opal_blocks_tab": "Black Opal Blocks",
   "itemGroup.mccourse.bismuth_items_tab": "Bismuth Items",
-  "itemGroup.mccourse.bismuth_blocks_tab": "Bismuth Blocks"
+  "itemGroup.mccourse.bismuth_blocks_tab": "Bismuth Blocks",
+  "itemGroup.mccourse.alexandrite_items_tab": "Alexandrite Items",
+  "itemGroup.mccourse.alexandrite_blocks_tab": "Alexandrite Blocks"
 }

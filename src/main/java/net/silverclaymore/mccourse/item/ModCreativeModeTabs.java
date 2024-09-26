@@ -105,8 +105,16 @@ public class ModCreativeModeTabs {
                     .icon(() -> new ItemStack(ModItems.BISMUTH.get()))
                     .displayItems((pParameters, pOutput) -> {
                         addCommonItems(pOutput, ModItems.BISMUTH, ModItems.RAW_BISMUTH, ModItems.BISMUTH_SWORD, ModItems.BISMUTH_PICKAXE, ModItems.BISMUTH_AXE, ModItems.BISMUTH_SHOVEL, ModItems.BISMUTH_HOE, null, null, null, null, null, null);
-
                     }).build());
+
+    public static final Supplier<CreativeModeTab> ALEXANDRITE_ITEMS_TAB =
+            CREATIVE_MODE_TABS.register("alexandrite_items_tab", () -> CreativeModeTab.builder()
+                    .title(Component.translatable("itemGroup.mccourse.alexandrite_items_tab"))
+                    .icon(() -> new ItemStack(ModItems.ALEXANDRITE.get()))
+                    .displayItems((pParameters, pOutput) -> {
+                        addCommonItems(pOutput, ModItems.ALEXANDRITE, ModItems.RAW_ALEXANDRITE, null, null, null, null, null, null, null, null, null, null, null);
+                    }).build());
+
 
     public static final Supplier<CreativeModeTab> BLACK_OPAL_BLOCKS_TAB =
             CREATIVE_MODE_TABS.register("black_opal_blocks_tab", () -> CreativeModeTab.builder()
@@ -138,6 +146,16 @@ public class ModCreativeModeTabs {
 
                     })
                     .withTabsBefore(ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID,"bismuth_items_tab"))
+                    .build());
+
+    public static final Supplier<CreativeModeTab> ALEXANDRITE_BLOCKS_TAB =
+            CREATIVE_MODE_TABS.register("alexandrite_blocks_tab", () -> CreativeModeTab.builder()
+                    .title(Component.translatable("itemGroup.mccourse.alexandrite_blocks_tab"))
+                    .icon(() -> new ItemStack(ModBlocks.ALEXANDRITE_BLOCK.get()))
+                    .displayItems((pParameters, pOutput) -> {
+                        addCommonBlocks(pOutput, ModBlocks.ALEXANDRITE_BLOCK, ModBlocks.RAW_ALEXANDRITE_BLOCK, ModBlocks.ALEXANDRITE_ORE, ModBlocks.ALEXANDRITE_DEEPSLATE_ORE, null, null, null, null, null, null, null, null, null, null, null);
+                    })
+                    .withTabsBefore(ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID,"alexandrite_items_tab"))
                     .build());
 
     public static void register(IEventBus eventBus){
