@@ -11,6 +11,7 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.PressurePlateBlock;
 import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredItem;
 import net.silverclaymore.mccourse.MCCourseMod;
 import net.silverclaymore.mccourse.block.ModBlocks;
 import net.silverclaymore.mccourse.item.ModItems;
@@ -24,56 +25,48 @@ public class ModRecipeProvider extends RecipeProvider {
         super(output, registries);
     }
 
+
+
+    protected void recipeBlockFromItem9(RecipeOutput recipeOutput, DeferredItem<Item> source, DeferredBlock<Block> result)
+    {
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, result.get())
+                .pattern("XXX")
+                .pattern("XXX")
+                .pattern("XXX")
+                .define('X', source.get())
+                .unlockedBy(getHasName(result.get()), has(result.get()))
+                .save(recipeOutput);
+    }
+
+    protected void recipeItemsFromBlock(RecipeOutput recipeOutput, DeferredBlock<Block> source, DeferredItem<Item> result, int resultCount)
+    {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, result.get(), resultCount)
+                .requires(source.get())
+                .unlockedBy(getHasName(source.get()), has(source.get()))
+                .save(recipeOutput, MCCourseMod.MOD_ID + ":" + source.getKey().location().getPath() + "_from_" + result.getKey().location().getPath());
+    }
+
+
     @Override
     protected void buildRecipes(RecipeOutput recipeOutput) {
 
-        List<ItemLike> MOD_SMELTABLES = List.of(ModItems.RAW_BLACK_OPAL,
-                ModBlocks.BLACK_OPAL_ORE, ModBlocks.BLACK_OPAL_DEEPSLATE_ORE, ModBlocks.BLACK_OPAL_END_ORE, ModBlocks.BLACK_OPAL_NETHER_ORE,
-                ModItems.RAW_BISMUTH, ModBlocks.BISMUTH_ORE);
+        List<ItemLike> SMELTABLES_BLACK_OPAL = List.of(ModItems.RAW_BLACK_OPAL, ModBlocks.BLACK_OPAL_ORE,
+                ModBlocks.BLACK_OPAL_DEEPSLATE_ORE, ModBlocks.BLACK_OPAL_END_ORE, ModBlocks.BLACK_OPAL_NETHER_ORE);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BLACK_OPAL_BLOCK.get())
-                .pattern("XXX")
-                .pattern("XXX")
-                .pattern("XXX")
-                .define('X', ModItems.BLACK_OPAL.get())
-                .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get()))
-                .save(recipeOutput);
+        List<ItemLike> SMELTABLES_BISMUTH = List.of(ModItems.RAW_BISMUTH, ModBlocks.BISMUTH_ORE);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.BLACK_OPAL.get(),9)
-                .requires(ModBlocks.BLACK_OPAL_BLOCK.get())
-                .unlockedBy("has_black_opal_block", has(ModBlocks.BLACK_OPAL_BLOCK.get()))
-                .save(recipeOutput);
+        List<ItemLike> SMELTABLES_ALEXANDRITE = List.of(ModItems.RAW_ALEXANDRITE, ModBlocks.ALEXANDRITE_ORE,
+                ModBlocks.ALEXANDRITE_DEEPSLATE_ORE);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BISMUTH_BLOCK.get())
-                .pattern("XXX")
-                .pattern("XXX")
-                .pattern("XXX")
-                .define('X', ModItems.BISMUTH.get())
-                .unlockedBy("has_bismuth", has(ModItems.BISMUTH.get()))
-                .save(recipeOutput);
+        recipeBlockFromItem9(recipeOutput, ModItems.BLACK_OPAL, ModBlocks.BLACK_OPAL_BLOCK);
+        recipeBlockFromItem9(recipeOutput, ModItems.BISMUTH, ModBlocks.BISMUTH_BLOCK);
+        recipeBlockFromItem9(recipeOutput, ModItems.ALEXANDRITE, ModBlocks.ALEXANDRITE_BLOCK);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.BISMUTH.get(),9)
-                .requires(ModBlocks.BISMUTH_BLOCK.get())
-                .unlockedBy("has_bismuth_block", has(ModBlocks.BISMUTH_BLOCK.get()))
-                .save(recipeOutput);
+        recipeItemsFromBlock(recipeOutput, ModBlocks.BLACK_OPAL_BLOCK, ModItems.BLACK_OPAL, 9);
+        recipeItemsFromBlock(recipeOutput, ModBlocks.BISMUTH_BLOCK, ModItems.BISMUTH, 9);
+        recipeItemsFromBlock(recipeOutput, ModBlocks.ALEXANDRITE_BLOCK, ModItems.ALEXANDRITE, 9);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.ALEXANDRITE_BLOCK.get())
-                .pattern("XXX")
-                .pattern("XXX")
-                .pattern("XXX")
-                .define('X', ModItems.ALEXANDRITE.get())
-                .unlockedBy("has_alexandrite", has(ModItems.ALEXANDRITE.get()))
-                .save(recipeOutput);
-
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.ALEXANDRITE.get(),9)
-                .requires(ModBlocks.ALEXANDRITE_BLOCK.get())
-                .unlockedBy("has_alexandrite_block", has(ModBlocks.ALEXANDRITE_BLOCK.get())) // for name parameter can be used: getHasName(ModItems.ALEXANDRITE.get())
-                .save(recipeOutput);
-
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.BLACK_OPAL.get(),9)
-                .requires(ModBlocks.MAGIC_BLOCK.get())
-                .unlockedBy("has_magic_block", has(ModBlocks.MAGIC_BLOCK.get()))
-                .save(recipeOutput, MCCourseMod.MOD_ID + ":" + "black_opal_2"); // instead of black_opal_2 rename it into black_opal_from_magic_block
+        recipeItemsFromBlock(recipeOutput, ModBlocks.MAGIC_BLOCK, ModItems.BLACK_OPAL, 9);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.ALEXANDRITE.get(),32)
                 .requires(ModBlocks.EBONY_SAPLING.get())
@@ -182,20 +175,23 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get()))
                 .save(recipeOutput, MCCourseMod.MOD_ID + ":" + "black_opal_recipe_boots");
 
-        oreSmelting(recipeOutput, MOD_SMELTABLES, RecipeCategory.MISC, ModItems.BLACK_OPAL.get(), 0.25f, 200, "black_opal" );
-        oreBlasting(recipeOutput, MOD_SMELTABLES, RecipeCategory.MISC, ModItems.BLACK_OPAL.get(), 0.25f, 100, "black_opal" );
+        oreSmelting(recipeOutput, SMELTABLES_BLACK_OPAL, RecipeCategory.MISC, ModItems.BLACK_OPAL.get(), 0.25f, 200, "black_opal" );
+        oreBlasting(recipeOutput, SMELTABLES_BLACK_OPAL, RecipeCategory.MISC, ModItems.BLACK_OPAL.get(), 0.25f, 100, "black_opal" );
 
-        oreSmelting(recipeOutput, MOD_SMELTABLES, RecipeCategory.MISC, ModItems.BISMUTH.get(), 0.25f, 200, "bismuth" );
-        oreBlasting(recipeOutput, MOD_SMELTABLES, RecipeCategory.MISC, ModItems.BISMUTH.get(), 0.25f, 100, "bismuth" );
+        oreSmelting(recipeOutput, SMELTABLES_BISMUTH, RecipeCategory.MISC, ModItems.BISMUTH.get(), 0.25f, 200, "bismuth" );
+        oreBlasting(recipeOutput, SMELTABLES_BISMUTH, RecipeCategory.MISC, ModItems.BISMUTH.get(), 0.25f, 100, "bismuth" );
 
-        oreSmelting(recipeOutput, MOD_SMELTABLES, RecipeCategory.MISC, ModItems.ALEXANDRITE.get(), 0.25f, 200, "alexandrite" );
-        oreBlasting(recipeOutput, MOD_SMELTABLES, RecipeCategory.MISC, ModItems.ALEXANDRITE.get(), 0.25f, 100, "alexandrite" );
+        oreSmelting(recipeOutput, SMELTABLES_ALEXANDRITE, RecipeCategory.MISC, ModItems.ALEXANDRITE.get(), 0.25f, 200, "alexandrite" );
+        oreBlasting(recipeOutput, SMELTABLES_ALEXANDRITE, RecipeCategory.MISC, ModItems.ALEXANDRITE.get(), 0.25f, 100, "alexandrite" );
 
         commonRecipes(recipeOutput, ModBlocks.BLACK_OPAL_BLOCK, null, "black_opal",
                 ModBlocks.BLACK_OPAL_PRESSURE_PLATE, ModBlocks.BLACK_OPAL_BUTTON, ModBlocks.BLACK_OPAL_SLAB, ModBlocks.BLACK_OPAL_STAIRS, ModBlocks.BLACK_OPAL_FENCE, ModBlocks.BLACK_OPAL_FENCE_GATE, ModBlocks.BLACK_OPAL_WALL, ModBlocks.BLACK_OPAL_DOOR, ModBlocks.BLACK_OPAL_TRAPDOOR);
 
         commonRecipes(recipeOutput, ModBlocks.BISMUTH_BLOCK, null, "bismuth",
                 ModBlocks.BISMUTH_PRESSURE_PLATE, ModBlocks.BISMUTH_BUTTON, ModBlocks.BISMUTH_SLAB, ModBlocks.BISMUTH_STAIRS, ModBlocks.BISMUTH_FENCE, ModBlocks.BISMUTH_FENCE_GATE, ModBlocks.BISMUTH_WALL, ModBlocks.BISMUTH_DOOR, ModBlocks.BISMUTH_TRAPDOOR);
+
+        commonRecipes(recipeOutput, ModBlocks.ALEXANDRITE_BLOCK, null, "alexandrite",
+                ModBlocks.ALEXANDRITE_PRESSURE_PLATE, ModBlocks.ALEXANDRITE_BUTTON, ModBlocks.ALEXANDRITE_SLAB, ModBlocks.ALEXANDRITE_STAIRS, ModBlocks.ALEXANDRITE_FENCE, ModBlocks.ALEXANDRITE_FENCE_GATE, ModBlocks.ALEXANDRITE_WALL, ModBlocks.ALEXANDRITE_DOOR, ModBlocks.ALEXANDRITE_TRAPDOOR);
 
         commonRecipes(recipeOutput, ModBlocks.EBONY_PLANKS, ModTags.Items.EBONY_LOG_TAGS, "ebony",
                 ModBlocks.EBONY_PRESSURE_PLATE, ModBlocks.EBONY_BUTTON, ModBlocks.EBONY_SLAB, ModBlocks.EBONY_STAIRS, ModBlocks.EBONY_FENCE, ModBlocks.EBONY_FENCE_GATE, ModBlocks.EBONY_WALL, null, null);
