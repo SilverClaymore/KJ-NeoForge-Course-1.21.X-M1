@@ -43,7 +43,7 @@ public class ModRecipeProvider extends RecipeProvider {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, result.get(), resultCount)
                 .requires(source.get())
                 .unlockedBy(getHasName(source.get()), has(source.get()))
-                .save(recipeOutput, MCCourseMod.MOD_ID + ":" + source.getKey().location().getPath() + "_from_" + result.getKey().location().getPath());
+                .save(recipeOutput, MCCourseMod.MOD_ID + ":" + result.getKey().location().getPath() + "_from_" + source.getKey().location().getPath());
     }
 
 
@@ -67,11 +67,7 @@ public class ModRecipeProvider extends RecipeProvider {
         recipeItemsFromBlock(recipeOutput, ModBlocks.ALEXANDRITE_BLOCK, ModItems.ALEXANDRITE, 9);
 
         recipeItemsFromBlock(recipeOutput, ModBlocks.MAGIC_BLOCK, ModItems.BLACK_OPAL, 9);
-
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.ALEXANDRITE.get(),32)
-                .requires(ModBlocks.EBONY_SAPLING.get())
-                .unlockedBy(getHasName(ModBlocks.ALEXANDRITE_BLOCK.get()), has(ModBlocks.ALEXANDRITE_BLOCK.get()))
-                .save(recipeOutput, MCCourseMod.MOD_ID + ":" + "alexandrite_from_ebony_sapling");
+        recipeItemsFromBlock(recipeOutput, ModBlocks.EBONY_SAPLING, ModItems.ALEXANDRITE, 32);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.BLACK_OPAL_SWORD.get(), 1)
                 .pattern(" X ")
