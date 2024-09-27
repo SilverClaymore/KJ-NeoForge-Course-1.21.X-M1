@@ -89,6 +89,9 @@
   "block.mccourse.ebony_slab": "Ebony Slab",
   "block.mccourse.ebony_pressure_plate": "Ebony Pressure Plate",
   "block.mccourse.ebony_button": "Ebony Button",
+  "block.mccourse.ebony_fence": "Ebony Fence",
+  "block.mccourse.ebony_fence_gate": "Ebony Fence Gate",
+  "block.mccourse.ebony_wall": "Ebony Wall",
 
   "sounds.mccourse.chainsaw_cut": "Chainsaw Cutting Sound",
   "sounds.mccourse.chainsaw_pull": "Chainsaw Pulling Sound",

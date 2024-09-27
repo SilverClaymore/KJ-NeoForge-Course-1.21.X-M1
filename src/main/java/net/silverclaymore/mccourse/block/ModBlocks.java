@@ -149,6 +149,9 @@ public class ModBlocks {
     public static final DeferredBlock<Block> ALEXANDRITE_FENCE = registerBlock("alexandrite_fence",
             () -> new FenceBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
+    public static final DeferredBlock<Block> EBONY_FENCE = registerBlock("ebony_fence",
+            () -> new FenceBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+
     public static final DeferredBlock<Block> BLACK_OPAL_FENCE_GATE = registerBlock("black_opal_fence_gate",
             () -> new FenceGateBlock(WoodType.ACACIA, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
@@ -158,6 +161,9 @@ public class ModBlocks {
     public static final DeferredBlock<Block> ALEXANDRITE_FENCE_GATE = registerBlock("alexandrite_fence_gate",
             () -> new FenceGateBlock(WoodType.ACACIA, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
+    public static final DeferredBlock<Block> EBONY_FENCE_GATE = registerBlock("ebony_fence_gate",
+            () -> new FenceGateBlock(WoodType.ACACIA, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+
     public static final DeferredBlock<Block> BLACK_OPAL_WALL = registerBlock("black_opal_wall",
             () -> new WallBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
@@ -165,6 +171,9 @@ public class ModBlocks {
             () -> new WallBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
     public static final DeferredBlock<Block> ALEXANDRITE_WALL = registerBlock("alexandrite_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<Block> EBONY_WALL = registerBlock("ebony_wall",
             () -> new WallBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
     public static final DeferredBlock<Block> BLACK_OPAL_DOOR = registerBlock("black_opal_door",
