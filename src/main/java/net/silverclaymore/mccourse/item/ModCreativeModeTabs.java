@@ -22,7 +22,7 @@ public class ModCreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MCCourseMod.MOD_ID);
 
-    private static void addCommonItems(CreativeModeTab.Output pOutput, DeferredItem<Item> item, DeferredItem<Item> rawItem, DeferredItem<Item> sword, DeferredItem<Item> pickaxe, DeferredItem<Item> axe, DeferredItem<Item> shovel, DeferredItem<Item> hoe, DeferredItem<Item> paxel, DeferredItem<Item> hammer, DeferredItem<Item> helmet, DeferredItem<Item> chestplate, DeferredItem<Item> leggings, DeferredItem<Item> boots) {
+    private static void addCommonItems(CreativeModeTab.Output pOutput, DeferredItem<Item> item, DeferredItem<Item> rawItem, DeferredItem<Item> sword, DeferredItem<Item> pickaxe, DeferredItem<Item> axe, DeferredItem<Item> shovel, DeferredItem<Item> hoe, DeferredItem<Item> paxel, DeferredItem<Item> hammer, DeferredItem<Item> helmet, DeferredItem<Item> chestplate, DeferredItem<Item> leggings, DeferredItem<Item> boots, DeferredItem<Item> horseArmor) {
         if(item != null) pOutput.accept(item);
         if(rawItem != null) pOutput.accept(rawItem);
 
@@ -39,6 +39,8 @@ public class ModCreativeModeTabs {
         if(chestplate != null) pOutput.accept(chestplate);
         if(leggings != null) pOutput.accept(leggings);
         if(boots != null) pOutput.accept(boots);
+
+        if(horseArmor != null) pOutput.accept(horseArmor);
     }
 
     private static void addCommonBlocks(CreativeModeTab.Output pOutput, DeferredBlock<Block> block, DeferredBlock<Block> rawBlock, DeferredBlock<Block> ore, DeferredBlock<Block> deepslateOre, DeferredBlock<Block> endOre, DeferredBlock<Block> netherOre, DeferredBlock<Block> slab, DeferredBlock<Block> stairs, DeferredBlock<Block> pressurePlate, DeferredBlock<Block> button, DeferredBlock<Block> fence, DeferredBlock<Block> fenceGate, DeferredBlock<Block> wall, DeferredBlock<Block> door, DeferredBlock<Block> trapdoor ) {
@@ -76,7 +78,9 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("itemGroup.mccourse.black_opal_items_tab"))
                     .icon(() -> new ItemStack(ModItems.BLACK_OPAL.get()))
                     .displayItems((pParameters, pOutput) -> {
-                        addCommonItems(pOutput, ModItems.BLACK_OPAL, ModItems.RAW_BLACK_OPAL, ModItems.BLACK_OPAL_SWORD, ModItems.BLACK_OPAL_PICKAXE, ModItems.BLACK_OPAL_AXE, ModItems.BLACK_OPAL_SHOVEL, ModItems.BLACK_OPAL_HOE, ModItems.BLACK_OPAL_PAXEL, ModItems.BLACK_OPAL_HAMMER, ModItems.BLACK_OPAL_HELMET, ModItems.BLACK_OPAL_CHESTPLATE, ModItems.BLACK_OPAL_LEGGINGS, ModItems.BLACK_OPAL_BOOTS);
+                        addCommonItems(pOutput, ModItems.BLACK_OPAL, ModItems.RAW_BLACK_OPAL, ModItems.BLACK_OPAL_SWORD, ModItems.BLACK_OPAL_PICKAXE, ModItems.BLACK_OPAL_AXE, ModItems.BLACK_OPAL_SHOVEL, ModItems.BLACK_OPAL_HOE, ModItems.BLACK_OPAL_PAXEL, ModItems.BLACK_OPAL_HAMMER, ModItems.BLACK_OPAL_HELMET, ModItems.BLACK_OPAL_CHESTPLATE, ModItems.BLACK_OPAL_LEGGINGS, ModItems.BLACK_OPAL_BOOTS, ModItems.BLACK_OPAL_HORSE_ARMOR);
+
+
 
                         pOutput.accept(ModItems.CHAINSAW);
                         pOutput.accept(ModItems.TOMATO);
@@ -104,7 +108,7 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("itemGroup.mccourse.bismuth_items_tab"))
                     .icon(() -> new ItemStack(ModItems.BISMUTH.get()))
                     .displayItems((pParameters, pOutput) -> {
-                        addCommonItems(pOutput, ModItems.BISMUTH, ModItems.RAW_BISMUTH, ModItems.BISMUTH_SWORD, ModItems.BISMUTH_PICKAXE, ModItems.BISMUTH_AXE, ModItems.BISMUTH_SHOVEL, ModItems.BISMUTH_HOE, null, null, null, null, null, null);
+                        addCommonItems(pOutput, ModItems.BISMUTH, ModItems.RAW_BISMUTH, ModItems.BISMUTH_SWORD, ModItems.BISMUTH_PICKAXE, ModItems.BISMUTH_AXE, ModItems.BISMUTH_SHOVEL, ModItems.BISMUTH_HOE, null, null, null, null, null, null, null);
                     }).build());
 
     public static final Supplier<CreativeModeTab> ALEXANDRITE_ITEMS_TAB =
@@ -112,7 +116,7 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("itemGroup.mccourse.alexandrite_items_tab"))
                     .icon(() -> new ItemStack(ModItems.ALEXANDRITE.get()))
                     .displayItems((pParameters, pOutput) -> {
-                        addCommonItems(pOutput, ModItems.ALEXANDRITE, ModItems.RAW_ALEXANDRITE, null, null, null, null, null, null, null, null, null, null, null);
+                        addCommonItems(pOutput, ModItems.ALEXANDRITE, ModItems.RAW_ALEXANDRITE, null, null, null, null, null, null, null, null, null, null, null, null);
                     }).build());
 
 

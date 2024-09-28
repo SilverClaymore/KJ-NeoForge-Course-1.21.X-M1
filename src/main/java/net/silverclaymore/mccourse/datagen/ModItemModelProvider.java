@@ -27,7 +27,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         super(output, MCCourseMod.MOD_ID, existingFileHelper);
     }
 
-    protected void commonItems(DeferredItem<Item> ore, DeferredItem<Item> rawOre, DeferredBlock<Block> baseBlock, DeferredBlock<Block> button, DeferredBlock<Block> fence, DeferredBlock<Block> wall, DeferredBlock<Block> door, DeferredItem<Item> sword, DeferredItem<Item> axe, DeferredItem<Item> pickaxe, DeferredItem<Item> shovel, DeferredItem<Item> hoe, DeferredItem<Item> paxel, DeferredItem<Item> hammer, DeferredItem<Item> helmet, DeferredItem<Item> chestplate, DeferredItem<Item> leggings, DeferredItem<Item> boots){
+    protected void commonItems(DeferredItem<Item> ore, DeferredItem<Item> rawOre, DeferredBlock<Block> baseBlock, DeferredBlock<Block> button, DeferredBlock<Block> fence, DeferredBlock<Block> wall, DeferredBlock<Block> door, DeferredItem<Item> sword, DeferredItem<Item> axe, DeferredItem<Item> pickaxe, DeferredItem<Item> shovel, DeferredItem<Item> hoe, DeferredItem<Item> paxel, DeferredItem<Item> hammer, DeferredItem<Item> helmet, DeferredItem<Item> chestplate, DeferredItem<Item> leggings, DeferredItem<Item> boots, DeferredItem<Item> horseArmor){
         if (ore != null) basicItem(ore.get());
         if (rawOre != null) basicItem(rawOre.get());
 
@@ -49,15 +49,17 @@ public class ModItemModelProvider extends ItemModelProvider {
         if (chestplate != null) trimmedArmorItem(chestplate);
         if (leggings != null) trimmedArmorItem(leggings);
         if (boots != null) trimmedArmorItem(boots);
+
+        if (horseArmor != null) basicItem(horseArmor.get());
     }
 
     @Override
     protected void registerModels() {
 
-        commonItems(ModItems.BLACK_OPAL, ModItems.RAW_BLACK_OPAL, ModBlocks.BLACK_OPAL_BLOCK, ModBlocks.BLACK_OPAL_BUTTON, ModBlocks.BLACK_OPAL_FENCE, ModBlocks.BLACK_OPAL_WALL, ModBlocks.BLACK_OPAL_DOOR, ModItems.BLACK_OPAL_SWORD, ModItems.BLACK_OPAL_AXE, ModItems.BLACK_OPAL_PICKAXE, ModItems.BLACK_OPAL_SHOVEL, ModItems.BLACK_OPAL_HOE, ModItems.BLACK_OPAL_PAXEL, ModItems.BLACK_OPAL_HAMMER, ModItems.BLACK_OPAL_HELMET, ModItems.BLACK_OPAL_CHESTPLATE, ModItems.BLACK_OPAL_LEGGINGS, ModItems.BLACK_OPAL_BOOTS);
-        commonItems(ModItems.BISMUTH, ModItems.RAW_BISMUTH, ModBlocks.BISMUTH_BLOCK, ModBlocks.BISMUTH_BUTTON, ModBlocks.BISMUTH_FENCE, ModBlocks.BISMUTH_WALL, ModBlocks.BISMUTH_DOOR, ModItems.BISMUTH_SWORD, ModItems.BISMUTH_AXE, ModItems.BISMUTH_PICKAXE, ModItems.BISMUTH_SHOVEL, ModItems.BISMUTH_HOE, null, null, null, null, null, null);
-        commonItems(ModItems.ALEXANDRITE, ModItems.RAW_ALEXANDRITE, ModBlocks.ALEXANDRITE_BLOCK, ModBlocks.ALEXANDRITE_BUTTON, ModBlocks.ALEXANDRITE_FENCE, ModBlocks.ALEXANDRITE_WALL, ModBlocks.ALEXANDRITE_DOOR, null, null, null, null, null, null, null, null, null, null, null);
-        commonItems(null, null, ModBlocks.EBONY_PLANKS, ModBlocks.EBONY_BUTTON, ModBlocks.EBONY_FENCE, ModBlocks.EBONY_WALL, null, null, null, null, null, null, null, null, null, null, null, null);
+        commonItems(ModItems.BLACK_OPAL, ModItems.RAW_BLACK_OPAL, ModBlocks.BLACK_OPAL_BLOCK, ModBlocks.BLACK_OPAL_BUTTON, ModBlocks.BLACK_OPAL_FENCE, ModBlocks.BLACK_OPAL_WALL, ModBlocks.BLACK_OPAL_DOOR, ModItems.BLACK_OPAL_SWORD, ModItems.BLACK_OPAL_AXE, ModItems.BLACK_OPAL_PICKAXE, ModItems.BLACK_OPAL_SHOVEL, ModItems.BLACK_OPAL_HOE, ModItems.BLACK_OPAL_PAXEL, ModItems.BLACK_OPAL_HAMMER, ModItems.BLACK_OPAL_HELMET, ModItems.BLACK_OPAL_CHESTPLATE, ModItems.BLACK_OPAL_LEGGINGS, ModItems.BLACK_OPAL_BOOTS, ModItems.BLACK_OPAL_HORSE_ARMOR);
+        commonItems(ModItems.BISMUTH, ModItems.RAW_BISMUTH, ModBlocks.BISMUTH_BLOCK, ModBlocks.BISMUTH_BUTTON, ModBlocks.BISMUTH_FENCE, ModBlocks.BISMUTH_WALL, ModBlocks.BISMUTH_DOOR, ModItems.BISMUTH_SWORD, ModItems.BISMUTH_AXE, ModItems.BISMUTH_PICKAXE, ModItems.BISMUTH_SHOVEL, ModItems.BISMUTH_HOE, null, null, null, null, null, null, null);
+        commonItems(ModItems.ALEXANDRITE, ModItems.RAW_ALEXANDRITE, ModBlocks.ALEXANDRITE_BLOCK, ModBlocks.ALEXANDRITE_BUTTON, ModBlocks.ALEXANDRITE_FENCE, ModBlocks.ALEXANDRITE_WALL, ModBlocks.ALEXANDRITE_DOOR, null, null, null, null, null, null, null, null, null, null, null, null);
+        commonItems(null, null, ModBlocks.EBONY_PLANKS, ModBlocks.EBONY_BUTTON, ModBlocks.EBONY_FENCE, ModBlocks.EBONY_WALL, null, null, null, null, null, null, null, null, null, null, null, null, null);
 
         basicItem(ModItems.CHAINSAW.get());
 
