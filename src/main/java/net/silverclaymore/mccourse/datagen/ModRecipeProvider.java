@@ -9,7 +9,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.PressurePlateBlock;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.silverclaymore.mccourse.MCCourseMod;
@@ -24,28 +23,6 @@ public class ModRecipeProvider extends RecipeProvider {
     public ModRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries);
     }
-
-
-
-    protected void recipeBlockFromItem9(RecipeOutput recipeOutput, DeferredItem<Item> source, DeferredBlock<Block> result)
-    {
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, result.get())
-                .pattern("XXX")
-                .pattern("XXX")
-                .pattern("XXX")
-                .define('X', source.get())
-                .unlockedBy(getHasName(result.get()), has(result.get()))
-                .save(recipeOutput);
-    }
-
-    protected void recipeItemsFromBlock(RecipeOutput recipeOutput, DeferredBlock<Block> source, DeferredItem<Item> result, int resultCount)
-    {
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, result.get(), resultCount)
-                .requires(source.get())
-                .unlockedBy(getHasName(source.get()), has(source.get()))
-                .save(recipeOutput, MCCourseMod.MOD_ID + ":" + result.getKey().location().getPath() + "_from_" + source.getKey().location().getPath());
-    }
-
 
     @Override
     protected void buildRecipes(RecipeOutput recipeOutput) {
@@ -69,116 +46,15 @@ public class ModRecipeProvider extends RecipeProvider {
         recipeItemsFromBlock(recipeOutput, ModBlocks.MAGIC_BLOCK, ModItems.BLACK_OPAL, 9);
         recipeItemsFromBlock(recipeOutput, ModBlocks.EBONY_SAPLING, ModItems.ALEXANDRITE, 32);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.BLACK_OPAL_SWORD.get(), 1)
-                .pattern(" X ")
-                .pattern(" X ")
-                .pattern(" Y ")
-                .define('X', ModItems.BLACK_OPAL.get())
-                .define('Y', Items.STICK )
-                .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get()))
-                .save(recipeOutput, MCCourseMod.MOD_ID + ":" + "black_opal_recipe_sword");
+        recipeCommonToolsWeapons(recipeOutput, ModItems.BLACK_OPAL, ModItems.BLACK_OPAL_SWORD, ModItems.BLACK_OPAL_PICKAXE, ModItems.BLACK_OPAL_AXE, ModItems.BLACK_OPAL_SHOVEL, ModItems.BLACK_OPAL_HOE, ModItems.BLACK_OPAL_PAXEL, ModItems.BLACK_OPAL_HAMMER, ModItems.KAUPEN_BOW);
+        recipeCommonToolsWeapons(recipeOutput, ModItems.BISMUTH, ModItems.BISMUTH_SWORD, ModItems.BISMUTH_PICKAXE, ModItems.BISMUTH_AXE, ModItems.BISMUTH_SHOVEL, ModItems.BISMUTH_HOE, null, null, null);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.BLACK_OPAL_PICKAXE.get(), 1)
-                .pattern("XXX")
-                .pattern(" Y ")
-                .pattern(" Y ")
-                .define('X', ModItems.BLACK_OPAL.get())
-                .define('Y', Items.STICK )
-                .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get()))
-                .save(recipeOutput, MCCourseMod.MOD_ID + ":" + "black_opal_recipe_pickaxe");
+        recipeCommonArmor(recipeOutput, ModItems.BLACK_OPAL, ModItems.BLACK_OPAL_HELMET, ModItems.BLACK_OPAL_CHESTPLATE, ModItems.BLACK_OPAL_LEGGINGS, ModItems.BLACK_OPAL_BOOTS);
+        recipeCommonArmor(recipeOutput, ModItems.BISMUTH, null, null, null, null);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.BLACK_OPAL_AXE.get(), 1)
-                .pattern("XX ")
-                .pattern("XY ")
-                .pattern(" Y ")
-                .define('X', ModItems.BLACK_OPAL.get())
-                .define('Y', Items.STICK )
-                .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get()))
-                .save(recipeOutput, MCCourseMod.MOD_ID + ":" + "black_opal_recipe_axe");
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.BLACK_OPAL_SHOVEL.get(), 1)
-                .pattern(" X ")
-                .pattern(" Y ")
-                .pattern(" Y ")
-                .define('X', ModItems.BLACK_OPAL.get())
-                .define('Y', Items.STICK )
-                .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get()))
-                .save(recipeOutput, MCCourseMod.MOD_ID + ":" + "black_opal_recipe_shovel");
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.BLACK_OPAL_HOE.get(), 1)
-                .pattern("XX ")
-                .pattern(" Y ")
-                .pattern(" Y ")
-                .define('X', ModItems.BLACK_OPAL.get())
-                .define('Y', Items.STICK )
-                .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get()))
-                .save(recipeOutput, MCCourseMod.MOD_ID + ":" + "black_opal_recipe_hoe");
-
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.TOOLS, ModItems.BLACK_OPAL_PAXEL.get(),1)
-                .requires(ModItems.BLACK_OPAL_PICKAXE.get())
-                .requires(ModItems.BLACK_OPAL_AXE.get())
-                .requires(ModItems.BLACK_OPAL_SHOVEL.get())
-                .requires(ModItems.BLACK_OPAL_HOE.get())
-                .unlockedBy("has_magic_block", has(ModBlocks.MAGIC_BLOCK.get()))
-                .save(recipeOutput, MCCourseMod.MOD_ID + ":" + "black_opal_recipe_paxel");
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.BLACK_OPAL_HAMMER.get(), 1)
-                .pattern("XXX")
-                .pattern("XYX")
-                .pattern(" Y ")
-                .define('X', ModItems.BLACK_OPAL.get())
-                .define('Y', Items.STICK )
-                .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get()))
-                .save(recipeOutput, MCCourseMod.MOD_ID + ":" + "black_opal_recipe_hammer");
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.KAUPEN_BOW.get(), 1)
-                .pattern(" BX")
-                .pattern("S X")
-                .pattern(" BX")
-                .define('X', Items.STRING)
-                .define('B', ModItems.BLACK_OPAL)
-                .define('S', Items.STICK)
-                .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get()))
-                .save(recipeOutput, MCCourseMod.MOD_ID + ":" + "kaupen_bow_recipe_kaupen_bow");
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.BLACK_OPAL_HELMET.get(), 1)
-                .pattern("XXX")
-                .pattern("X X")
-                .define('X', ModItems.BLACK_OPAL.get())
-                .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get()))
-                .save(recipeOutput, MCCourseMod.MOD_ID + ":" + "black_opal_recipe_helmet");
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.BLACK_OPAL_CHESTPLATE.get(), 1)
-                .pattern("X X")
-                .pattern("XXX")
-                .pattern("XXX")
-                .define('X', ModItems.BLACK_OPAL.get())
-                .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get()))
-                .save(recipeOutput, MCCourseMod.MOD_ID + ":" + "black_opal_recipe_chestplate");
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.BLACK_OPAL_LEGGINGS.get(), 1)
-                .pattern("XXX")
-                .pattern("X X")
-                .pattern("X X")
-                .define('X', ModItems.BLACK_OPAL.get())
-                .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get()))
-                .save(recipeOutput, MCCourseMod.MOD_ID + ":" + "black_opal_recipe_leggings");
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.BLACK_OPAL_BOOTS.get(), 1)
-                .pattern("X X")
-                .pattern("X X")
-                .define('X', ModItems.BLACK_OPAL.get())
-                .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get()))
-                .save(recipeOutput, MCCourseMod.MOD_ID + ":" + "black_opal_recipe_boots");
-
-        oreSmelting(recipeOutput, SMELTABLES_BLACK_OPAL, RecipeCategory.MISC, ModItems.BLACK_OPAL.get(), 0.25f, 200, "black_opal" );
-        oreBlasting(recipeOutput, SMELTABLES_BLACK_OPAL, RecipeCategory.MISC, ModItems.BLACK_OPAL.get(), 0.25f, 100, "black_opal" );
-
-        oreSmelting(recipeOutput, SMELTABLES_BISMUTH, RecipeCategory.MISC, ModItems.BISMUTH.get(), 0.25f, 200, "bismuth" );
-        oreBlasting(recipeOutput, SMELTABLES_BISMUTH, RecipeCategory.MISC, ModItems.BISMUTH.get(), 0.25f, 100, "bismuth" );
-
-        oreSmelting(recipeOutput, SMELTABLES_ALEXANDRITE, RecipeCategory.MISC, ModItems.ALEXANDRITE.get(), 0.25f, 200, "alexandrite" );
-        oreBlasting(recipeOutput, SMELTABLES_ALEXANDRITE, RecipeCategory.MISC, ModItems.ALEXANDRITE.get(), 0.25f, 100, "alexandrite" );
+        oreSmeltAndBlast(recipeOutput, SMELTABLES_BLACK_OPAL, ModItems.BLACK_OPAL, 0.25f, 0.25f, 200, 100, "black_opal");
+        oreSmeltAndBlast(recipeOutput, SMELTABLES_BISMUTH, ModItems.BISMUTH, 0.25f, 0.25f, 200, 100, "bismuth");
+        oreSmeltAndBlast(recipeOutput, SMELTABLES_ALEXANDRITE, ModItems.ALEXANDRITE, 0.25f, 0.25f, 200, 100, "alexandrite");
 
         commonRecipes(recipeOutput, ModBlocks.BLACK_OPAL_BLOCK, null, "black_opal",
                 ModBlocks.BLACK_OPAL_PRESSURE_PLATE, ModBlocks.BLACK_OPAL_BUTTON, ModBlocks.BLACK_OPAL_SLAB, ModBlocks.BLACK_OPAL_STAIRS, ModBlocks.BLACK_OPAL_FENCE, ModBlocks.BLACK_OPAL_FENCE_GATE, ModBlocks.BLACK_OPAL_WALL, ModBlocks.BLACK_OPAL_DOOR, ModBlocks.BLACK_OPAL_TRAPDOOR);
@@ -219,6 +95,186 @@ public class ModRecipeProvider extends RecipeProvider {
         if (trapdoor != null) trapdoorBuilder(trapdoor, Ingredient.of(material)).group(group)
                 .unlockedBy("has_" + group, has(material)).save(recipeOutput);
 
+    }
+
+    protected void recipeCommonToolsWeapons(RecipeOutput recipeOutput, DeferredItem<Item> source, DeferredItem<Item> sword, DeferredItem<Item> pickaxe, DeferredItem<Item> axe, DeferredItem<Item> shovel, DeferredItem<Item> hoe, DeferredItem<Item> paxel, DeferredItem<Item> hammer, DeferredItem<Item> bow){
+        if (sword != null) recipeSword(recipeOutput, source, sword, 1);
+        if (pickaxe != null) recipePickaxe(recipeOutput, source, pickaxe, 1);
+        if (axe != null) recipeAxe(recipeOutput, source, axe, 1);
+        if (shovel != null) recipeShovel(recipeOutput, source, shovel, 1);
+        if (hoe != null) recipeHoe(recipeOutput, source, hoe, 1);
+        if (paxel != null) recipePaxel(recipeOutput, pickaxe, axe, shovel, hoe, ModBlocks.MAGIC_BLOCK, paxel, 1);
+        if (hammer != null) recipeHammer(recipeOutput, source, hammer, 1);
+        if (bow != null) recipeBow(recipeOutput, source, bow, 1);
+    }
+
+    protected void recipeCommonArmor(RecipeOutput recipeOutput, DeferredItem<Item> source, DeferredItem<Item> helmet, DeferredItem<Item> chestplate, DeferredItem<Item> leggings, DeferredItem<Item> boots){
+        if (helmet != null) recipeHelmet(recipeOutput, source, helmet, 1);
+        if (chestplate != null) recipeChestplate(recipeOutput, source, chestplate, 1);
+        if (leggings != null) recipeLeggings(recipeOutput, source, leggings, 1);
+        if (boots != null) recipeBoots(recipeOutput, source, boots, 1);
+    }
+
+    protected void recipeBlockFromItem9(RecipeOutput recipeOutput, DeferredItem<Item> source, DeferredBlock<Block> result)
+    {
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, result.get())
+                .pattern("XXX")
+                .pattern("XXX")
+                .pattern("XXX")
+                .define('X', source.get())
+                .unlockedBy(getHasName(result.get()), has(result.get()))
+                .save(recipeOutput);
+    }
+
+    protected void recipeItemsFromBlock(RecipeOutput recipeOutput, DeferredBlock<Block> source, DeferredItem<Item> result, int resultCount)
+    {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, result.get(), resultCount)
+                .requires(source.get())
+                .unlockedBy(getHasName(source.get()), has(source.get()))
+                .save(recipeOutput, MCCourseMod.MOD_ID + ":" + result.getKey().location().getPath() + "_from_" + source.getKey().location().getPath());
+    }
+
+    protected void recipeSword(RecipeOutput recipeOutput, DeferredItem<Item> source, DeferredItem<Item> result, int resultCount)
+    {
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, result.get(), resultCount)
+                .pattern(" X ")
+                .pattern(" X ")
+                .pattern(" Y ")
+                .define('X', source.get())
+                .define('Y', Items.STICK)
+                .unlockedBy(getHasName(source.get()), has(source.get()))
+                .save(recipeOutput, MCCourseMod.MOD_ID + ":combatw_" + source.getKey().location().getPath() + "_to_" + result.getKey().location().getPath());
+    }
+
+    protected void recipeBow(RecipeOutput recipeOutput, DeferredItem<Item> source, DeferredItem<Item> result, int resultCount)
+    {
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, result.get(), resultCount)
+                .pattern(" BX")
+                .pattern("S X")
+                .pattern(" BX")
+                .define('X', Items.STRING)
+                .define('B', source)
+                .define('S', Items.STICK)
+                .unlockedBy(getHasName(source.get()), has(source.get()))
+                .save(recipeOutput, MCCourseMod.MOD_ID + ":combatw_" + source.getKey().location().getPath() + "_to_" + result.getKey().location().getPath());
+    }
+
+    protected void recipePickaxe(RecipeOutput recipeOutput, DeferredItem<Item> source, DeferredItem<Item> result, int resultCount)
+    {
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, result.get(), resultCount)
+                .pattern("XXX")
+                .pattern(" Y ")
+                .pattern(" Y ")
+                .define('X', source.get())
+                .define('Y', Items.STICK )
+                .unlockedBy(getHasName(source.get()), has(source.get()))
+                .save(recipeOutput, MCCourseMod.MOD_ID + ":tools_" + source.getKey().location().getPath() + "_to_" + result.getKey().location().getPath());
+    }
+
+    protected void recipeAxe(RecipeOutput recipeOutput, DeferredItem<Item> source, DeferredItem<Item> result, int resultCount)
+    {
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, result.get(), resultCount)
+                .pattern("XX ")
+                .pattern(" Y ")
+                .pattern(" Y ")
+                .define('X', source.get())
+                .define('Y', Items.STICK )
+                .unlockedBy(getHasName(source.get()), has(source.get()))
+                .save(recipeOutput, MCCourseMod.MOD_ID + ":tools_" + source.getKey().location().getPath() + "_to_" + result.getKey().location().getPath());
+    }
+
+    protected void recipeShovel(RecipeOutput recipeOutput, DeferredItem<Item> source, DeferredItem<Item> result, int resultCount)
+    {
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, result.get(), resultCount)
+                .pattern(" X ")
+                .pattern(" Y ")
+                .pattern(" Y ")
+                .define('X', source.get())
+                .define('Y', Items.STICK )
+                .unlockedBy(getHasName(source.get()), has(source.get()))
+                .save(recipeOutput, MCCourseMod.MOD_ID + ":tools_" + source.getKey().location().getPath() + "_to_" + result.getKey().location().getPath());
+    }
+
+    protected void recipeHoe(RecipeOutput recipeOutput, DeferredItem<Item> source, DeferredItem<Item> result, int resultCount)
+    {
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, result.get(), resultCount)
+                .pattern("XX ")
+                .pattern(" Y ")
+                .pattern(" Y ")
+                .define('X', source.get())
+                .define('Y', Items.STICK )
+                .unlockedBy(getHasName(source.get()), has(source.get()))
+                .save(recipeOutput, MCCourseMod.MOD_ID + ":tools_" + source.getKey().location().getPath() + "_to_" + result.getKey().location().getPath());
+    }
+
+    protected void recipePaxel(RecipeOutput recipeOutput, DeferredItem<Item> pickaxe, DeferredItem<Item> axe, DeferredItem<Item> shovel, DeferredItem<Item> hoe, DeferredBlock<Block> unlockedByBlock, DeferredItem<Item> result, int resultCount)
+    {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.TOOLS, result.get(),1)
+                .requires(pickaxe.get())
+                .requires(axe.get())
+                .requires(shovel.get())
+                .requires(hoe.get())
+                .unlockedBy(getHasName(unlockedByBlock.get()), has(unlockedByBlock.get()))
+                .save(recipeOutput, MCCourseMod.MOD_ID + ":tools_" + result.getKey().location().getPath());
+    }
+
+    protected void recipeHammer(RecipeOutput recipeOutput, DeferredItem<Item> source, DeferredItem<Item> result, int resultCount)
+    {
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, result.get(), resultCount)
+                .pattern("XXX")
+                .pattern("XYX")
+                .pattern(" Y ")
+                .define('X', source.get())
+                .define('Y', Items.STICK )
+                .unlockedBy(getHasName(source.get()), has(source.get()))
+                .save(recipeOutput, MCCourseMod.MOD_ID + ":tools_" + source.getKey().location().getPath() + "_to_" + result.getKey().location().getPath());
+    }
+
+    protected void recipeHelmet(RecipeOutput recipeOutput, DeferredItem<Item> source, DeferredItem<Item> result, int resultCount)
+    {
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, result.get(), resultCount)
+                .pattern("XXX")
+                .pattern("X X")
+                .define('X', source.get())
+                .unlockedBy(getHasName(source.get()), has(source.get()))
+                .save(recipeOutput, MCCourseMod.MOD_ID + ":combat_" + source.getKey().location().getPath() + "_to_" + result.getKey().location().getPath());
+    }
+
+    protected void recipeChestplate(RecipeOutput recipeOutput, DeferredItem<Item> source, DeferredItem<Item> result, int resultCount)
+    {
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, result.get(), resultCount)
+                .pattern("X X")
+                .pattern("XXX")
+                .pattern("XXX")
+                .define('X', source.get())
+                .unlockedBy(getHasName(source.get()), has(source.get()))
+                .save(recipeOutput, MCCourseMod.MOD_ID + ":combat_" + source.getKey().location().getPath() + "_to_" + result.getKey().location().getPath());
+    }
+
+    protected void recipeLeggings(RecipeOutput recipeOutput, DeferredItem<Item> source, DeferredItem<Item> result, int resultCount)
+    {
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, result.get(), resultCount)
+                .pattern("XXX")
+                .pattern("X X")
+                .pattern("X X")
+                .define('X', source.get())
+                .unlockedBy(getHasName(source.get()), has(source.get()))
+                .save(recipeOutput, MCCourseMod.MOD_ID + ":combat_" + source.getKey().location().getPath() + "_to_" + result.getKey().location().getPath());
+    }
+
+    protected void recipeBoots(RecipeOutput recipeOutput, DeferredItem<Item> source, DeferredItem<Item> result, int resultCount)
+    {
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, result.get(), resultCount)
+                .pattern("X X")
+                .pattern("X X")
+                .define('X', source.get())
+                .unlockedBy(getHasName(source.get()), has(source.get()))
+                .save(recipeOutput, MCCourseMod.MOD_ID + ":combat_" + source.getKey().location().getPath() + "_to_" + result.getKey().location().getPath());
+    }
+
+    protected static void oreSmeltAndBlast(RecipeOutput recipeOutput, List<ItemLike> ingredients, ItemLike result, float experienceSmelt, float experienceBlast, int cookingTimeSmelt, int cookingTimeBlast, String group){
+        oreSmelting(recipeOutput, ingredients, RecipeCategory.MISC, result, experienceSmelt, cookingTimeSmelt, group );
+        oreBlasting(recipeOutput, ingredients, RecipeCategory.MISC, result, experienceBlast, cookingTimeBlast, group );
     }
 
     protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> ingredients, RecipeCategory category, ItemLike result,
