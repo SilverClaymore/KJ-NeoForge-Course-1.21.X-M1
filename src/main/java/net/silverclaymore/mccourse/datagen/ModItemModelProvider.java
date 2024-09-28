@@ -61,6 +61,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         commonItems(ModItems.ALEXANDRITE, ModItems.RAW_ALEXANDRITE, ModBlocks.ALEXANDRITE_BLOCK, ModBlocks.ALEXANDRITE_BUTTON, ModBlocks.ALEXANDRITE_FENCE, ModBlocks.ALEXANDRITE_WALL, ModBlocks.ALEXANDRITE_DOOR, null, null, null, null, null, null, null, null, null, null, null, null);
         commonItems(null, null, ModBlocks.EBONY_PLANKS, ModBlocks.EBONY_BUTTON, ModBlocks.EBONY_FENCE, ModBlocks.EBONY_WALL, null, null, null, null, null, null, null, null, null, null, null, null, null);
 
+        basicItem(ModItems.KAUPEN_SMITHING_TEMPLATE.get());
+
         basicItem(ModItems.CHAINSAW.get());
 
         basicItem(ModItems.TOMATO.get());

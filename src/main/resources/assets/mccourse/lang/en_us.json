@@ -38,6 +38,7 @@
   "item.mccourse.black_opal_boots": "Black Opal Boots",
 
   "item.mccourse.black_opal_horse_armor": "Black Opal Horse Armor",
+  "item.mccourse.kaupen_armor_trim_smithing_template": "Kaupen Trim Template",
 
   "block.mccourse.black_opal_block": "Block of Black Opal",
   "block.mccourse.raw_black_opal_block": "Raw Black Opal Block",
@@ -156,5 +157,8 @@
   "itemGroup.mccourse.bismuth_items_tab": "Bismuth Items",
   "itemGroup.mccourse.bismuth_blocks_tab": "Bismuth Blocks",
   "itemGroup.mccourse.alexandrite_items_tab": "Alexandrite Items",
-  "itemGroup.mccourse.alexandrite_blocks_tab": "Alexandrite Blocks"
+  "itemGroup.mccourse.alexandrite_blocks_tab": "Alexandrite Blocks",
+
+  "trim_pattern.mccourse.kaupen": "Kaupen Armor Trims",
+  "trim_material.mccourse.black_opal": "Kaupen Armor Trims"
 }
