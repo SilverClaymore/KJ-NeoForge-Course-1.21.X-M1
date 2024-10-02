@@ -48,7 +48,7 @@ public class ModRecipeProvider extends RecipeProvider {
         recipeItemsFromBlock(recipeOutput, ModBlocks.EBONY_SAPLING, ModItems.ALEXANDRITE, 32);
 
         recipeCommonToolsWeapons(recipeOutput, ModItems.BLACK_OPAL, ModItems.BLACK_OPAL_SWORD, ModItems.BLACK_OPAL_PICKAXE, ModItems.BLACK_OPAL_AXE, ModItems.BLACK_OPAL_SHOVEL, ModItems.BLACK_OPAL_HOE, ModItems.BLACK_OPAL_PAXEL, ModItems.BLACK_OPAL_HAMMER, ModItems.KAUPEN_BOW);
-        recipeCommonToolsWeapons(recipeOutput, ModItems.BISMUTH, ModItems.BISMUTH_SWORD, ModItems.BISMUTH_PICKAXE, ModItems.BISMUTH_AXE, ModItems.BISMUTH_SHOVEL, ModItems.BISMUTH_HOE, null, null, null);
+        recipeCommonToolsWeapons(recipeOutput, ModItems.BISMUTH, ModItems.BISMUTH_SWORD, ModItems.BISMUTH_PICKAXE, ModItems.BISMUTH_AXE, ModItems.BISMUTH_SHOVEL, ModItems.BISMUTH_HOE, null, ModItems.BISMUTH_HAMMER, null);
 
         recipeCommonArmor(recipeOutput, ModItems.BLACK_OPAL, ModItems.BLACK_OPAL_HELMET, ModItems.BLACK_OPAL_CHESTPLATE, ModItems.BLACK_OPAL_LEGGINGS, ModItems.BLACK_OPAL_BOOTS);
         recipeCommonArmor(recipeOutput, ModItems.BISMUTH, null, null, null, null);

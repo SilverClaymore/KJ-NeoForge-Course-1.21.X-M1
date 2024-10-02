@@ -108,7 +108,7 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("itemGroup.mccourse.bismuth_items_tab"))
                     .icon(() -> new ItemStack(ModItems.BISMUTH.get()))
                     .displayItems((pParameters, pOutput) -> {
-                        addCommonItems(pOutput, ModItems.BISMUTH, ModItems.RAW_BISMUTH, ModItems.BISMUTH_SWORD, ModItems.BISMUTH_PICKAXE, ModItems.BISMUTH_AXE, ModItems.BISMUTH_SHOVEL, ModItems.BISMUTH_HOE, null, null, null, null, null, null, null);
+                        addCommonItems(pOutput, ModItems.BISMUTH, ModItems.RAW_BISMUTH, ModItems.BISMUTH_SWORD, ModItems.BISMUTH_PICKAXE, ModItems.BISMUTH_AXE, ModItems.BISMUTH_SHOVEL, ModItems.BISMUTH_HOE, null, ModItems.BISMUTH_HAMMER, null, null, null, null, null);
                     }).build());
 
     public static final Supplier<CreativeModeTab> ALEXANDRITE_ITEMS_TAB =
