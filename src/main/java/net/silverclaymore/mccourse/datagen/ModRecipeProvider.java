@@ -36,13 +36,17 @@ public class ModRecipeProvider extends RecipeProvider {
         List<ItemLike> SMELTABLES_ALEXANDRITE = List.of(ModItems.RAW_ALEXANDRITE, ModBlocks.ALEXANDRITE_ORE,
                 ModBlocks.ALEXANDRITE_DEEPSLATE_ORE);
 
+        List<ItemLike> SMELTABLES_PINK_GARNET = List.of(ModItems.RAW_PINK_GARNET);
+
         recipeBlockFromItem9(recipeOutput, ModItems.BLACK_OPAL, ModBlocks.BLACK_OPAL_BLOCK);
         recipeBlockFromItem9(recipeOutput, ModItems.BISMUTH, ModBlocks.BISMUTH_BLOCK);
         recipeBlockFromItem9(recipeOutput, ModItems.ALEXANDRITE, ModBlocks.ALEXANDRITE_BLOCK);
+        recipeBlockFromItem9(recipeOutput, ModItems.PINK_GARNET, ModBlocks.PINK_GARNET_BLOCK);
 
         recipeItemsFromBlock(recipeOutput, ModBlocks.BLACK_OPAL_BLOCK, ModItems.BLACK_OPAL, 9);
         recipeItemsFromBlock(recipeOutput, ModBlocks.BISMUTH_BLOCK, ModItems.BISMUTH, 9);
         recipeItemsFromBlock(recipeOutput, ModBlocks.ALEXANDRITE_BLOCK, ModItems.ALEXANDRITE, 9);
+        recipeItemsFromBlock(recipeOutput, ModBlocks.PINK_GARNET_BLOCK, ModItems.PINK_GARNET, 9);
 
         recipeItemsFromBlock(recipeOutput, ModBlocks.MAGIC_BLOCK, ModItems.BLACK_OPAL, 9);
         recipeItemsFromBlock(recipeOutput, ModBlocks.EBONY_SAPLING, ModItems.ALEXANDRITE, 32);
@@ -51,11 +55,14 @@ public class ModRecipeProvider extends RecipeProvider {
         recipeCommonToolsWeapons(recipeOutput, ModItems.BISMUTH, ModItems.BISMUTH_SWORD, ModItems.BISMUTH_PICKAXE, ModItems.BISMUTH_AXE, ModItems.BISMUTH_SHOVEL, ModItems.BISMUTH_HOE, null, ModItems.BISMUTH_HAMMER, null);
 
         recipeCommonArmor(recipeOutput, ModItems.BLACK_OPAL, ModItems.BLACK_OPAL_HELMET, ModItems.BLACK_OPAL_CHESTPLATE, ModItems.BLACK_OPAL_LEGGINGS, ModItems.BLACK_OPAL_BOOTS);
-        recipeCommonArmor(recipeOutput, ModItems.BISMUTH, null, null, null, null);
+        recipeCommonArmor(recipeOutput, ModItems.BISMUTH, ModItems.BISMUTH_HELMET, ModItems.BISMUTH_CHESTPLATE, ModItems.BISMUTH_LEGGINGS, ModItems.BISMUTH_BOOTS);
+        recipeCommonArmor(recipeOutput, ModItems.ALEXANDRITE, ModItems.ALEXANDRITE_HELMET, ModItems.ALEXANDRITE_CHESTPLATE, ModItems.ALEXANDRITE_LEGGINGS, ModItems.ALEXANDRITE_BOOTS);
+        recipeCommonArmor(recipeOutput, ModItems.PINK_GARNET, ModItems.PINK_GARNET_HELMET, ModItems.PINK_GARNET_CHESTPLATE, ModItems.PINK_GARNET_LEGGINGS, ModItems.PINK_GARNET_BOOTS);
 
         oreSmeltAndBlast(recipeOutput, SMELTABLES_BLACK_OPAL, ModItems.BLACK_OPAL, 0.25f, 0.25f, 200, 100, "black_opal");
         oreSmeltAndBlast(recipeOutput, SMELTABLES_BISMUTH, ModItems.BISMUTH, 0.25f, 0.25f, 200, 100, "bismuth");
         oreSmeltAndBlast(recipeOutput, SMELTABLES_ALEXANDRITE, ModItems.ALEXANDRITE, 0.25f, 0.25f, 200, 100, "alexandrite");
+        oreSmeltAndBlast(recipeOutput, SMELTABLES_PINK_GARNET, ModItems.PINK_GARNET, 0.25f, 0.25f, 200, 100, "pink_garnet");
 
         commonRecipes(recipeOutput, ModBlocks.BLACK_OPAL_BLOCK, null, "black_opal",
                 ModBlocks.BLACK_OPAL_PRESSURE_PLATE, ModBlocks.BLACK_OPAL_BUTTON, ModBlocks.BLACK_OPAL_SLAB, ModBlocks.BLACK_OPAL_STAIRS, ModBlocks.BLACK_OPAL_FENCE, ModBlocks.BLACK_OPAL_FENCE_GATE, ModBlocks.BLACK_OPAL_WALL, ModBlocks.BLACK_OPAL_DOOR, ModBlocks.BLACK_OPAL_TRAPDOOR);

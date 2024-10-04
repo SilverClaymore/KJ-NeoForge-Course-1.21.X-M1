@@ -50,6 +50,11 @@ public class ModBlocks {
             () -> new DropExperienceBlock(UniformInt.of(2 ,4),
                     BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
+    public static final DeferredBlock<Block> PINK_GARNET_BLOCK = registerBlock("pink_garnet_block",
+            () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().sound(SoundType.AMETHYST)));
+    public static final DeferredBlock<Block> RAW_PINK_GARNET_BLOCK = registerBlock("raw_pink_garnet_block",
+            () -> new Block(BlockBehaviour.Properties.of().strength(3f).requiresCorrectToolForDrops()));
+
 
     public static final DeferredBlock<Block> BLACK_OPAL_DEEPSLATE_ORE = registerBlock("black_opal_deepslate_ore",
             () -> new DropExperienceBlock(UniformInt.of(3 ,6),

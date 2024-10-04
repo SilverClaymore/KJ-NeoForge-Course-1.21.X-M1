@@ -108,7 +108,7 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("itemGroup.mccourse.bismuth_items_tab"))
                     .icon(() -> new ItemStack(ModItems.BISMUTH.get()))
                     .displayItems((pParameters, pOutput) -> {
-                        addCommonItems(pOutput, ModItems.BISMUTH, ModItems.RAW_BISMUTH, ModItems.BISMUTH_SWORD, ModItems.BISMUTH_PICKAXE, ModItems.BISMUTH_AXE, ModItems.BISMUTH_SHOVEL, ModItems.BISMUTH_HOE, null, ModItems.BISMUTH_HAMMER, null, null, null, null, null);
+                        addCommonItems(pOutput, ModItems.BISMUTH, ModItems.RAW_BISMUTH, ModItems.BISMUTH_SWORD, ModItems.BISMUTH_PICKAXE, ModItems.BISMUTH_AXE, ModItems.BISMUTH_SHOVEL, ModItems.BISMUTH_HOE, null, ModItems.BISMUTH_HAMMER, ModItems.BISMUTH_HELMET, ModItems.BISMUTH_CHESTPLATE, ModItems.BISMUTH_LEGGINGS, ModItems.BISMUTH_BOOTS, null);
                     }).build());
 
     public static final Supplier<CreativeModeTab> ALEXANDRITE_ITEMS_TAB =
@@ -116,8 +116,17 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("itemGroup.mccourse.alexandrite_items_tab"))
                     .icon(() -> new ItemStack(ModItems.ALEXANDRITE.get()))
                     .displayItems((pParameters, pOutput) -> {
-                        addCommonItems(pOutput, ModItems.ALEXANDRITE, ModItems.RAW_ALEXANDRITE, null, null, null, null, null, null, null, null, null, null, null, null);
+                        addCommonItems(pOutput, ModItems.ALEXANDRITE, ModItems.RAW_ALEXANDRITE, null, null, null, null, null, null, null, ModItems.ALEXANDRITE_HELMET, ModItems.ALEXANDRITE_CHESTPLATE, ModItems.ALEXANDRITE_LEGGINGS, ModItems.ALEXANDRITE_BOOTS, null);
                     }).build());
+
+    public static final Supplier<CreativeModeTab> PINK_GARNET_ITEMS_TAB =
+            CREATIVE_MODE_TABS.register("pink_garnet_items_tab", () -> CreativeModeTab.builder()
+                    .title(Component.translatable("itemGroup.mccourse.pink_garnet_items_tab"))
+                    .icon(() -> new ItemStack(ModItems.PINK_GARNET.get()))
+                    .displayItems((pParameters, pOutput) -> {
+                        addCommonItems(pOutput, ModItems.PINK_GARNET, ModItems.RAW_PINK_GARNET, null, null, null, null, null, null, null, ModItems.PINK_GARNET_HELMET, ModItems.PINK_GARNET_CHESTPLATE, ModItems.PINK_GARNET_LEGGINGS, ModItems.PINK_GARNET_BOOTS, null);
+                    }).build());
+
 
 
     public static final Supplier<CreativeModeTab> BLACK_OPAL_BLOCKS_TAB =
@@ -160,6 +169,16 @@ public class ModCreativeModeTabs {
                         addCommonBlocks(pOutput, ModBlocks.ALEXANDRITE_BLOCK, ModBlocks.RAW_ALEXANDRITE_BLOCK, ModBlocks.ALEXANDRITE_ORE, ModBlocks.ALEXANDRITE_DEEPSLATE_ORE, null, null, ModBlocks.ALEXANDRITE_SLAB, ModBlocks.ALEXANDRITE_STAIRS, ModBlocks.ALEXANDRITE_PRESSURE_PLATE, ModBlocks.ALEXANDRITE_BUTTON, ModBlocks.ALEXANDRITE_FENCE, ModBlocks.ALEXANDRITE_FENCE_GATE, ModBlocks.ALEXANDRITE_WALL, ModBlocks.ALEXANDRITE_DOOR, ModBlocks.ALEXANDRITE_TRAPDOOR);
                     })
                     .withTabsBefore(ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID,"alexandrite_items_tab"))
+                    .build());
+
+    public static final Supplier<CreativeModeTab> PINK_GARNET_BLOCKS_TAB =
+            CREATIVE_MODE_TABS.register("pink_garnet_blocks_tab", () -> CreativeModeTab.builder()
+                    .title(Component.translatable("itemGroup.mccourse.pink_garnet_blocks_tab"))
+                    .icon(() -> new ItemStack(ModBlocks.PINK_GARNET_BLOCK.get()))
+                    .displayItems((pParameters, pOutput) -> {
+                        addCommonBlocks(pOutput, ModBlocks.PINK_GARNET_BLOCK, ModBlocks.RAW_PINK_GARNET_BLOCK, null, null, null, null, null, null, null, null, null, null, null, null, null);
+                    })
+                    .withTabsBefore(ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID,"pink_garnet_items_tab"))
                     .build());
 
     public static void register(IEventBus eventBus){

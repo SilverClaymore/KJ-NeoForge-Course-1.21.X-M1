@@ -5,6 +5,8 @@
   "item.mccourse.raw_bismuth": "Raw Bismuth",
   "item.mccourse.alexandrite": "Alexandrite Gem",
   "item.mccourse.raw_alexandrite": "Raw Alexandrite",
+  "item.mccourse.pink_garnet": "Pink Garnet",
+  "item.mccourse.raw_pink_garnet": "Raw Pink Garnet",
 
   "item.mccourse.chainsaw": "Chainsaw",
   "item.mccourse.tomato": "Tomato",
@@ -37,6 +39,21 @@
   "item.mccourse.black_opal_leggings": "Black Opal Leggings",
   "item.mccourse.black_opal_boots": "Black Opal Boots",
 
+  "item.mccourse.bismuth_helmet": "Bismuth Helmet",
+  "item.mccourse.bismuth_chestplate": "Bismuth Chestplate",
+  "item.mccourse.bismuth_leggings": "Bismuth Leggings",
+  "item.mccourse.bismuth_boots": "Bismuth Boots",
+
+  "item.mccourse.alexandrite_helmet": "Alexandrite Helmet",
+  "item.mccourse.alexandrite_chestplate": "Alexandrite Chestplate",
+  "item.mccourse.alexandrite_leggings": "Alexandrite Leggings",
+  "item.mccourse.alexandrite_boots": "Alexandrite Boots",
+
+  "item.mccourse.pink_garnet_helmet": "Pink Garnet Helmet",
+  "item.mccourse.pink_garnet_chestplate": "Pink Garnet Chestplate",
+  "item.mccourse.pink_garnet_leggings": "Pink Garnet Leggings",
+  "item.mccourse.pink_garnet_boots": "Pink Garnet Boots",
+
   "item.mccourse.black_opal_horse_armor": "Black Opal Horse Armor",
   "item.mccourse.kaupen_armor_trim_smithing_template": "Kaupen Trim Template",
 
@@ -55,6 +72,9 @@
   "block.mccourse.raw_alexandrite_block": "Raw Alexandrite Block",
   "block.mccourse.alexandrite_ore": "Alexandrite Ore",
   "block.mccourse.alexandrite_deepslate_ore": "Alexandrite Deepslate Ore",
+
+  "block.mccourse.pink_garnet_block": "Block of Pink Garnet",
+  "block.mccourse.raw_pink_garnet_block": "Raw Pink Garnet",
 
   "block.mccourse.magic_block": "Magic Block",
 
@@ -158,6 +178,8 @@
   "itemGroup.mccourse.bismuth_blocks_tab": "Bismuth Blocks",
   "itemGroup.mccourse.alexandrite_items_tab": "Alexandrite Items",
   "itemGroup.mccourse.alexandrite_blocks_tab": "Alexandrite Blocks",
+  "itemGroup.mccourse.pink_garnet_items_tab": "Pink Garnet Items",
+  "itemGroup.mccourse.pink_garnet_blocks_tab": "Pink Garnet Blocks",
 
   "trim_pattern.mccourse.kaupen": "Kaupen Armor Trims",
   "trim_material.mccourse.black_opal": "Kaupen Armor Trims"

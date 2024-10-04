@@ -34,6 +34,10 @@ public class ModItems {
     public static final DeferredItem<Item> RAW_ALEXANDRITE =
             ITEMS.registerItem("raw_alexandrite", Item::new, new Item.Properties());
 
+    public static final DeferredItem<Item> PINK_GARNET = ITEMS.registerSimpleItem("pink_garnet");
+
+    public static final DeferredItem<Item> RAW_PINK_GARNET =
+            ITEMS.registerItem("raw_pink_garnet", Item::new, new Item.Properties());
 
     public static final DeferredItem<Item> CHAINSAW =
             ITEMS.registerItem("chainsaw", ChainsawItem::new, new Item.Properties().durability(32));
@@ -131,6 +135,45 @@ public class ModItems {
     public static final DeferredItem<Item> BLACK_OPAL_BOOTS = ITEMS.register("black_opal_boots",
             () -> new ArmorItem(ModArmorMaterials.BLACK_OPAL, ArmorItem.Type.BOOTS,
                     new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(16))));
+
+    public static final DeferredItem<Item> BISMUTH_HELMET = ITEMS.register("bismuth_helmet",
+            () -> new ModArmorItem(ModArmorMaterials.BISMUTH, ArmorItem.Type.HELMET,
+                    new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(19))));
+    public static final DeferredItem<Item> BISMUTH_CHESTPLATE = ITEMS.register("bismuth_chestplate",
+            () -> new ArmorItem(ModArmorMaterials.BISMUTH, ArmorItem.Type.CHESTPLATE,
+                    new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(19))));
+    public static final DeferredItem<Item> BISMUTH_LEGGINGS = ITEMS.register("bismuth_leggings",
+            () -> new ArmorItem(ModArmorMaterials.BISMUTH, ArmorItem.Type.LEGGINGS,
+                    new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(19))));
+    public static final DeferredItem<Item> BISMUTH_BOOTS = ITEMS.register("bismuth_boots",
+            () -> new ArmorItem(ModArmorMaterials.BISMUTH, ArmorItem.Type.BOOTS,
+                    new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(19))));
+
+    public static final DeferredItem<Item> ALEXANDRITE_HELMET = ITEMS.register("alexandrite_helmet",
+            () -> new ModArmorItem(ModArmorMaterials.ALEXANDRITE, ArmorItem.Type.HELMET,
+                    new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(18))));
+    public static final DeferredItem<Item> ALEXANDRITE_CHESTPLATE = ITEMS.register("alexandrite_chestplate",
+            () -> new ArmorItem(ModArmorMaterials.ALEXANDRITE, ArmorItem.Type.CHESTPLATE,
+                    new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(18))));
+    public static final DeferredItem<Item> ALEXANDRITE_LEGGINGS = ITEMS.register("alexandrite_leggings",
+            () -> new ArmorItem(ModArmorMaterials.ALEXANDRITE, ArmorItem.Type.LEGGINGS,
+                    new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(18))));
+    public static final DeferredItem<Item> ALEXANDRITE_BOOTS = ITEMS.register("alexandrite_boots",
+            () -> new ArmorItem(ModArmorMaterials.ALEXANDRITE, ArmorItem.Type.BOOTS,
+                    new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(18))));
+
+    public static final DeferredItem<Item> PINK_GARNET_HELMET = ITEMS.register("pink_garnet_helmet",
+            () -> new ModArmorItem(ModArmorMaterials.ALEXANDRITE, ArmorItem.Type.HELMET,
+                    new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(15))));
+    public static final DeferredItem<Item> PINK_GARNET_CHESTPLATE = ITEMS.register("pink_garnet_chestplate",
+            () -> new ArmorItem(ModArmorMaterials.ALEXANDRITE, ArmorItem.Type.CHESTPLATE,
+                    new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(15))));
+    public static final DeferredItem<Item> PINK_GARNET_LEGGINGS = ITEMS.register("pink_garnet_leggings",
+            () -> new ArmorItem(ModArmorMaterials.ALEXANDRITE, ArmorItem.Type.LEGGINGS,
+                    new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(15))));
+    public static final DeferredItem<Item> PINK_GARNET_BOOTS = ITEMS.register("pink_garnet_boots",
+            () -> new ArmorItem(ModArmorMaterials.ALEXANDRITE, ArmorItem.Type.BOOTS,
+                    new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(15))));
 
     public static final DeferredItem<Item> METAL_DETECTOR = ITEMS.register("metal_detector",
             () -> new MetalDetectorItem(new Item.Properties().durability(100)));

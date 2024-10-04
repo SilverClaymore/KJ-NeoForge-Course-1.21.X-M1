@@ -61,7 +61,20 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.BLACK_OPAL_HELMET.get())
                 .add(ModItems.BLACK_OPAL_CHESTPLATE.get())
                 .add(ModItems.BLACK_OPAL_LEGGINGS.get())
-                .add(ModItems.BLACK_OPAL_BOOTS.get());
+                .add(ModItems.BLACK_OPAL_BOOTS.get())
+                .add(ModItems.BISMUTH_HELMET.get())
+                .add(ModItems.BISMUTH_CHESTPLATE.get())
+                .add(ModItems.BISMUTH_LEGGINGS.get())
+                .add(ModItems.BISMUTH_BOOTS.get())
+                .add(ModItems.ALEXANDRITE_HELMET.get())
+                .add(ModItems.ALEXANDRITE_CHESTPLATE.get())
+                .add(ModItems.ALEXANDRITE_LEGGINGS.get())
+                .add(ModItems.ALEXANDRITE_BOOTS.get())
+                .add(ModItems.PINK_GARNET_HELMET.get())
+                .add(ModItems.PINK_GARNET_CHESTPLATE.get())
+                .add(ModItems.PINK_GARNET_LEGGINGS.get())
+                .add(ModItems.PINK_GARNET_BOOTS.get())
+        ;
 
         tag(ItemTags.TRIM_MATERIALS)
                 .add(ModItems.BLACK_OPAL.get());
