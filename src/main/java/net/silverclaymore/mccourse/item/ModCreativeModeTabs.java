@@ -13,6 +13,7 @@ import net.silverclaymore.mccourse.MCCourseMod;
 import net.silverclaymore.mccourse.block.ModBlocks;
 import net.silverclaymore.mccourse.fluid.ModFluids;
 
+import java.util.Map;
 import java.util.function.Supplier;
 
 public class ModCreativeModeTabs {
@@ -37,7 +38,7 @@ public class ModCreativeModeTabs {
                     .icon(() -> new ItemStack(ModItems.BLACK_OPAL.get()))
                     .displayItems((pParameters, pOutput) -> {
                         addElements(pOutput, new DeferredItem[]{
-                                ModItems.BLACK_OPAL, ModItems.RAW_BLACK_OPAL, ModItems.BLACK_OPAL_SWORD, ModItems.BLACK_OPAL_PICKAXE, ModItems.BLACK_OPAL_AXE, ModItems.BLACK_OPAL_SHOVEL, ModItems.BLACK_OPAL_HOE, ModItems.BLACK_OPAL_PAXEL, ModItems.BLACK_OPAL_HAMMER, ModItems.BLACK_OPAL_HELMET, ModItems.BLACK_OPAL_CHESTPLATE, ModItems.BLACK_OPAL_LEGGINGS, ModItems.BLACK_OPAL_BOOTS, ModItems.BLACK_OPAL_HORSE_ARMOR
+                                  ModItems.BLACK_OPAL, ModItems.RAW_BLACK_OPAL, ModItems.BLACK_OPAL_SWORD, ModItems.BLACK_OPAL_PICKAXE, ModItems.BLACK_OPAL_AXE, ModItems.BLACK_OPAL_SHOVEL, ModItems.BLACK_OPAL_HOE, ModItems.BLACK_OPAL_PAXEL, ModItems.BLACK_OPAL_HAMMER, ModItems.BLACK_OPAL_HELMET, ModItems.BLACK_OPAL_CHESTPLATE, ModItems.BLACK_OPAL_LEGGINGS, ModItems.BLACK_OPAL_BOOTS, ModItems.BLACK_OPAL_HORSE_ARMOR
                                 , ModItems.KAUPEN_SMITHING_TEMPLATE
                                 , ModItems.CHAINSAW
                                 , ModItems.TOMATO, ModItems.TOMATO_SEEDS, ModItems.FROSTFIRE_ICE
@@ -86,62 +87,67 @@ public class ModCreativeModeTabs {
                         });
                     }).build());
 
-    public static final Supplier<CreativeModeTab> BLACK_OPAL_BLOCKS_TAB =
-            CREATIVE_MODE_TABS.register("black_opal_blocks_tab", () -> CreativeModeTab.builder()
-                    .title(Component.translatable("itemGroup.mccourse.black_opal_blocks_tab"))
-                    .icon(() -> new ItemStack(ModBlocks.BLACK_OPAL_BLOCK.get()))
-                    .displayItems((pParameters, pOutput) -> {
-                        addElements(pOutput,new DeferredBlock[]{
-                                ModBlocks.BLACK_OPAL_BLOCK, ModBlocks.RAW_BLACK_OPAL_BLOCK, ModBlocks.BLACK_OPAL_ORE, ModBlocks.BLACK_OPAL_DEEPSLATE_ORE, ModBlocks.BLACK_OPAL_END_ORE, ModBlocks.BLACK_OPAL_NETHER_ORE, ModBlocks.BLACK_OPAL_SLAB, ModBlocks.BLACK_OPAL_STAIRS, ModBlocks.BLACK_OPAL_PRESSURE_PLATE, ModBlocks.BLACK_OPAL_BUTTON, ModBlocks.BLACK_OPAL_FENCE, ModBlocks.BLACK_OPAL_FENCE_GATE, ModBlocks.BLACK_OPAL_WALL, ModBlocks.BLACK_OPAL_DOOR, ModBlocks.BLACK_OPAL_TRAPDOOR
-                                , ModBlocks.EBONY_SLAB, ModBlocks.EBONY_STAIRS, ModBlocks.EBONY_PRESSURE_PLATE, ModBlocks.EBONY_BUTTON, ModBlocks.EBONY_FENCE, ModBlocks.EBONY_FENCE_GATE, ModBlocks.EBONY_WALL
-                                , ModBlocks.EBONY_LOG, ModBlocks.EBONY_WOOD, ModBlocks.STRIPPED_EBONY_LOG, ModBlocks.STRIPPED_EBONY_WOOD, ModBlocks.EBONY_LEAVES, ModBlocks.EBONY_PLANKS, ModBlocks.EBONY_SAPLING
-                                , ModBlocks.MAGIC_BLOCK, ModBlocks.BLACK_OPAL_LAMP, ModBlocks.PETUNIA, ModBlocks.COLORED_LEAVES, ModBlocks.PEDESTAL
-                        });
-                    })
-                    .withTabsBefore(ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID,"black_opal_items_tab"))
-                    .build());
+    private static final Map<String, DeferredBlock<?>[]> BLOCK_GROUPS = Map.of(
+            "bismuth", new DeferredBlock<?>[]{
+                      ModBlocks.BISMUTH_BLOCK, ModBlocks.RAW_BISMUTH_BLOCK, ModBlocks.BISMUTH_ORE
+                    , ModBlocks.BISMUTH_SLAB, ModBlocks.BISMUTH_STAIRS, ModBlocks.BISMUTH_PRESSURE_PLATE
+                    , ModBlocks.BISMUTH_BUTTON, ModBlocks.BISMUTH_FENCE, ModBlocks.BISMUTH_FENCE_GATE
+                    , ModBlocks.BISMUTH_WALL, ModBlocks.BISMUTH_DOOR, ModBlocks.BISMUTH_TRAPDOOR
+            },
+            "black_opal", new DeferredBlock<?>[]{
+                      ModBlocks.BLACK_OPAL_BLOCK, ModBlocks.RAW_BLACK_OPAL_BLOCK, ModBlocks.BLACK_OPAL_ORE
+                    , ModBlocks.BLACK_OPAL_SLAB, ModBlocks.BLACK_OPAL_STAIRS, ModBlocks.BLACK_OPAL_PRESSURE_PLATE
+                    , ModBlocks.BLACK_OPAL_BUTTON, ModBlocks.BLACK_OPAL_FENCE, ModBlocks.BLACK_OPAL_FENCE_GATE
+                    , ModBlocks.BLACK_OPAL_WALL, ModBlocks.BLACK_OPAL_DOOR, ModBlocks.BLACK_OPAL_TRAPDOOR
+                    , ModBlocks.EBONY_SLAB, ModBlocks.EBONY_STAIRS, ModBlocks.EBONY_PRESSURE_PLATE, ModBlocks.EBONY_BUTTON, ModBlocks.EBONY_FENCE, ModBlocks.EBONY_FENCE_GATE, ModBlocks.EBONY_WALL
+                    , ModBlocks.EBONY_LOG, ModBlocks.EBONY_WOOD, ModBlocks.STRIPPED_EBONY_LOG, ModBlocks.STRIPPED_EBONY_WOOD, ModBlocks.EBONY_LEAVES, ModBlocks.EBONY_PLANKS, ModBlocks.EBONY_SAPLING
+                    , ModBlocks.MAGIC_BLOCK, ModBlocks.BLACK_OPAL_LAMP, ModBlocks.PETUNIA, ModBlocks.COLORED_LEAVES, ModBlocks.PEDESTAL
+            },
+            "pink_garnet", new DeferredBlock<?>[]{
+                    ModBlocks.PINK_GARNET_BLOCK, ModBlocks.RAW_PINK_GARNET_BLOCK
+                    //, ModBlocks.PINK_GARNET_ORE,
+                    //ModBlocks.PINK_GARNET_SLAB, ModBlocks.PINK_GARNET_STAIRS, ModBlocks.PINK_GARNET_PRESSURE_PLATE,
+                    //ModBlocks.PINK_GARNET_BUTTON, ModBlocks.PINK_GARNET_FENCE, ModBlocks.PINK_GARNET_FENCE_GATE,
+                    //ModBlocks.PINK_GARNET_WALL, ModBlocks.PINK_GARNET_DOOR, ModBlocks.PINK_GARNET_TRAPDOOR
+            },
+            "alexandrite", new DeferredBlock<?>[]{
+                      ModBlocks.ALEXANDRITE_BLOCK, ModBlocks.RAW_ALEXANDRITE_BLOCK, ModBlocks.ALEXANDRITE_ORE, ModBlocks.ALEXANDRITE_DEEPSLATE_ORE
+                    , ModBlocks.ALEXANDRITE_SLAB, ModBlocks.ALEXANDRITE_STAIRS, ModBlocks.ALEXANDRITE_PRESSURE_PLATE
+                    , ModBlocks.ALEXANDRITE_BUTTON, ModBlocks.ALEXANDRITE_FENCE, ModBlocks.ALEXANDRITE_FENCE_GATE
+                    , ModBlocks.ALEXANDRITE_WALL, ModBlocks.ALEXANDRITE_DOOR, ModBlocks.ALEXANDRITE_TRAPDOOR
+            }
+            );
+
+    public static Supplier<CreativeModeTab> createCreativeTab(String tabName, String titleKey, ItemStack icon, DeferredBlock<?>[] blocks) {
+        return CREATIVE_MODE_TABS.register(tabName, () -> CreativeModeTab.builder()
+                .title(Component.translatable(titleKey))
+                .icon(() -> icon)
+                .displayItems((pParameters, pOutput) -> addElements(pOutput, blocks))
+                .withTabsBefore(ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, "bismuth_items_tab"))
+                .build());
+    }
+
+    public static Supplier<CreativeModeTab> createCreativeTab(String tabKeyStart, DeferredBlock<?> block ) {
+
+        return CREATIVE_MODE_TABS.register(tabKeyStart + "_blocks_tab", () -> CreativeModeTab.builder()
+                .title(Component.translatable("itemGroup.mccourse." + tabKeyStart + "_blocks_tab"))
+                .icon(() -> new ItemStack(block.get()))
+                .displayItems((pParameters, pOutput) -> addElements(pOutput, BLOCK_GROUPS.get(tabKeyStart)))
+                .withTabsBefore(ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, tabKeyStart + "_items_tab"))
+                .build());
+    }
 
     public static final Supplier<CreativeModeTab> BISMUTH_BLOCKS_TAB =
-            CREATIVE_MODE_TABS.register("bismuth_blocks_tab", () -> CreativeModeTab.builder()
-                    .title(Component.translatable("itemGroup.mccourse.bismuth_blocks_tab"))
-                    .icon(() -> new ItemStack(ModBlocks.BISMUTH_BLOCK.get()))
-                    .displayItems((pParameters, pOutput) -> {
-                        //addCommonBlocks(pOutput, ModBlocks.BISMUTH_BLOCK, ModBlocks.RAW_BISMUTH_BLOCK, ModBlocks.BISMUTH_ORE, null, null, null, ModBlocks.BISMUTH_SLAB, ModBlocks.BISMUTH_STAIRS, ModBlocks.BISMUTH_PRESSURE_PLATE, ModBlocks.BISMUTH_BUTTON, ModBlocks.BISMUTH_FENCE, ModBlocks.BISMUTH_FENCE_GATE, ModBlocks.BISMUTH_WALL, ModBlocks.BISMUTH_DOOR, ModBlocks.BISMUTH_TRAPDOOR);
-                        addElements(pOutput,new DeferredBlock[]{
-                                //missing deepslateOre, endOre, netherOre
-                                ModBlocks.BISMUTH_BLOCK, ModBlocks.RAW_BISMUTH_BLOCK, ModBlocks.BISMUTH_ORE, ModBlocks.BISMUTH_SLAB, ModBlocks.BISMUTH_STAIRS, ModBlocks.BISMUTH_PRESSURE_PLATE, ModBlocks.BISMUTH_BUTTON, ModBlocks.BISMUTH_FENCE, ModBlocks.BISMUTH_FENCE_GATE, ModBlocks.BISMUTH_WALL, ModBlocks.BISMUTH_DOOR, ModBlocks.BISMUTH_TRAPDOOR
-                        });
-                    })
-                    .withTabsBefore(ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID,"bismuth_items_tab"))
-                    .build());
+            createCreativeTab("bismuth", ModBlocks.BISMUTH_BLOCK);
 
-    public static final Supplier<CreativeModeTab> ALEXANDRITE_BLOCKS_TAB =
-            CREATIVE_MODE_TABS.register("alexandrite_blocks_tab", () -> CreativeModeTab.builder()
-                    .title(Component.translatable("itemGroup.mccourse.alexandrite_blocks_tab"))
-                    .icon(() -> new ItemStack(ModBlocks.ALEXANDRITE_BLOCK.get()))
-                    .displayItems((pParameters, pOutput) -> {
-                        //addCommonBlocks(pOutput, ModBlocks.ALEXANDRITE_BLOCK, ModBlocks.RAW_ALEXANDRITE_BLOCK, ModBlocks.ALEXANDRITE_ORE, ModBlocks.ALEXANDRITE_DEEPSLATE_ORE, null, null, ModBlocks.ALEXANDRITE_SLAB, ModBlocks.ALEXANDRITE_STAIRS, ModBlocks.ALEXANDRITE_PRESSURE_PLATE, ModBlocks.ALEXANDRITE_BUTTON, ModBlocks.ALEXANDRITE_FENCE, ModBlocks.ALEXANDRITE_FENCE_GATE, ModBlocks.ALEXANDRITE_WALL, ModBlocks.ALEXANDRITE_DOOR, ModBlocks.ALEXANDRITE_TRAPDOOR);
-                        addElements(pOutput,new DeferredBlock[]{
-                                //missing endOre, netherOre
-                                ModBlocks.ALEXANDRITE_BLOCK, ModBlocks.RAW_ALEXANDRITE_BLOCK, ModBlocks.ALEXANDRITE_ORE, ModBlocks.ALEXANDRITE_DEEPSLATE_ORE, ModBlocks.ALEXANDRITE_SLAB, ModBlocks.ALEXANDRITE_STAIRS, ModBlocks.ALEXANDRITE_PRESSURE_PLATE, ModBlocks.ALEXANDRITE_BUTTON, ModBlocks.ALEXANDRITE_FENCE, ModBlocks.ALEXANDRITE_FENCE_GATE, ModBlocks.ALEXANDRITE_WALL, ModBlocks.ALEXANDRITE_DOOR, ModBlocks.ALEXANDRITE_TRAPDOOR
-                        });
-                    })
-                    .withTabsBefore(ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID,"alexandrite_items_tab"))
-                    .build());
+    public static final Supplier<CreativeModeTab> BLACK_OPAL_BLOCKS_TAB =
+            createCreativeTab("black_opal", ModBlocks.BLACK_OPAL_BLOCK);
 
     public static final Supplier<CreativeModeTab> PINK_GARNET_BLOCKS_TAB =
-            CREATIVE_MODE_TABS.register("pink_garnet_blocks_tab", () -> CreativeModeTab.builder()
-                    .title(Component.translatable("itemGroup.mccourse.pink_garnet_blocks_tab"))
-                    .icon(() -> new ItemStack(ModBlocks.PINK_GARNET_BLOCK.get()))
-                    .displayItems((pParameters, pOutput) -> {
-                        //addCommonBlocks(pOutput, ModBlocks.PINK_GARNET_BLOCK, ModBlocks.RAW_PINK_GARNET_BLOCK, null, null, null, null, null, null, null, null, null, null, null, null, null);
-                        addElements(pOutput,new DeferredBlock[]{
-                                //missing a lot of stuff
-                                ModBlocks.PINK_GARNET_BLOCK, ModBlocks.RAW_PINK_GARNET_BLOCK
-                        });
-                    })
-                    .withTabsBefore(ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID,"pink_garnet_items_tab"))
-                    .build());
+            createCreativeTab("pink_garnet", ModBlocks.PINK_GARNET_BLOCK);
+
+    public static final Supplier<CreativeModeTab> ALEXANDRITE_BLOCKS_TAB =
+            createCreativeTab("alexandrite", ModBlocks.ALEXANDRITE_BLOCK);
 
     public static void register(IEventBus eventBus){
         CREATIVE_MODE_TABS.register(eventBus);
