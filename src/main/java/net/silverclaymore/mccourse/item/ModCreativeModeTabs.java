@@ -32,74 +32,49 @@ public class ModCreativeModeTabs {
         }
     }
 
-    public static final Supplier<CreativeModeTab> BLACK_OPAL_ITEMS_TAB =
-            CREATIVE_MODE_TABS.register("black_opal_items_tab", () -> CreativeModeTab.builder()
-                    .title(Component.translatable("itemGroup.mccourse.black_opal_items_tab"))
-                    .icon(() -> new ItemStack(ModItems.BLACK_OPAL.get()))
-                    .displayItems((pParameters, pOutput) -> {
-                        addElements(pOutput, new DeferredItem[]{
-                                  ModItems.BLACK_OPAL, ModItems.RAW_BLACK_OPAL, ModItems.BLACK_OPAL_SWORD, ModItems.BLACK_OPAL_PICKAXE, ModItems.BLACK_OPAL_AXE, ModItems.BLACK_OPAL_SHOVEL, ModItems.BLACK_OPAL_HOE, ModItems.BLACK_OPAL_PAXEL, ModItems.BLACK_OPAL_HAMMER, ModItems.BLACK_OPAL_HELMET, ModItems.BLACK_OPAL_CHESTPLATE, ModItems.BLACK_OPAL_LEGGINGS, ModItems.BLACK_OPAL_BOOTS, ModItems.BLACK_OPAL_HORSE_ARMOR
-                                , ModItems.KAUPEN_SMITHING_TEMPLATE
-                                , ModItems.CHAINSAW
-                                , ModItems.TOMATO, ModItems.TOMATO_SEEDS, ModItems.FROSTFIRE_ICE
-                                , ModItems.BAR_BRAWL_MUSIC_DISC, ModItems.BLACK_OPAL_SWORD_LEVITATION
-                                , ModItems.METAL_DETECTOR, ModItems.DATA_TABLET
-                                , ModItems.KAUPEN_BOW
-                                , ModItems.RADIATION_STAFF
-                                , ModItems.PENGUIN_SPAWN_EGG
-                        });
-
-                        pOutput.accept(ModFluids.BLACK_OPAL_WATER_BUCKET);
-                    }).build());
-
-    public static final Supplier<CreativeModeTab> BISMUTH_ITEMS_TAB =
-            CREATIVE_MODE_TABS.register("bismuth_items_tab", () -> CreativeModeTab.builder()
-                    .title(Component.translatable("itemGroup.mccourse.bismuth_items_tab"))
-                    .icon(() -> new ItemStack(ModItems.BISMUTH.get()))
-                    .displayItems((pParameters, pOutput) -> {
-                        //missing paxel, horse armor
-                        addElements(pOutput, new DeferredItem[]{
-                                ModItems.BISMUTH, ModItems.RAW_BISMUTH, ModItems.BISMUTH_SWORD, ModItems.BISMUTH_PICKAXE, ModItems.BISMUTH_AXE, ModItems.BISMUTH_SHOVEL, ModItems.BISMUTH_HOE, ModItems.BISMUTH_HAMMER, ModItems.BISMUTH_HELMET, ModItems.BISMUTH_CHESTPLATE, ModItems.BISMUTH_LEGGINGS, ModItems.BISMUTH_BOOTS
-                        });
-                    }).build());
-
-    public static final Supplier<CreativeModeTab> ALEXANDRITE_ITEMS_TAB =
-            CREATIVE_MODE_TABS.register("alexandrite_items_tab", () -> CreativeModeTab.builder()
-                    .title(Component.translatable("itemGroup.mccourse.alexandrite_items_tab"))
-                    .icon(() -> new ItemStack(ModItems.ALEXANDRITE.get()))
-                    .displayItems((pParameters, pOutput) -> {
-                        //addCommonItems(pOutput, ModItems.ALEXANDRITE, ModItems.RAW_ALEXANDRITE, null, null, null, null, null, null, null, ModItems.ALEXANDRITE_HELMET, ModItems.ALEXANDRITE_CHESTPLATE, ModItems.ALEXANDRITE_LEGGINGS, ModItems.ALEXANDRITE_BOOTS, null);
-                        //missing sword, pickaxe, axe, shovel, hoe, paxel, hammer, horse armor
-                        addElements(pOutput, new DeferredItem[]{
-                                ModItems.ALEXANDRITE, ModItems.RAW_ALEXANDRITE, ModItems.ALEXANDRITE_HELMET, ModItems.ALEXANDRITE_CHESTPLATE, ModItems.ALEXANDRITE_LEGGINGS, ModItems.ALEXANDRITE_BOOTS
-                        });
-                    }).build());
-
-    public static final Supplier<CreativeModeTab> PINK_GARNET_ITEMS_TAB =
-            CREATIVE_MODE_TABS.register("pink_garnet_items_tab", () -> CreativeModeTab.builder()
-                    .title(Component.translatable("itemGroup.mccourse.pink_garnet_items_tab"))
-                    .icon(() -> new ItemStack(ModItems.PINK_GARNET.get()))
-                    .displayItems((pParameters, pOutput) -> {
-                        //addCommonItems(pOutput, ModItems.PINK_GARNET, ModItems.RAW_PINK_GARNET, null, null, null, null, null, null, null, ModItems.PINK_GARNET_HELMET, ModItems.PINK_GARNET_CHESTPLATE, ModItems.PINK_GARNET_LEGGINGS, ModItems.PINK_GARNET_BOOTS, null);
-                        //missing sword, pickaxe, axe, shovel, hoe, paxel, hammer, horse armor
-                        addElements(pOutput, new DeferredItem[]{
-                                ModItems.PINK_GARNET, ModItems.RAW_PINK_GARNET, ModItems.PINK_GARNET_HELMET, ModItems.PINK_GARNET_CHESTPLATE, ModItems.PINK_GARNET_LEGGINGS, ModItems.PINK_GARNET_BOOTS
-                        });
-                    }).build());
+    private static final Map<String, DeferredItem<?>[]> ITEM_GROUPS = Map.of(
+            "black_opal", new DeferredItem<?>[]{
+                      ModItems.BLACK_OPAL, ModItems.RAW_BLACK_OPAL, ModItems.BLACK_OPAL_SWORD
+                    , ModItems.BLACK_OPAL_PICKAXE, ModItems.BLACK_OPAL_AXE, ModItems.BLACK_OPAL_SHOVEL
+                    , ModItems.BLACK_OPAL_HOE, ModItems.BLACK_OPAL_PAXEL, ModItems.BLACK_OPAL_HAMMER
+                    , ModItems.BLACK_OPAL_HELMET, ModItems.BLACK_OPAL_CHESTPLATE, ModItems.BLACK_OPAL_LEGGINGS, ModItems.BLACK_OPAL_BOOTS
+                    , ModItems.BLACK_OPAL_HORSE_ARMOR, ModItems.KAUPEN_SMITHING_TEMPLATE
+                    , ModItems.CHAINSAW, ModItems.TOMATO, ModItems.TOMATO_SEEDS, ModItems.FROSTFIRE_ICE
+                    , ModItems.BAR_BRAWL_MUSIC_DISC, ModItems.BLACK_OPAL_SWORD_LEVITATION, ModItems.METAL_DETECTOR
+                    , ModItems.DATA_TABLET, ModItems.KAUPEN_BOW, ModItems.RADIATION_STAFF, ModItems.PENGUIN_SPAWN_EGG
+                    , ModFluids.BLACK_OPAL_WATER_BUCKET
+            },
+            "bismuth", new DeferredItem<?>[]{
+                      ModItems.BISMUTH, ModItems.RAW_BISMUTH, ModItems.BISMUTH_SWORD
+                    , ModItems.BISMUTH_PICKAXE, ModItems.BISMUTH_AXE, ModItems.BISMUTH_SHOVEL
+                    , ModItems.BISMUTH_HOE, ModItems.BISMUTH_HAMMER
+                    , ModItems.BISMUTH_HELMET, ModItems.BISMUTH_CHESTPLATE, ModItems.BISMUTH_LEGGINGS, ModItems.BISMUTH_BOOTS
+            },
+            "alexandrite", new DeferredItem<?>[]{
+                      ModItems.ALEXANDRITE, ModItems.RAW_ALEXANDRITE
+                    , ModItems.ALEXANDRITE_HELMET, ModItems.ALEXANDRITE_CHESTPLATE, ModItems.ALEXANDRITE_LEGGINGS, ModItems.ALEXANDRITE_BOOTS
+            },
+            "pink_garnet", new DeferredItem<?>[]{
+                    ModItems.PINK_GARNET, ModItems.RAW_PINK_GARNET
+                    , ModItems.PINK_GARNET_HELMET, ModItems.PINK_GARNET_CHESTPLATE, ModItems.PINK_GARNET_LEGGINGS, ModItems.PINK_GARNET_BOOTS
+            }
+    );
 
     private static final Map<String, DeferredBlock<?>[]> BLOCK_GROUPS = Map.of(
             "bismuth", new DeferredBlock<?>[]{
-                      ModBlocks.BISMUTH_BLOCK, ModBlocks.RAW_BISMUTH_BLOCK, ModBlocks.BISMUTH_ORE
+                    ModBlocks.BISMUTH_BLOCK, ModBlocks.RAW_BISMUTH_BLOCK, ModBlocks.BISMUTH_ORE
                     , ModBlocks.BISMUTH_SLAB, ModBlocks.BISMUTH_STAIRS, ModBlocks.BISMUTH_PRESSURE_PLATE
                     , ModBlocks.BISMUTH_BUTTON, ModBlocks.BISMUTH_FENCE, ModBlocks.BISMUTH_FENCE_GATE
                     , ModBlocks.BISMUTH_WALL, ModBlocks.BISMUTH_DOOR, ModBlocks.BISMUTH_TRAPDOOR
             },
             "black_opal", new DeferredBlock<?>[]{
-                      ModBlocks.BLACK_OPAL_BLOCK, ModBlocks.RAW_BLACK_OPAL_BLOCK, ModBlocks.BLACK_OPAL_ORE
+                    ModBlocks.BLACK_OPAL_BLOCK, ModBlocks.RAW_BLACK_OPAL_BLOCK, ModBlocks.BLACK_OPAL_ORE
                     , ModBlocks.BLACK_OPAL_SLAB, ModBlocks.BLACK_OPAL_STAIRS, ModBlocks.BLACK_OPAL_PRESSURE_PLATE
                     , ModBlocks.BLACK_OPAL_BUTTON, ModBlocks.BLACK_OPAL_FENCE, ModBlocks.BLACK_OPAL_FENCE_GATE
                     , ModBlocks.BLACK_OPAL_WALL, ModBlocks.BLACK_OPAL_DOOR, ModBlocks.BLACK_OPAL_TRAPDOOR
-                    , ModBlocks.EBONY_SLAB, ModBlocks.EBONY_STAIRS, ModBlocks.EBONY_PRESSURE_PLATE, ModBlocks.EBONY_BUTTON, ModBlocks.EBONY_FENCE, ModBlocks.EBONY_FENCE_GATE, ModBlocks.EBONY_WALL
+                    , ModBlocks.EBONY_SLAB, ModBlocks.EBONY_STAIRS, ModBlocks.EBONY_PRESSURE_PLATE
+                    , ModBlocks.EBONY_BUTTON, ModBlocks.EBONY_FENCE, ModBlocks.EBONY_FENCE_GATE
+                    , ModBlocks.EBONY_WALL
                     , ModBlocks.EBONY_LOG, ModBlocks.EBONY_WOOD, ModBlocks.STRIPPED_EBONY_LOG, ModBlocks.STRIPPED_EBONY_WOOD, ModBlocks.EBONY_LEAVES, ModBlocks.EBONY_PLANKS, ModBlocks.EBONY_SAPLING
                     , ModBlocks.MAGIC_BLOCK, ModBlocks.BLACK_OPAL_LAMP, ModBlocks.PETUNIA, ModBlocks.COLORED_LEAVES, ModBlocks.PEDESTAL
             },
@@ -111,24 +86,23 @@ public class ModCreativeModeTabs {
                     //ModBlocks.PINK_GARNET_WALL, ModBlocks.PINK_GARNET_DOOR, ModBlocks.PINK_GARNET_TRAPDOOR
             },
             "alexandrite", new DeferredBlock<?>[]{
-                      ModBlocks.ALEXANDRITE_BLOCK, ModBlocks.RAW_ALEXANDRITE_BLOCK, ModBlocks.ALEXANDRITE_ORE, ModBlocks.ALEXANDRITE_DEEPSLATE_ORE
+                    ModBlocks.ALEXANDRITE_BLOCK, ModBlocks.RAW_ALEXANDRITE_BLOCK, ModBlocks.ALEXANDRITE_ORE, ModBlocks.ALEXANDRITE_DEEPSLATE_ORE
                     , ModBlocks.ALEXANDRITE_SLAB, ModBlocks.ALEXANDRITE_STAIRS, ModBlocks.ALEXANDRITE_PRESSURE_PLATE
                     , ModBlocks.ALEXANDRITE_BUTTON, ModBlocks.ALEXANDRITE_FENCE, ModBlocks.ALEXANDRITE_FENCE_GATE
                     , ModBlocks.ALEXANDRITE_WALL, ModBlocks.ALEXANDRITE_DOOR, ModBlocks.ALEXANDRITE_TRAPDOOR
             }
-            );
+    );
 
-    public static Supplier<CreativeModeTab> createCreativeTab(String tabName, String titleKey, ItemStack icon, DeferredBlock<?>[] blocks) {
-        return CREATIVE_MODE_TABS.register(tabName, () -> CreativeModeTab.builder()
-                .title(Component.translatable(titleKey))
-                .icon(() -> icon)
-                .displayItems((pParameters, pOutput) -> addElements(pOutput, blocks))
-                .withTabsBefore(ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, "bismuth_items_tab"))
+    public static Supplier<CreativeModeTab> createCreativeTab(String tabKeyStart, DeferredItem<?> item ) {
+        return CREATIVE_MODE_TABS.register(tabKeyStart + "_items_tab", () -> CreativeModeTab.builder()
+                .title(Component.translatable("itemGroup.mccourse." + tabKeyStart + "_items_tab"))
+                .icon(() -> new ItemStack(item.get()))
+                .displayItems((pParameters, pOutput) -> addElements(pOutput, ITEM_GROUPS.get(tabKeyStart)))
+                //.withTabsBefore(ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, tabKeyStart + "_items_tab"))
                 .build());
     }
 
     public static Supplier<CreativeModeTab> createCreativeTab(String tabKeyStart, DeferredBlock<?> block ) {
-
         return CREATIVE_MODE_TABS.register(tabKeyStart + "_blocks_tab", () -> CreativeModeTab.builder()
                 .title(Component.translatable("itemGroup.mccourse." + tabKeyStart + "_blocks_tab"))
                 .icon(() -> new ItemStack(block.get()))
@@ -136,6 +110,18 @@ public class ModCreativeModeTabs {
                 .withTabsBefore(ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, tabKeyStart + "_items_tab"))
                 .build());
     }
+
+    public static final Supplier<CreativeModeTab> BLACK_OPAL_ITEMS_TAB =
+            createCreativeTab("black_opal", ModItems.BLACK_OPAL);
+
+    public static final Supplier<CreativeModeTab> BISMUTH_ITEMS_TAB =
+            createCreativeTab("bismuth", ModItems.BISMUTH);
+
+    public static final Supplier<CreativeModeTab> ALEXANDRITE_ITEMS_TAB =
+            createCreativeTab("alexandrite", ModItems.ALEXANDRITE);
+
+    public static final Supplier<CreativeModeTab> PINK_GARNET_ITEMS_TAB =
+            createCreativeTab("pink_garnet", ModItems.PINK_GARNET);
 
     public static final Supplier<CreativeModeTab> BISMUTH_BLOCKS_TAB =
             createCreativeTab("bismuth", ModBlocks.BISMUTH_BLOCK);
