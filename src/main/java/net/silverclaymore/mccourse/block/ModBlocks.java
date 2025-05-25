@@ -67,6 +67,9 @@ public class ModBlocks {
     public static final DeferredBlock<Block> PINK_GARNET_DEEPSLATE_ORE = registerBlock("pink_garnet_deepslate_ore",
             () -> new DropExperienceBlock(UniformInt.of(3 ,6),
                     BlockBehaviour.Properties.of().strength(5f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
+    public static final DeferredBlock<Block> BISMUTH_DEEPSLATE_ORE = registerBlock("bismuth_deepslate_ore",
+            () -> new DropExperienceBlock(UniformInt.of(3 ,6),
+                    BlockBehaviour.Properties.of().strength(5f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
 
     public static final DeferredBlock<Block> BLACK_OPAL_END_ORE = registerBlock("black_opal_end_ore",
             () -> new DropExperienceBlock(UniformInt.of(2 ,4),
@@ -74,11 +77,17 @@ public class ModBlocks {
     public static final DeferredBlock<Block> PINK_GARNET_END_ORE = registerBlock("pink_garnet_end_ore",
             () -> new DropExperienceBlock(UniformInt.of(2 ,4),
                     BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> BISMUTH_END_ORE = registerBlock("bismuth_end_ore",
+            () -> new DropExperienceBlock(UniformInt.of(2 ,4),
+                    BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
     public static final DeferredBlock<Block> BLACK_OPAL_NETHER_ORE = registerBlock("black_opal_nether_ore",
             () -> new DropExperienceBlock(UniformInt.of(4 ,7),
                     BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().sound(SoundType.NETHERRACK)));
     public static final DeferredBlock<Block> PINK_GARNET_NETHER_ORE = registerBlock("pink_garnet_nether_ore",
+            () -> new DropExperienceBlock(UniformInt.of(4 ,7),
+                    BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().sound(SoundType.NETHERRACK)));
+    public static final DeferredBlock<Block> BISMUTH_NETHER_ORE = registerBlock("bismuth_nether_ore",
             () -> new DropExperienceBlock(UniformInt.of(4 ,7),
                     BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().sound(SoundType.NETHERRACK)));
 

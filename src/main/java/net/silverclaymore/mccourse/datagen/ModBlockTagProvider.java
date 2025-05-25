@@ -105,6 +105,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.BLACK_OPAL_DEEPSLATE_ORE.get())
                 .add(ModBlocks.ALEXANDRITE_DEEPSLATE_ORE.get())
                 .add(ModBlocks.PINK_GARNET_DEEPSLATE_ORE.get())
+                .add(ModBlocks.BISMUTH_DEEPSLATE_ORE.get())
 
                 //.add(ModBlocks.BLACK_OPAL_STAIRS.get())
                 .add(ModBlocks.BLACK_OPAL_SLAB.get())
@@ -116,6 +117,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.BLACK_OPAL_NETHER_ORE.get())
                 .add(ModBlocks.PINK_GARNET_END_ORE.get())
                 .add(ModBlocks.PINK_GARNET_NETHER_ORE.get())
+                .add(ModBlocks.BISMUTH_END_ORE.get())
+                .add(ModBlocks.BISMUTH_NETHER_ORE.get())
         ;
 
         this.tag(ModTags.Blocks.PAXEL_MINEABLE)

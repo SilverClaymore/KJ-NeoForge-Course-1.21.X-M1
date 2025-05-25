@@ -31,7 +31,8 @@ public class ModRecipeProvider extends RecipeProvider {
         List<ItemLike> SMELTABLES_BLACK_OPAL = List.of(ModItems.RAW_BLACK_OPAL, ModBlocks.BLACK_OPAL_ORE,
                 ModBlocks.BLACK_OPAL_DEEPSLATE_ORE, ModBlocks.BLACK_OPAL_END_ORE, ModBlocks.BLACK_OPAL_NETHER_ORE);
 
-        List<ItemLike> SMELTABLES_BISMUTH = List.of(ModItems.RAW_BISMUTH, ModBlocks.BISMUTH_ORE);
+        List<ItemLike> SMELTABLES_BISMUTH = List.of(ModItems.RAW_BISMUTH, ModBlocks.BISMUTH_ORE,
+                ModBlocks.BISMUTH_DEEPSLATE_ORE, ModBlocks.BISMUTH_END_ORE, ModBlocks.BISMUTH_NETHER_ORE);
 
         List<ItemLike> SMELTABLES_ALEXANDRITE = List.of(ModItems.RAW_ALEXANDRITE, ModBlocks.ALEXANDRITE_ORE,
                 ModBlocks.ALEXANDRITE_DEEPSLATE_ORE);

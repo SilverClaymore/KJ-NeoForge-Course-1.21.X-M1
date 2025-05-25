@@ -63,6 +63,7 @@ public class ModCreativeModeTabs {
     private static final Map<String, DeferredBlock<?>[]> BLOCK_GROUPS = Map.of(
             "bismuth", new DeferredBlock<?>[]{
                     ModBlocks.BISMUTH_BLOCK, ModBlocks.RAW_BISMUTH_BLOCK, ModBlocks.BISMUTH_ORE
+                    , ModBlocks.BISMUTH_NETHER_ORE, ModBlocks.BISMUTH_DEEPSLATE_ORE, ModBlocks.BISMUTH_END_ORE
                     , ModBlocks.BISMUTH_SLAB, ModBlocks.BISMUTH_STAIRS, ModBlocks.BISMUTH_PRESSURE_PLATE
                     , ModBlocks.BISMUTH_BUTTON, ModBlocks.BISMUTH_FENCE, ModBlocks.BISMUTH_FENCE_GATE
                     , ModBlocks.BISMUTH_WALL, ModBlocks.BISMUTH_DOOR, ModBlocks.BISMUTH_TRAPDOOR
