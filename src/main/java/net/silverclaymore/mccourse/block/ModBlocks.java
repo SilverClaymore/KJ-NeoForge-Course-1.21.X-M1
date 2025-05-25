@@ -54,7 +54,9 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().sound(SoundType.AMETHYST)));
     public static final DeferredBlock<Block> RAW_PINK_GARNET_BLOCK = registerBlock("raw_pink_garnet_block",
             () -> new Block(BlockBehaviour.Properties.of().strength(3f).requiresCorrectToolForDrops()));
-
+    public static final DeferredBlock<Block> PINK_GARNET_ORE = registerBlock("pink_garnet_ore",
+            () -> new DropExperienceBlock(UniformInt.of(2 ,5),
+                    BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
     public static final DeferredBlock<Block> BLACK_OPAL_DEEPSLATE_ORE = registerBlock("black_opal_deepslate_ore",
             () -> new DropExperienceBlock(UniformInt.of(3 ,6),
@@ -62,13 +64,21 @@ public class ModBlocks {
     public static final DeferredBlock<Block> ALEXANDRITE_DEEPSLATE_ORE = registerBlock("alexandrite_deepslate_ore",
             () -> new DropExperienceBlock(UniformInt.of(3 ,6),
                     BlockBehaviour.Properties.of().strength(5f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
-
+    public static final DeferredBlock<Block> PINK_GARNET_DEEPSLATE_ORE = registerBlock("pink_garnet_deepslate_ore",
+            () -> new DropExperienceBlock(UniformInt.of(3 ,6),
+                    BlockBehaviour.Properties.of().strength(5f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
 
     public static final DeferredBlock<Block> BLACK_OPAL_END_ORE = registerBlock("black_opal_end_ore",
             () -> new DropExperienceBlock(UniformInt.of(2 ,4),
                     BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> PINK_GARNET_END_ORE = registerBlock("pink_garnet_end_ore",
+            () -> new DropExperienceBlock(UniformInt.of(2 ,4),
+                    BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
     public static final DeferredBlock<Block> BLACK_OPAL_NETHER_ORE = registerBlock("black_opal_nether_ore",
+            () -> new DropExperienceBlock(UniformInt.of(4 ,7),
+                    BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().sound(SoundType.NETHERRACK)));
+    public static final DeferredBlock<Block> PINK_GARNET_NETHER_ORE = registerBlock("pink_garnet_nether_ore",
             () -> new DropExperienceBlock(UniformInt.of(4 ,7),
                     BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().sound(SoundType.NETHERRACK)));
 
