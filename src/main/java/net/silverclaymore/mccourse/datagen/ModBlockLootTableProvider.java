@@ -61,21 +61,23 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
             }
     );
 
-    protected void commonDropSelf() {
-        DROPSELF_BLOCK_GROUPS.forEach((groupName, blocks) -> {
-            for (DeferredBlock<?> block : blocks) {
-                this.dropSelf(block.get()); // Standard drops-self function
-            }
-        });
-    }
+    private static final Map<DeferredItem<Item>, DeferredBlock<?>[]> ORE_BLOCKS = Map.of(
+            ModItems.RAW_BLACK_OPAL, new DeferredBlock<?>[]{ModBlocks.BLACK_OPAL_ORE, ModBlocks.BLACK_OPAL_DEEPSLATE_ORE, ModBlocks.BLACK_OPAL_END_ORE, ModBlocks.BLACK_OPAL_NETHER_ORE},
+            ModItems.RAW_BISMUTH, new DeferredBlock<?>[]{ModBlocks.BISMUTH_ORE, ModBlocks.BISMUTH_DEEPSLATE_ORE, ModBlocks.BISMUTH_END_ORE, ModBlocks.BISMUTH_NETHER_ORE},
+            ModItems.RAW_ALEXANDRITE, new DeferredBlock<?>[]{ModBlocks.ALEXANDRITE_ORE, ModBlocks.ALEXANDRITE_DEEPSLATE_ORE},
+            ModItems.RAW_PINK_GARNET, new DeferredBlock<?>[]{ModBlocks.PINK_GARNET_ORE, ModBlocks.PINK_GARNET_DEEPSLATE_ORE, ModBlocks.PINK_GARNET_END_ORE, ModBlocks.PINK_GARNET_NETHER_ORE}
+    );
 
+    private static final Map<Integer, int[]> ORE_DROP_RANGES = Map.of(
+            0, new int[]{1, 1},  // Standard ore drop
+            1, new int[]{2, 5},  // Deepslate
+            2, new int[]{3, 7},  // End
+            3, new int[]{4, 9}   // Nether
+    );
 
     @Override
     protected void generate() {
-        addOre(ModItems.RAW_BLACK_OPAL, ModBlocks.BLACK_OPAL_ORE, ModBlocks.BLACK_OPAL_DEEPSLATE_ORE, ModBlocks.BLACK_OPAL_END_ORE, ModBlocks.BLACK_OPAL_NETHER_ORE);
-        addOre(ModItems.RAW_BISMUTH, ModBlocks.BISMUTH_ORE, ModBlocks.BISMUTH_DEEPSLATE_ORE, ModBlocks.BISMUTH_END_ORE, ModBlocks.BISMUTH_NETHER_ORE);
-        addOre(ModItems.RAW_ALEXANDRITE, ModBlocks.ALEXANDRITE_ORE, ModBlocks.ALEXANDRITE_DEEPSLATE_ORE, null, null);
-        addOre(ModItems.RAW_PINK_GARNET, ModBlocks.PINK_GARNET_ORE, ModBlocks.PINK_GARNET_DEEPSLATE_ORE, ModBlocks.PINK_GARNET_END_ORE, ModBlocks.PINK_GARNET_NETHER_ORE);
+        addOreDrops(); // Ores defined in ORE_BLOCKS
 
         LootItemCondition.Builder lootItemConditionBuilder = LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.TOMATO_CROP.get())
                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(TomatoCropBlock.AGE, 5));
@@ -94,11 +96,33 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         commonDrops(ModBlocks.EBONY_SLAB, null);
     }
 
-    protected void addOre (DeferredItem<Item> item, DeferredBlock<Block> ore, DeferredBlock<Block> deepslateOre, DeferredBlock<Block> endOre, DeferredBlock<Block> netherOre){
-        this.add(ore.get(), block -> createOreDrop(ore.get(), item.get()));
-        if (deepslateOre != null) this.add(deepslateOre.get(), block -> createMultipleOreDrops(deepslateOre.get(), item.get(), 2, 5));
-        if (endOre != null)this.add(endOre.get(), block -> createMultipleOreDrops(endOre.get(), item.get(), 3, 7));
-        if (netherOre != null)this.add(netherOre.get(), block -> createMultipleOreDrops(netherOre.get(), item.get(), 4, 9));
+    protected void addOreDrops() {
+        ORE_BLOCKS.forEach((item, ores) -> {
+            for (int i = 0; i < ores.length; i++) {
+                if (ores[i] != null) {
+                    final DeferredBlock<?> oreBlock = ores[i];
+                    final boolean isPrimaryOre = (i == 0); // First element is the standard ore
+
+                    int[] dropValues = ORE_DROP_RANGES.getOrDefault(i, new int[]{1, 1});
+                    final int minDropAmount = dropValues[0];
+                    final int maxDropAmount = dropValues[1];
+
+                    this.add(oreBlock.get(), block ->
+                            isPrimaryOre
+                                    ? createOreDrop(oreBlock.get(), item.get())
+                                    : createMultipleOreDrops(oreBlock.get(), item.get(), minDropAmount, maxDropAmount)
+                    );
+                }
+            }
+        });
+    }
+
+    protected void commonDropSelf() {
+        DROPSELF_BLOCK_GROUPS.forEach((groupName, blocks) -> {
+            for (DeferredBlock<?> block : blocks) {
+                this.dropSelf(block.get()); // Standard drops-self function
+            }
+        });
     }
 
     protected void commonDrops(DeferredBlock<Block> slab, DeferredBlock<Block> door){
