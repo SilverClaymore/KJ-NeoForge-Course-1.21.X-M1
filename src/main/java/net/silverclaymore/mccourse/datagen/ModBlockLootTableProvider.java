@@ -126,11 +126,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
     }
 
     protected void commonDrops(DeferredBlock<Block> slab, DeferredBlock<Block> door){
-        if (slab != null) this.add(slab.get(),
-                fBlock -> createSlabItemTable(slab.get()));
-
-        if (door != null) this.add(door.get(),
-                fBlock -> createDoorTable(door.get()));
+        if (slab != null) this.add(slab.get(), this::createSlabItemTable);
+        if (door != null) this.add(door.get(), this::createDoorTable);
     }
 
     protected void commonWoodDrops(DeferredBlock<Block> sapling, DeferredBlock<Block> leaves){
