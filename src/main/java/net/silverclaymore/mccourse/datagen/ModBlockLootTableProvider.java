@@ -24,12 +24,51 @@ import net.silverclaymore.mccourse.block.custom.TomatoCropBlock;
 import net.silverclaymore.mccourse.item.ModItems;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Map;
 import java.util.Set;
 
 public class ModBlockLootTableProvider extends BlockLootSubProvider {
     protected ModBlockLootTableProvider(HolderLookup.Provider provider) {
         super(Set.of(), FeatureFlags.REGISTRY.allFlags(), provider);
     }
+
+    private static final Map<String, DeferredBlock<?>[]> DROPSELF_BLOCK_GROUPS = Map.of(
+            "bismuth", new DeferredBlock<?>[]{
+                      ModBlocks.BISMUTH_BLOCK, ModBlocks.RAW_BISMUTH_BLOCK, ModBlocks.BISMUTH_BRICK_BLOCK
+                    , ModBlocks.BISMUTH_STAIRS, ModBlocks.BISMUTH_PRESSURE_PLATE, ModBlocks.BISMUTH_BUTTON
+                    , ModBlocks.BISMUTH_FENCE, ModBlocks.BISMUTH_FENCE_GATE, ModBlocks.BISMUTH_WALL, ModBlocks.BISMUTH_TRAPDOOR
+            },
+            "black_opal", new DeferredBlock<?>[]{
+                      ModBlocks.BLACK_OPAL_BLOCK, ModBlocks.RAW_BLACK_OPAL_BLOCK, ModBlocks.BLACK_OPAL_BRICK_BLOCK
+                    , ModBlocks.BLACK_OPAL_STAIRS, ModBlocks.BLACK_OPAL_PRESSURE_PLATE, ModBlocks.BLACK_OPAL_BUTTON
+                    , ModBlocks.BLACK_OPAL_FENCE, ModBlocks.BLACK_OPAL_FENCE_GATE, ModBlocks.BLACK_OPAL_WALL, ModBlocks.BLACK_OPAL_TRAPDOOR
+                    , ModBlocks.BLACK_OPAL_LAMP, ModBlocks.PETUNIA, ModBlocks.COLORED_LEAVES, ModBlocks.PEDESTAL
+                    , ModBlocks.EBONY_STAIRS, ModBlocks.EBONY_PRESSURE_PLATE, ModBlocks.EBONY_BUTTON
+                    , ModBlocks.EBONY_FENCE, ModBlocks.EBONY_FENCE_GATE, ModBlocks.EBONY_WALL
+                    , ModBlocks.EBONY_LOG, ModBlocks.EBONY_WOOD, ModBlocks.STRIPPED_EBONY_LOG, ModBlocks.STRIPPED_EBONY_WOOD
+                    , ModBlocks.EBONY_PLANKS, ModBlocks.EBONY_SAPLING
+            },
+            "pink_garnet", new DeferredBlock<?>[]{
+                    ModBlocks.PINK_GARNET_BLOCK, ModBlocks.RAW_PINK_GARNET_BLOCK, ModBlocks.PINK_GARNET_BRICK_BLOCK
+                    //ModBlocks.PINK_GARNET_SLAB, ModBlocks.PINK_GARNET_STAIRS, ModBlocks.PINK_GARNET_PRESSURE_PLATE,
+                    //ModBlocks.PINK_GARNET_BUTTON, ModBlocks.PINK_GARNET_FENCE, ModBlocks.PINK_GARNET_FENCE_GATE,
+                    //ModBlocks.PINK_GARNET_WALL, ModBlocks.PINK_GARNET_DOOR, ModBlocks.PINK_GARNET_TRAPDOOR
+            },
+            "alexandrite", new DeferredBlock<?>[]{
+                      ModBlocks.ALEXANDRITE_BLOCK, ModBlocks.RAW_ALEXANDRITE_BLOCK, ModBlocks.ALEXANDRITE_BRICK_BLOCK
+                    , ModBlocks.ALEXANDRITE_STAIRS, ModBlocks.ALEXANDRITE_PRESSURE_PLATE, ModBlocks.ALEXANDRITE_BUTTON
+                    , ModBlocks.ALEXANDRITE_FENCE, ModBlocks.ALEXANDRITE_FENCE_GATE, ModBlocks.ALEXANDRITE_WALL, ModBlocks.ALEXANDRITE_TRAPDOOR
+            }
+    );
+
+    protected void commonDropSelf() {
+        DROPSELF_BLOCK_GROUPS.forEach((groupName, blocks) -> {
+            for (DeferredBlock<?> block : blocks) {
+                this.dropSelf(block.get()); // Standard drops-self function
+            }
+        });
+    }
+
 
     @Override
     protected void generate() {
@@ -43,18 +82,16 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.add(ModBlocks.TOMATO_CROP.get(), this.createCropDrops(ModBlocks.TOMATO_CROP.get(),
                 ModItems.TOMATO.get(), ModItems.TOMATO_SEEDS.asItem(), lootItemConditionBuilder));
 
-        this.dropSelf(ModBlocks.PETUNIA.get());
+        commonDropSelf();
+
         this.add(ModBlocks.POTTED_PETUNIA.get(), createPotFlowerItemTable(ModBlocks.PETUNIA));
 
-        dropSelf(ModBlocks.COLORED_LEAVES.get());
-        dropSelf(ModBlocks.PEDESTAL.get());
+        commonDrops(ModBlocks.BLACK_OPAL_SLAB, ModBlocks.BLACK_OPAL_DOOR);
+        commonDrops(ModBlocks.BISMUTH_SLAB, ModBlocks.BISMUTH_DOOR);
+        commonDrops(ModBlocks.ALEXANDRITE_SLAB, ModBlocks.ALEXANDRITE_DOOR);
 
-        commonDrops(ModBlocks.BLACK_OPAL_BLOCK, ModBlocks.RAW_BLACK_OPAL_BLOCK, ModBlocks.BLACK_OPAL_STAIRS, ModBlocks.BLACK_OPAL_SLAB, ModBlocks.BLACK_OPAL_PRESSURE_PLATE, ModBlocks.BLACK_OPAL_BUTTON, ModBlocks.BLACK_OPAL_FENCE, ModBlocks.BLACK_OPAL_FENCE_GATE, ModBlocks.BLACK_OPAL_WALL, ModBlocks.BLACK_OPAL_TRAPDOOR, ModBlocks.BLACK_OPAL_DOOR, ModBlocks.BLACK_OPAL_LAMP);
-        commonDrops(ModBlocks.BISMUTH_BLOCK, ModBlocks.RAW_BISMUTH_BLOCK, ModBlocks.BISMUTH_STAIRS, ModBlocks.BISMUTH_SLAB, ModBlocks.BISMUTH_PRESSURE_PLATE, ModBlocks.BISMUTH_BUTTON, ModBlocks.BISMUTH_FENCE, ModBlocks.BISMUTH_FENCE_GATE, ModBlocks.BISMUTH_WALL, ModBlocks.BISMUTH_TRAPDOOR, ModBlocks.BISMUTH_DOOR, null);
-        commonDrops(ModBlocks.ALEXANDRITE_BLOCK, ModBlocks.RAW_ALEXANDRITE_BLOCK, ModBlocks.ALEXANDRITE_STAIRS, ModBlocks.ALEXANDRITE_SLAB, ModBlocks.ALEXANDRITE_PRESSURE_PLATE, ModBlocks.ALEXANDRITE_BUTTON, ModBlocks.ALEXANDRITE_FENCE, ModBlocks.ALEXANDRITE_FENCE_GATE, ModBlocks.ALEXANDRITE_WALL, ModBlocks.ALEXANDRITE_TRAPDOOR, ModBlocks.ALEXANDRITE_DOOR, null);
-        commonDrops(ModBlocks.PINK_GARNET_BLOCK, ModBlocks.RAW_PINK_GARNET_BLOCK, null, null, null, null, null, null, null, null, null, null);
-        commonWoodDrops(ModBlocks.EBONY_LOG, ModBlocks.EBONY_WOOD, ModBlocks.STRIPPED_EBONY_LOG, ModBlocks.STRIPPED_EBONY_WOOD, ModBlocks.EBONY_PLANKS, ModBlocks.EBONY_SAPLING, ModBlocks.EBONY_LEAVES);
-        commonDrops(null, null, ModBlocks.EBONY_STAIRS, ModBlocks.EBONY_SLAB, ModBlocks.EBONY_PRESSURE_PLATE, ModBlocks.EBONY_BUTTON, ModBlocks.EBONY_FENCE, ModBlocks.EBONY_FENCE_GATE, ModBlocks.EBONY_WALL, null, null, null);
+        commonWoodDrops(ModBlocks.EBONY_SAPLING, ModBlocks.EBONY_LEAVES);
+        commonDrops(ModBlocks.EBONY_SLAB, null);
     }
 
     protected void addOre (DeferredItem<Item> item, DeferredBlock<Block> ore, DeferredBlock<Block> deepslateOre, DeferredBlock<Block> endOre, DeferredBlock<Block> netherOre){
@@ -64,38 +101,15 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         if (netherOre != null)this.add(netherOre.get(), block -> createMultipleOreDrops(netherOre.get(), item.get(), 4, 9));
     }
 
-    protected void commonDrops(DeferredBlock<Block> block, DeferredBlock<Block> rawBlock, DeferredBlock<Block> stairs, DeferredBlock<Block> slab, DeferredBlock<Block> pressurePlate, DeferredBlock<Block> button, DeferredBlock<Block> fence, DeferredBlock<Block> fenceGate, DeferredBlock<Block> wall, DeferredBlock<Block> trapdoor, DeferredBlock<Block> door, DeferredBlock<Block> lamp){
-        dropSelf(block);
-        dropSelf(rawBlock);
-
-        dropSelf(stairs);
-
+    protected void commonDrops(DeferredBlock<Block> slab, DeferredBlock<Block> door){
         if (slab != null) this.add(slab.get(),
                 fBlock -> createSlabItemTable(slab.get()));
 
-        dropSelf(pressurePlate);
-        dropSelf(button);
-
-        dropSelf(fence);
-        dropSelf(fenceGate);
-        dropSelf(wall);
-
-        dropSelf(trapdoor);
         if (door != null) this.add(door.get(),
                 fBlock -> createDoorTable(door.get()));
-
-        dropSelf(lamp);
     }
 
-    protected void commonWoodDrops(DeferredBlock<Block> log, DeferredBlock<Block> wood, DeferredBlock<Block> strippedLog, DeferredBlock<Block> strippedWood, DeferredBlock<Block> planks, DeferredBlock<Block> sapling, DeferredBlock<Block> leaves){
-        this.dropSelf(log.get());
-        this.dropSelf(wood.get());
-        this.dropSelf(strippedLog.get());
-        this.dropSelf(strippedWood.get());
-
-        this.dropSelf(planks.get());
-        this.dropSelf(sapling.get());
-
+    protected void commonWoodDrops(DeferredBlock<Block> sapling, DeferredBlock<Block> leaves){
         this.add(leaves.get(), block ->
                 createLeavesDrops(block, sapling.get(), NORMAL_LEAVES_SAPLING_CHANCES));
     }

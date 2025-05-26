@@ -30,6 +30,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
         commonBlocksWithItem(ModBlocks.ALEXANDRITE_BLOCK, ModBlocks.RAW_ALEXANDRITE_BLOCK, ModBlocks.ALEXANDRITE_ORE, ModBlocks.ALEXANDRITE_DEEPSLATE_ORE, null, null, null);
         commonBlocksWithItem(ModBlocks.PINK_GARNET_BLOCK, ModBlocks.RAW_PINK_GARNET_BLOCK, ModBlocks.PINK_GARNET_ORE, ModBlocks.PINK_GARNET_DEEPSLATE_ORE, ModBlocks.PINK_GARNET_END_ORE, ModBlocks.PINK_GARNET_NETHER_ORE, null);
 
+        blockWithItem(ModBlocks.BLACK_OPAL_BRICK_BLOCK);
+        blockWithItem(ModBlocks.BISMUTH_BRICK_BLOCK);
+        blockWithItem(ModBlocks.ALEXANDRITE_BRICK_BLOCK);
+        blockWithItem(ModBlocks.PINK_GARNET_BRICK_BLOCK);
+
         commonWoodenBlocks(ModBlocks.EBONY_LOG, ModBlocks.EBONY_PLANKS, ModBlocks.EBONY_WOOD, ModBlocks.STRIPPED_EBONY_LOG, ModBlocks.STRIPPED_EBONY_WOOD, ModBlocks.EBONY_LEAVES, ModBlocks.EBONY_SAPLING);
 
         commonBlocksWithTexture(ModBlocks.BLACK_OPAL_BLOCK, "black_opal", ModBlocks.BLACK_OPAL_STAIRS, ModBlocks.BLACK_OPAL_SLAB, ModBlocks.BLACK_OPAL_PRESSURE_PLATE, ModBlocks.BLACK_OPAL_BUTTON, ModBlocks.BLACK_OPAL_FENCE, ModBlocks.BLACK_OPAL_FENCE_GATE, ModBlocks.BLACK_OPAL_WALL, ModBlocks.BLACK_OPAL_DOOR, ModBlocks.BLACK_OPAL_TRAPDOOR);

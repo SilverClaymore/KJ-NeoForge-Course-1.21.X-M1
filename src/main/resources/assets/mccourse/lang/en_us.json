@@ -63,6 +63,7 @@
   "block.mccourse.black_opal_deepslate_ore": "Black Opal Deepslate Ore",
   "block.mccourse.black_opal_end_ore": "Black Opal End Ore",
   "block.mccourse.black_opal_nether_ore": "Black Opal Nether Ore",
+  "block.mccourse.black_opal_brick_block": "Black Opal Bricks",
 
   "block.mccourse.bismuth_block": "Block of Bismuth",
   "block.mccourse.raw_bismuth_block": "Raw Bismuth Block",
@@ -70,11 +71,13 @@
   "block.mccourse.bismuth_deepslate_ore": "Bismuth Deepslate Ore",
   "block.mccourse.bismuth_end_ore": "Bismuth End Ore",
   "block.mccourse.bismuth_nether_ore": "Bismuth Nether Ore",
+  "block.mccourse.bismuth_brick_block": "Bismuth Bricks",
 
   "block.mccourse.alexandrite_block": "Block of Alexandrite",
   "block.mccourse.raw_alexandrite_block": "Raw Alexandrite Block",
   "block.mccourse.alexandrite_ore": "Alexandrite Ore",
   "block.mccourse.alexandrite_deepslate_ore": "Alexandrite Deepslate Ore",
+  "block.mccourse.alexandrite_brick_block": "Alexandrite Bricks",
 
   "block.mccourse.pink_garnet_block": "Block of Pink Garnet",
   "block.mccourse.raw_pink_garnet_block": "Raw Pink Garnet",
@@ -82,6 +85,7 @@
   "block.mccourse.pink_garnet_deepslate_ore": "Pink Garnet Deepslate Ore",
   "block.mccourse.pink_garnet_end_ore": "Pink Garnet End Ore",
   "block.mccourse.pink_garnet_nether_ore": "Pink Garnet Nether Ore",
+  "block.mccourse.pink_garnet_brick_block": "Pink Garnet Bricks",
 
   "block.mccourse.magic_block": "Magic Block",
 

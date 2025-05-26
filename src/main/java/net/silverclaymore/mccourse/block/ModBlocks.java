@@ -34,6 +34,15 @@ public class ModBlocks {
             () -> new DropExperienceBlock(UniformInt.of(2 ,5),
                     BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
+    public static final DeferredBlock<Block> BLACK_OPAL_BRICK_BLOCK = registerBlock("black_opal_brick_block",
+            () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> ALEXANDRITE_BRICK_BLOCK = registerBlock("alexandrite_brick_block",
+            () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> BISMUTH_BRICK_BLOCK = registerBlock("bismuth_brick_block",
+            () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> PINK_GARNET_BRICK_BLOCK = registerBlock("pink_garnet_brick_block",
+            () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+
     public static final DeferredBlock<Block> BISMUTH_BLOCK = registerBlock("bismuth_block",
             () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
     public static final DeferredBlock<Block> RAW_BISMUTH_BLOCK = registerBlock("raw_bismuth_block",
