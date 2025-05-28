@@ -14,7 +14,10 @@ import net.silverclaymore.mccourse.MCCourseMod;
 import net.silverclaymore.mccourse.block.ModBlocks;
 import net.silverclaymore.mccourse.block.custom.BlackOpalLampBlock;
 import net.silverclaymore.mccourse.block.custom.TomatoCropBlock;
+import org.apache.commons.lang3.tuple.Pair;
 
+import java.util.List;
+import java.util.Map;
 import java.util.function.Function;
 
 public class ModBlockStateProvider extends BlockStateProvider {
@@ -23,26 +26,57 @@ public class ModBlockStateProvider extends BlockStateProvider {
         super(output, MCCourseMod.MOD_ID, exFileHelper);
     }
 
+    private static final Map<String, Pair<DeferredBlock<Block>, List<DeferredBlock<Block>>>> BLOCK_GROUPS = Map.ofEntries(
+            Map.entry("black_opal", Pair.of(ModBlocks.BLACK_OPAL_BLOCK, List.of(
+                      ModBlocks.BLACK_OPAL_STAIRS, ModBlocks.BLACK_OPAL_SLAB, ModBlocks.BLACK_OPAL_PRESSURE_PLATE, ModBlocks.BLACK_OPAL_BUTTON
+                    , ModBlocks.BLACK_OPAL_FENCE, ModBlocks.BLACK_OPAL_FENCE_GATE, ModBlocks.BLACK_OPAL_WALL, ModBlocks.BLACK_OPAL_DOOR, ModBlocks.BLACK_OPAL_TRAPDOOR
+            ))),
+            Map.entry("bismuth", Pair.of(ModBlocks.BISMUTH_BLOCK, List.of(
+                      ModBlocks.BISMUTH_STAIRS, ModBlocks.BISMUTH_SLAB, ModBlocks.BISMUTH_PRESSURE_PLATE, ModBlocks.BISMUTH_BUTTON
+                    , ModBlocks.BISMUTH_FENCE, ModBlocks.BISMUTH_FENCE_GATE, ModBlocks.BISMUTH_WALL, ModBlocks.BISMUTH_DOOR, ModBlocks.BISMUTH_TRAPDOOR
+            ))),
+            Map.entry("alexandrite", Pair.of(ModBlocks.ALEXANDRITE_BLOCK, List.of(
+                      ModBlocks.ALEXANDRITE_STAIRS, ModBlocks.ALEXANDRITE_SLAB, ModBlocks.ALEXANDRITE_PRESSURE_PLATE, ModBlocks.ALEXANDRITE_BUTTON
+                    , ModBlocks.ALEXANDRITE_FENCE, ModBlocks.ALEXANDRITE_FENCE_GATE, ModBlocks.ALEXANDRITE_WALL, ModBlocks.ALEXANDRITE_DOOR, ModBlocks.ALEXANDRITE_TRAPDOOR
+            ))),
+            Map.entry("ebony", Pair.of(ModBlocks.EBONY_PLANKS, List.of(
+                      ModBlocks.EBONY_STAIRS, ModBlocks.EBONY_SLAB, ModBlocks.EBONY_PRESSURE_PLATE, ModBlocks.EBONY_BUTTON
+                    , ModBlocks.EBONY_FENCE, ModBlocks.EBONY_FENCE_GATE, ModBlocks.EBONY_WALL
+            )))
+    );
+
+    private static final Map<String, List<DeferredBlock<Block>>> BLOCKS_WITH_ITEMS = Map.ofEntries(
+            Map.entry("black_opal", List.of(
+                      ModBlocks.BLACK_OPAL_BLOCK, ModBlocks.RAW_BLACK_OPAL_BLOCK, ModBlocks.BLACK_OPAL_ORE, ModBlocks.BLACK_OPAL_DEEPSLATE_ORE
+                    , ModBlocks.BLACK_OPAL_END_ORE, ModBlocks.BLACK_OPAL_NETHER_ORE, ModBlocks.MAGIC_BLOCK
+                    , ModBlocks.BLACK_OPAL_BRICK_BLOCK
+            )),
+            Map.entry("bismuth", List.of(
+                      ModBlocks.BISMUTH_BLOCK, ModBlocks.RAW_BISMUTH_BLOCK, ModBlocks.BISMUTH_ORE, ModBlocks.BISMUTH_DEEPSLATE_ORE
+                    , ModBlocks.BISMUTH_END_ORE, ModBlocks.BISMUTH_NETHER_ORE
+                    , ModBlocks.BISMUTH_BRICK_BLOCK
+            )),
+            Map.entry("alexandrite", List.of(
+                      ModBlocks.ALEXANDRITE_BLOCK, ModBlocks.RAW_ALEXANDRITE_BLOCK, ModBlocks.ALEXANDRITE_ORE, ModBlocks.ALEXANDRITE_DEEPSLATE_ORE
+                    , ModBlocks.ALEXANDRITE_BRICK_BLOCK
+            )),
+            Map.entry("pink_garnet", List.of(
+                      ModBlocks.PINK_GARNET_BLOCK, ModBlocks.RAW_PINK_GARNET_BLOCK, ModBlocks.PINK_GARNET_ORE, ModBlocks.PINK_GARNET_DEEPSLATE_ORE
+                    , ModBlocks.PINK_GARNET_END_ORE, ModBlocks.PINK_GARNET_NETHER_ORE
+                    , ModBlocks.PINK_GARNET_BRICK_BLOCK
+            ))
+    );
+
+
     @Override
     protected void registerStatesAndModels() {
-        commonBlocksWithItem(ModBlocks.BLACK_OPAL_BLOCK, ModBlocks.RAW_BLACK_OPAL_BLOCK, ModBlocks.BLACK_OPAL_ORE, ModBlocks.BLACK_OPAL_DEEPSLATE_ORE, ModBlocks.BLACK_OPAL_END_ORE, ModBlocks.BLACK_OPAL_NETHER_ORE, ModBlocks.MAGIC_BLOCK);
-        commonBlocksWithItem(ModBlocks.BISMUTH_BLOCK, ModBlocks.RAW_BISMUTH_BLOCK, ModBlocks.BISMUTH_ORE, ModBlocks.BISMUTH_DEEPSLATE_ORE, ModBlocks.BISMUTH_END_ORE, ModBlocks.BISMUTH_NETHER_ORE, null);
-        commonBlocksWithItem(ModBlocks.ALEXANDRITE_BLOCK, ModBlocks.RAW_ALEXANDRITE_BLOCK, ModBlocks.ALEXANDRITE_ORE, ModBlocks.ALEXANDRITE_DEEPSLATE_ORE, null, null, null);
-        commonBlocksWithItem(ModBlocks.PINK_GARNET_BLOCK, ModBlocks.RAW_PINK_GARNET_BLOCK, ModBlocks.PINK_GARNET_ORE, ModBlocks.PINK_GARNET_DEEPSLATE_ORE, ModBlocks.PINK_GARNET_END_ORE, ModBlocks.PINK_GARNET_NETHER_ORE, null);
-
-        blockWithItem(ModBlocks.BLACK_OPAL_BRICK_BLOCK);
-        blockWithItem(ModBlocks.BISMUTH_BRICK_BLOCK);
-        blockWithItem(ModBlocks.ALEXANDRITE_BRICK_BLOCK);
-        blockWithItem(ModBlocks.PINK_GARNET_BRICK_BLOCK);
+        BLOCKS_WITH_ITEMS.forEach((groupName, blocks) -> {
+            blocks.forEach(this::blockWithItem);
+        });
 
         commonWoodenBlocks(ModBlocks.EBONY_LOG, ModBlocks.EBONY_PLANKS, ModBlocks.EBONY_WOOD, ModBlocks.STRIPPED_EBONY_LOG, ModBlocks.STRIPPED_EBONY_WOOD, ModBlocks.EBONY_LEAVES, ModBlocks.EBONY_SAPLING);
 
-        commonBlocksWithTexture(ModBlocks.BLACK_OPAL_BLOCK, "black_opal", ModBlocks.BLACK_OPAL_STAIRS, ModBlocks.BLACK_OPAL_SLAB, ModBlocks.BLACK_OPAL_PRESSURE_PLATE, ModBlocks.BLACK_OPAL_BUTTON, ModBlocks.BLACK_OPAL_FENCE, ModBlocks.BLACK_OPAL_FENCE_GATE, ModBlocks.BLACK_OPAL_WALL, ModBlocks.BLACK_OPAL_DOOR, ModBlocks.BLACK_OPAL_TRAPDOOR);
-        commonBlocksWithTexture(ModBlocks.BISMUTH_BLOCK, "bismuth", ModBlocks.BISMUTH_STAIRS, ModBlocks.BISMUTH_SLAB, ModBlocks.BISMUTH_PRESSURE_PLATE, ModBlocks.BISMUTH_BUTTON, ModBlocks.BISMUTH_FENCE, ModBlocks.BISMUTH_FENCE_GATE, ModBlocks.BISMUTH_WALL, ModBlocks.BISMUTH_DOOR, ModBlocks.BISMUTH_TRAPDOOR);
-        commonBlocksWithTexture(ModBlocks.ALEXANDRITE_BLOCK, "alexandrite", ModBlocks.ALEXANDRITE_STAIRS, ModBlocks.ALEXANDRITE_SLAB, ModBlocks.ALEXANDRITE_PRESSURE_PLATE, ModBlocks.ALEXANDRITE_BUTTON, ModBlocks.ALEXANDRITE_FENCE, ModBlocks.ALEXANDRITE_FENCE_GATE, ModBlocks.ALEXANDRITE_WALL, ModBlocks.ALEXANDRITE_DOOR, ModBlocks.ALEXANDRITE_TRAPDOOR);
-        commonBlocksWithTexture(ModBlocks.PINK_GARNET_BLOCK, "pink_garnet", null, null, null, null, null, null, null, null, null);
-
-        commonBlocksWithTexture(ModBlocks.EBONY_PLANKS, "ebony", ModBlocks.EBONY_STAIRS, ModBlocks.EBONY_SLAB, ModBlocks.EBONY_PRESSURE_PLATE, ModBlocks.EBONY_BUTTON, ModBlocks.EBONY_FENCE, ModBlocks.EBONY_FENCE_GATE, ModBlocks.EBONY_WALL, null, null);
+        commonBlocksWithTexture();
 
         customLamp();
 
@@ -121,33 +155,52 @@ public class ModBlockStateProvider extends BlockStateProvider {
         saplingBlock(sapling);
     }
 
-    private void commonBlocksWithTexture(DeferredBlock<Block> blockAsTexture, String group, DeferredBlock<Block> stairs, DeferredBlock<Block> slab, DeferredBlock<Block> pressurePlate, DeferredBlock<Block> button, DeferredBlock<Block> fence, DeferredBlock<Block> fenceGate, DeferredBlock<Block> wall, DeferredBlock<Block> door, DeferredBlock<Block> trapdoor){
-        if (stairs != null) stairsBlock(((StairBlock) stairs.get()), blockTexture(blockAsTexture.get()));
-        if (slab != null) slabBlock(((SlabBlock) slab.get()), blockTexture(blockAsTexture.get()), blockTexture(blockAsTexture.get()));
-        if (pressurePlate != null) pressurePlateBlock(((PressurePlateBlock) pressurePlate.get()), blockTexture(blockAsTexture.get()));
-        if (button != null) buttonBlock(((ButtonBlock) button.get()), blockTexture(blockAsTexture.get()));
-        if (fence != null) fenceBlock(((FenceBlock) fence.get()), blockTexture(blockAsTexture.get()));
-        if (fenceGate != null) fenceGateBlock(((FenceGateBlock) fenceGate.get()), blockTexture(blockAsTexture.get()));
-        if (wall != null) wallBlock(((WallBlock) wall.get()), blockTexture(blockAsTexture.get()));
+    private void commonBlocksWithTexture() {
+        BLOCK_GROUPS.forEach((groupName, pair) -> {
+            Block textureBlock = pair.getLeft().get(); // Extract texture block
+            List<DeferredBlock<Block>> blocks = pair.getRight(); // Extract block list
 
-        if (door != null) doorBlockWithRenderType(((DoorBlock) door.get()), modLoc("block/" + group + "_door_bottom"), modLoc("block/" + group + "_door_top"), "cutout");
-        if (trapdoor != null) trapdoorBlockWithRenderType(((TrapDoorBlock) trapdoor.get()), modLoc("block/" + group + "_trapdoor"), true, "cutout");
+            for (DeferredBlock<Block> block : blocks) {
+                if (block == null) continue;
+                Block instance = block.get();
 
-        if (stairs != null) blockItem(stairs);
-        if (slab != null) blockItem(slab);
-        if (pressurePlate != null) blockItem(pressurePlate);
-        if (fenceGate != null) blockItem(fenceGate);
-        if (trapdoor != null) blockItem(trapdoor,"_bottom");
-    }
-
-    private void commonBlocksWithItem(DeferredBlock<Block> block, DeferredBlock<Block> rawBlock, DeferredBlock<Block> ore, DeferredBlock<Block> deepslateOre, DeferredBlock<Block> endOre, DeferredBlock<Block> netherOre, DeferredBlock<Block> magicBlock){
-        if (block != null) blockWithItem(block);
-        if (rawBlock != null) blockWithItem(rawBlock);
-        if (ore != null) blockWithItem(ore);
-        if (deepslateOre != null) blockWithItem(deepslateOre);
-        if (endOre != null) blockWithItem(endOre);
-        if (netherOre != null) blockWithItem(netherOre);
-        if (magicBlock != null) blockWithItem(magicBlock);
+                switch (instance) {
+                    case StairBlock stair -> {
+                        stairsBlock(stair, blockTexture(textureBlock));
+                        blockItem(block);
+                    }
+                    case SlabBlock slab -> {
+                        slabBlock(slab, blockTexture(textureBlock), blockTexture(textureBlock));
+                        blockItem(block);
+                    }
+                    case PressurePlateBlock pressurePlate -> {
+                        pressurePlateBlock(pressurePlate, blockTexture(textureBlock));
+                        blockItem(block);
+                    }
+                    case ButtonBlock button -> buttonBlock(button, blockTexture(textureBlock));
+                    case FenceGateBlock fenceGate -> {
+                        fenceGateBlock(fenceGate, blockTexture(textureBlock));
+                        blockItem(block);
+                    }
+                    case FenceBlock fence -> {
+                        fenceBlock(fence, blockTexture(textureBlock));
+                        blockItem(block);
+                    }
+                    case WallBlock wall -> {
+                        wallBlock(wall, blockTexture(textureBlock));
+                        blockItem(block);
+                    }
+                    case DoorBlock door -> {
+                        doorBlockWithRenderType(door, modLoc("block/" + groupName + "_door_bottom"), modLoc("block/" + groupName + "_door_top"), "cutout");
+                    }
+                    case TrapDoorBlock trapdoor -> {
+                        trapdoorBlockWithRenderType(trapdoor, modLoc("block/" + groupName + "_trapdoor"), true, "cutout");
+                        blockItem(block, "_bottom");
+                    }
+                    default -> {} // Do nothing for unsupported types
+                }
+            }
+        });
     }
 
     private void blockWithItem(DeferredBlock<Block> deferredBlock){
