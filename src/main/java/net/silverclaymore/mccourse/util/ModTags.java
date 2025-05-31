@@ -31,6 +31,7 @@ public class ModTags {
         public static final TagKey<Item> TRANSFORMABLE_ITEMS = createTag("transformable_items");
 
         public static final TagKey<Item> EBONY_LOG_TAGS = createTag("ebony_log_tags");
+        public static final TagKey<Item> WALNUT_LOG_TAGS = createTag("walnut_log_tags");
 
         public static TagKey<Item> createTag(String name){
             return ItemTags.create(ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, name));

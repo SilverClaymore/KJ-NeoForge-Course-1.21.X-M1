@@ -61,6 +61,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         commonItems(ModItems.ALEXANDRITE, ModItems.RAW_ALEXANDRITE, ModBlocks.ALEXANDRITE_BLOCK, ModBlocks.ALEXANDRITE_BUTTON, ModBlocks.ALEXANDRITE_FENCE, ModBlocks.ALEXANDRITE_WALL, ModBlocks.ALEXANDRITE_DOOR, null, null, null, null, null, null, null, ModItems.ALEXANDRITE_HELMET, ModItems.ALEXANDRITE_CHESTPLATE, ModItems.ALEXANDRITE_LEGGINGS, ModItems.ALEXANDRITE_BOOTS, null);
         commonItems(ModItems.PINK_GARNET, ModItems.RAW_PINK_GARNET, ModBlocks.PINK_GARNET_BLOCK, null, null, null, null, null, null, null, null, null, null, null, ModItems.PINK_GARNET_HELMET, ModItems.PINK_GARNET_CHESTPLATE, ModItems.PINK_GARNET_LEGGINGS, ModItems.PINK_GARNET_BOOTS, null);
         commonItems(null, null, ModBlocks.EBONY_PLANKS, ModBlocks.EBONY_BUTTON, ModBlocks.EBONY_FENCE, ModBlocks.EBONY_WALL, null, null, null, null, null, null, null, null, null, null, null, null, null);
+        commonItems(null, null, ModBlocks.WALNUT_PLANKS, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
 
         basicItem(ModItems.KAUPEN_SMITHING_TEMPLATE.get());
 
@@ -81,6 +82,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModFluids.BLACK_OPAL_WATER_BUCKET.get());
 
         saplingItem(ModBlocks.EBONY_SAPLING);
+        saplingItem(ModBlocks.WALNUT_SAPLING);
 
         withExistingParent(ModItems.PENGUIN_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
     }

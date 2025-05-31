@@ -9,4 +9,6 @@ import java.util.Optional;
 public class ModTreeGrowers {
     public static final TreeGrower EBONY = new TreeGrower(MCCourseMod.MOD_ID + ":ebony",
             Optional.empty(), Optional.of(ModConfiguredFeatures.EBONY_KEY), Optional.empty());
+    public static final TreeGrower WALNUT = new TreeGrower(MCCourseMod.MOD_ID + ":walnut",
+            Optional.empty(), Optional.of(ModConfiguredFeatures.WALNUT_KEY), Optional.empty());
 }

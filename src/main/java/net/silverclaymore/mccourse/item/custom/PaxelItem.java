@@ -59,7 +59,7 @@ public class PaxelItem extends DiggerItem {
             .build();
 
     protected static final Map<Block, BlockState> FLATTENABLES = Maps.newHashMap(
-            new ImmutableMap.Builder()
+            new ImmutableMap.Builder<Block, BlockState>()
                     .put(Blocks.GRASS_BLOCK, Blocks.DIRT_PATH.defaultBlockState())
                     .put(Blocks.DIRT, Blocks.DIRT_PATH.defaultBlockState())
                     .put(Blocks.PODZOL, Blocks.DIRT_PATH.defaultBlockState())

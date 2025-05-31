@@ -32,10 +32,16 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModBlocks.EBONY_LOG.get().asItem())
                 .add(ModBlocks.EBONY_WOOD.get().asItem())
                 .add(ModBlocks.STRIPPED_EBONY_LOG.get().asItem())
-                .add(ModBlocks.STRIPPED_EBONY_WOOD.get().asItem());
+                .add(ModBlocks.STRIPPED_EBONY_WOOD.get().asItem())
+                .add(ModBlocks.WALNUT_LOG.get().asItem())
+                .add(ModBlocks.WALNUT_WOOD.get().asItem())
+                .add(ModBlocks.STRIPPED_WALNUT_LOG.get().asItem())
+                .add(ModBlocks.STRIPPED_WALNUT_WOOD.get().asItem());
 
         tag(ModTags.Items.EBONY_LOG_TAGS)
                 .add(ModBlocks.EBONY_LOG.get().asItem());
+        tag(ModTags.Items.WALNUT_LOG_TAGS)
+                .add(ModBlocks.WALNUT_LOG.get().asItem());
 
         tag(ItemTags.SWORDS)
                 .add(ModItems.BLACK_OPAL_SWORD.get())

@@ -58,6 +58,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
                       ModBlocks.ALEXANDRITE_BLOCK, ModBlocks.RAW_ALEXANDRITE_BLOCK, ModBlocks.ALEXANDRITE_BRICK_BLOCK
                     , ModBlocks.ALEXANDRITE_STAIRS, ModBlocks.ALEXANDRITE_PRESSURE_PLATE, ModBlocks.ALEXANDRITE_BUTTON
                     , ModBlocks.ALEXANDRITE_FENCE, ModBlocks.ALEXANDRITE_FENCE_GATE, ModBlocks.ALEXANDRITE_WALL, ModBlocks.ALEXANDRITE_TRAPDOOR
+                    , ModBlocks.WALNUT_LOG, ModBlocks.WALNUT_WOOD, ModBlocks.STRIPPED_WALNUT_LOG, ModBlocks.STRIPPED_WALNUT_WOOD
+                    , ModBlocks.WALNUT_PLANKS, ModBlocks.WALNUT_SAPLING
             }
     );
 
@@ -93,7 +95,9 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         commonDrops(ModBlocks.ALEXANDRITE_SLAB, ModBlocks.ALEXANDRITE_DOOR);
 
         commonWoodDrops(ModBlocks.EBONY_SAPLING, ModBlocks.EBONY_LEAVES);
+        commonWoodDrops(ModBlocks.WALNUT_SAPLING, ModBlocks.WALNUT_LEAVES);
         commonDrops(ModBlocks.EBONY_SLAB, null);
+        //commonDrops(ModBlocks.WALNUT_SLAB, null);
     }
 
     protected void addOreDrops() {
