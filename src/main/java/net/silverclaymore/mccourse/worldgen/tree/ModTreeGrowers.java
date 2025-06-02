@@ -11,4 +11,6 @@ public class ModTreeGrowers {
             Optional.empty(), Optional.of(ModConfiguredFeatures.EBONY_KEY), Optional.empty());
     public static final TreeGrower WALNUT = new TreeGrower(MCCourseMod.MOD_ID + ":walnut",
             Optional.empty(), Optional.of(ModConfiguredFeatures.WALNUT_KEY), Optional.empty());
+    public static final TreeGrower BLOODWOOD = new TreeGrower(MCCourseMod.MOD_ID + ":bloodwood",
+            Optional.empty(), Optional.of(ModConfiguredFeatures.BLOODWOOD_KEY), Optional.empty());
 }

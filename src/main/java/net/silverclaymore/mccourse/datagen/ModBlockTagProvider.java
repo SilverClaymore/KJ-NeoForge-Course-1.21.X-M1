@@ -91,6 +91,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
         addCommonWoodTags(BlockTags.MINEABLE_WITH_AXE, ModBlocks.EBONY_LOG, ModBlocks.EBONY_PLANKS, ModBlocks.EBONY_WOOD, ModBlocks.STRIPPED_EBONY_LOG, ModBlocks.STRIPPED_EBONY_WOOD, ModBlocks.EBONY_STAIRS, ModBlocks.EBONY_SLAB, ModBlocks.EBONY_PRESSURE_PLATE, ModBlocks.EBONY_BUTTON, ModBlocks.EBONY_FENCE, ModBlocks.EBONY_FENCE_GATE, ModBlocks.EBONY_WALL);
         addCommonWoodTags(BlockTags.MINEABLE_WITH_AXE, ModBlocks.WALNUT_LOG, ModBlocks.WALNUT_PLANKS, ModBlocks.WALNUT_WOOD, ModBlocks.STRIPPED_WALNUT_LOG, ModBlocks.STRIPPED_WALNUT_WOOD, null, null, null, null, null, null, null);
+        addCommonWoodTags(BlockTags.MINEABLE_WITH_AXE, ModBlocks.BLOODWOOD_LOG, ModBlocks.BLOODWOOD_PLANKS, ModBlocks.BLOODWOOD_WOOD, ModBlocks.STRIPPED_BLOODWOOD_LOG, ModBlocks.STRIPPED_BLOODWOOD_WOOD, null, null, null, null, null, null, null);
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.MAGIC_BLOCK.get())
@@ -98,6 +99,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
         tag(BlockTags.PLANKS).add(ModBlocks.EBONY_PLANKS.get());
         tag(BlockTags.PLANKS).add(ModBlocks.WALNUT_PLANKS.get());
+        tag(BlockTags.PLANKS).add(ModBlocks.BLOODWOOD_PLANKS.get());
 
         this.tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.BLACK_OPAL_ORE.get())
@@ -130,14 +132,12 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         ;
 
         this.tag(BlockTags.LOGS_THAT_BURN)
-                .add(ModBlocks.EBONY_LOG.get())
-                .add(ModBlocks.EBONY_WOOD.get())
-                .add(ModBlocks.STRIPPED_EBONY_LOG.get())
-                .add(ModBlocks.STRIPPED_EBONY_WOOD.get())
-                .add(ModBlocks.WALNUT_LOG.get())
-                .add(ModBlocks.WALNUT_WOOD.get())
-                .add(ModBlocks.STRIPPED_WALNUT_LOG.get())
-                .add(ModBlocks.STRIPPED_WALNUT_WOOD.get())
+                .add(ModBlocks.EBONY_LOG.get()).add(ModBlocks.EBONY_WOOD.get())
+                .add(ModBlocks.STRIPPED_EBONY_LOG.get()).add(ModBlocks.STRIPPED_EBONY_WOOD.get())
+                .add(ModBlocks.WALNUT_LOG.get()).add(ModBlocks.WALNUT_WOOD.get())
+                .add(ModBlocks.STRIPPED_WALNUT_LOG.get()).add(ModBlocks.STRIPPED_WALNUT_WOOD.get())
+                .add(ModBlocks.BLOODWOOD_LOG.get()).add(ModBlocks.BLOODWOOD_WOOD.get())
+                .add(ModBlocks.STRIPPED_BLOODWOOD_LOG.get()).add(ModBlocks.STRIPPED_BLOODWOOD_WOOD.get())
         ;
     }
 }

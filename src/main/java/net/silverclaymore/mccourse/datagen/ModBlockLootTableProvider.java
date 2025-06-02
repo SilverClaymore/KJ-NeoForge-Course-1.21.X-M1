@@ -37,6 +37,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
                       ModBlocks.BISMUTH_BLOCK, ModBlocks.RAW_BISMUTH_BLOCK, ModBlocks.BISMUTH_BRICK_BLOCK
                     , ModBlocks.BISMUTH_STAIRS, ModBlocks.BISMUTH_PRESSURE_PLATE, ModBlocks.BISMUTH_BUTTON
                     , ModBlocks.BISMUTH_FENCE, ModBlocks.BISMUTH_FENCE_GATE, ModBlocks.BISMUTH_WALL, ModBlocks.BISMUTH_TRAPDOOR
+                    , ModBlocks.BLOODWOOD_LOG, ModBlocks.BLOODWOOD_WOOD, ModBlocks.STRIPPED_BLOODWOOD_LOG, ModBlocks.STRIPPED_BLOODWOOD_WOOD
+                    , ModBlocks.BLOODWOOD_PLANKS, ModBlocks.BLOODWOOD_SAPLING
             },
             "black_opal", new DeferredBlock<?>[]{
                       ModBlocks.BLACK_OPAL_BLOCK, ModBlocks.RAW_BLACK_OPAL_BLOCK, ModBlocks.BLACK_OPAL_BRICK_BLOCK
@@ -96,6 +98,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         commonWoodDrops(ModBlocks.EBONY_SAPLING, ModBlocks.EBONY_LEAVES);
         commonWoodDrops(ModBlocks.WALNUT_SAPLING, ModBlocks.WALNUT_LEAVES);
+        commonWoodDrops(ModBlocks.BLOODWOOD_SAPLING, ModBlocks.BLOODWOOD_LEAVES);
         commonDrops(ModBlocks.EBONY_SLAB, null);
         //commonDrops(ModBlocks.WALNUT_SLAB, null);
     }

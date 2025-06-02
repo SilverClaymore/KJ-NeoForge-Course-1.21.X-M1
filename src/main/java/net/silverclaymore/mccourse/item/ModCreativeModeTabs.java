@@ -67,6 +67,7 @@ public class ModCreativeModeTabs {
                     , ModBlocks.BISMUTH_SLAB, ModBlocks.BISMUTH_STAIRS, ModBlocks.BISMUTH_PRESSURE_PLATE
                     , ModBlocks.BISMUTH_BUTTON, ModBlocks.BISMUTH_FENCE, ModBlocks.BISMUTH_FENCE_GATE
                     , ModBlocks.BISMUTH_WALL, ModBlocks.BISMUTH_DOOR, ModBlocks.BISMUTH_TRAPDOOR
+                    , ModBlocks.BLOODWOOD_LOG, ModBlocks.BLOODWOOD_WOOD, ModBlocks.STRIPPED_BLOODWOOD_LOG, ModBlocks.STRIPPED_BLOODWOOD_WOOD, ModBlocks.BLOODWOOD_LEAVES, ModBlocks.BLOODWOOD_PLANKS, ModBlocks.BLOODWOOD_SAPLING
             },
             "black_opal", new DeferredBlock<?>[]{
                     ModBlocks.BLACK_OPAL_BLOCK, ModBlocks.RAW_BLACK_OPAL_BLOCK, ModBlocks.BLACK_OPAL_ORE, ModBlocks.BLACK_OPAL_BRICK_BLOCK

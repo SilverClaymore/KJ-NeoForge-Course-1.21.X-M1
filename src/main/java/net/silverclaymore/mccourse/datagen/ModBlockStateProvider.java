@@ -76,6 +76,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         commonWoodenBlocks(ModBlocks.EBONY_LOG, ModBlocks.EBONY_PLANKS , ModBlocks.EBONY_WOOD, ModBlocks.STRIPPED_EBONY_LOG, ModBlocks.STRIPPED_EBONY_WOOD, ModBlocks.EBONY_LEAVES, ModBlocks.EBONY_SAPLING);
         commonWoodenBlocks(ModBlocks.WALNUT_LOG, ModBlocks.WALNUT_PLANKS, ModBlocks.WALNUT_WOOD, ModBlocks.STRIPPED_WALNUT_LOG, ModBlocks.STRIPPED_WALNUT_WOOD, ModBlocks.WALNUT_LEAVES, ModBlocks.WALNUT_SAPLING);
+        commonWoodenBlocks(ModBlocks.BLOODWOOD_LOG, ModBlocks.BLOODWOOD_PLANKS, ModBlocks.BLOODWOOD_WOOD, ModBlocks.STRIPPED_BLOODWOOD_LOG, ModBlocks.STRIPPED_BLOODWOOD_WOOD, ModBlocks.BLOODWOOD_LEAVES, ModBlocks.BLOODWOOD_SAPLING);
 
         commonBlocksWithTexture();
 

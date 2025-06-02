@@ -62,6 +62,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         commonItems(ModItems.PINK_GARNET, ModItems.RAW_PINK_GARNET, ModBlocks.PINK_GARNET_BLOCK, null, null, null, null, null, null, null, null, null, null, null, ModItems.PINK_GARNET_HELMET, ModItems.PINK_GARNET_CHESTPLATE, ModItems.PINK_GARNET_LEGGINGS, ModItems.PINK_GARNET_BOOTS, null);
         commonItems(null, null, ModBlocks.EBONY_PLANKS, ModBlocks.EBONY_BUTTON, ModBlocks.EBONY_FENCE, ModBlocks.EBONY_WALL, null, null, null, null, null, null, null, null, null, null, null, null, null);
         commonItems(null, null, ModBlocks.WALNUT_PLANKS, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+        commonItems(null, null, ModBlocks.BLOODWOOD_PLANKS, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
 
         basicItem(ModItems.KAUPEN_SMITHING_TEMPLATE.get());
 
@@ -83,6 +84,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         saplingItem(ModBlocks.EBONY_SAPLING);
         saplingItem(ModBlocks.WALNUT_SAPLING);
+        saplingItem(ModBlocks.BLOODWOOD_SAPLING);
 
         withExistingParent(ModItems.PENGUIN_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
     }
