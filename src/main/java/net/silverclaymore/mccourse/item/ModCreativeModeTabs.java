@@ -80,6 +80,7 @@ public class ModCreativeModeTabs {
                     , ModBlocks.EBONY_WALL
                     , ModBlocks.EBONY_LOG, ModBlocks.EBONY_WOOD, ModBlocks.STRIPPED_EBONY_LOG, ModBlocks.STRIPPED_EBONY_WOOD, ModBlocks.EBONY_LEAVES, ModBlocks.EBONY_PLANKS, ModBlocks.EBONY_SAPLING
                     , ModBlocks.MAGIC_BLOCK, ModBlocks.BLACK_OPAL_LAMP, ModBlocks.PETUNIA, ModBlocks.COLORED_LEAVES, ModBlocks.PEDESTAL
+                    , ModBlocks.BLACK_OPAL_64_BLOCK, ModBlocks.BLACK_OPAL_BRICK_64_BLOCK, ModBlocks.BLACK_OPAL_PILLAR_64_BLOCK, ModBlocks.BLACK_OPAL_STONE_BRICK_64_BLOCK
             },
             "pink_garnet", new DeferredBlock<?>[]{
                       ModBlocks.PINK_GARNET_BLOCK, ModBlocks.RAW_PINK_GARNET_BLOCK, ModBlocks.PINK_GARNET_ORE, ModBlocks.PINK_GARNET_BRICK_BLOCK

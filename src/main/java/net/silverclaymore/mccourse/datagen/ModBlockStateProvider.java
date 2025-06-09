@@ -51,6 +51,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
                     , ModBlocks.BLACK_OPAL_END_ORE, ModBlocks.BLACK_OPAL_NETHER_ORE, ModBlocks.MAGIC_BLOCK
                     , ModBlocks.BLACK_OPAL_BRICK_BLOCK
             )),
+            Map.entry("black_opal_64", List.of(
+                    ModBlocks.BLACK_OPAL_64_BLOCK, ModBlocks.BLACK_OPAL_BRICK_64_BLOCK, ModBlocks.BLACK_OPAL_PILLAR_64_BLOCK, ModBlocks.BLACK_OPAL_STONE_BRICK_64_BLOCK
+            )),
             Map.entry("bismuth", List.of(
                       ModBlocks.BISMUTH_BLOCK, ModBlocks.RAW_BISMUTH_BLOCK, ModBlocks.BISMUTH_ORE, ModBlocks.BISMUTH_DEEPSLATE_ORE
                     , ModBlocks.BISMUTH_END_ORE, ModBlocks.BISMUTH_NETHER_ORE

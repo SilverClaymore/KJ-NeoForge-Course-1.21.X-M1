@@ -114,7 +114,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     }
 
     private void baseItem(DeferredBlock<Block> block, DeferredBlock<Block> baseBlock, String name, String key){
-        this.withExistingParent(block.getId().getPath(), mcLoc("block/"+ name +"_inventory"))
+        this.withExistingParent(block.getId().getPath(), mcLoc("minecraft:block/"+ name +"_inventory"))
                 .texture(key, ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, "block/" + baseBlock.getId().getPath()));
     }
 

@@ -34,6 +34,18 @@ public class ModBlocks {
             () -> new DropExperienceBlock(UniformInt.of(2 ,5),
                     BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
+
+    //Extra experimental blocks under BLACK_OPAL
+    public static final DeferredBlock<Block> BLACK_OPAL_64_BLOCK = registerBlock("black_opal_64_block",
+            () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> BLACK_OPAL_BRICK_64_BLOCK = registerBlock("black_opal_brick_64_block",
+            () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> BLACK_OPAL_PILLAR_64_BLOCK = registerBlock("black_opal_pillar_64_block",
+            () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> BLACK_OPAL_STONE_BRICK_64_BLOCK = registerBlock("black_opal_stone_brick_64_block",
+            () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+
+
     public static final DeferredBlock<Block> BLACK_OPAL_BRICK_BLOCK = registerBlock("black_opal_brick_block",
             () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
     public static final DeferredBlock<Block> ALEXANDRITE_BRICK_BLOCK = registerBlock("alexandrite_brick_block",
