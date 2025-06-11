@@ -72,9 +72,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        BLOCKS_WITH_ITEMS.forEach((groupName, blocks) -> {
-            blocks.forEach(this::blockWithItem);
-        });
+        BLOCKS_WITH_ITEMS.forEach((groupName, blocks) -> blocks.forEach(this::blockWithItem));
 
         commonWoodenBlocks(ModBlocks.EBONY_LOG, ModBlocks.EBONY_PLANKS , ModBlocks.EBONY_WOOD, ModBlocks.STRIPPED_EBONY_LOG, ModBlocks.STRIPPED_EBONY_WOOD, ModBlocks.EBONY_LEAVES, ModBlocks.EBONY_SAPLING);
         commonWoodenBlocks(ModBlocks.WALNUT_LOG, ModBlocks.WALNUT_PLANKS, ModBlocks.WALNUT_WOOD, ModBlocks.STRIPPED_WALNUT_LOG, ModBlocks.STRIPPED_WALNUT_WOOD, ModBlocks.WALNUT_LEAVES, ModBlocks.WALNUT_SAPLING);
@@ -94,12 +92,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
         leavesBlock(ModBlocks.COLORED_LEAVES);
     }
 
-    //private void leavesBlock(DeferredBlock<Block> deferredBlock) {
-        //simpleBlockWithItem(deferredBlock.get(),
-                //models().singleTexture(deferredBlock.getId().getPath(), ResourceLocation.parse("minecraft:block/leaves"),
-                        //"all", blockTexture(deferredBlock.get())).renderType("cutout"));
-    //}
-
     private void leavesBlock(DeferredBlock<Block> deferredBlock) {
         simpleBlockWithItem(deferredBlock.get(),
                 models().singleTexture(BuiltInRegistries.BLOCK.getKey(deferredBlock.get()).getPath(), ResourceLocation.parse("minecraft:block/leaves"),
@@ -109,7 +101,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
     private void saplingBlock(DeferredBlock<Block> deferredBlock) {
         simpleBlock(deferredBlock.get(), models().cross(BuiltInRegistries.BLOCK.getKey(deferredBlock.get()).getPath(), blockTexture(deferredBlock.get())).renderType("cutout"));
     }
-
 
     public void makeCrop(CropBlock block, String modelName, String textureName) {
         Function<BlockState, ConfiguredModel[]> function = state -> states(state, block, modelName, textureName);
@@ -185,15 +176,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
                         fenceGateBlock(fenceGate, blockTexture(textureBlock));
                         blockItem(block);
                     }
-                    case FenceBlock fence -> {
-                        fenceBlock(fence, blockTexture(textureBlock));
-                    }
-                    case WallBlock wall -> {
-                        wallBlock(wall, blockTexture(textureBlock));
-                    }
-                    case DoorBlock door -> {
-                        doorBlockWithRenderType(door, modLoc("block/" + groupName + "_door_bottom"), modLoc("block/" + groupName + "_door_top"), "cutout");
-                    }
+                    case FenceBlock fence -> fenceBlock(fence, blockTexture(textureBlock));
+                    case WallBlock wall -> wallBlock(wall, blockTexture(textureBlock));
+                    case DoorBlock door -> doorBlockWithRenderType(door, modLoc("block/" + groupName + "_door_bottom")
+                            , modLoc("block/" + groupName + "_door_top"), "cutout");
+
                     case TrapDoorBlock trapdoor -> {
                         trapdoorBlockWithRenderType(trapdoor, modLoc("block/" + groupName + "_trapdoor"), true, "cutout");
                         blockItem(block, "_bottom");

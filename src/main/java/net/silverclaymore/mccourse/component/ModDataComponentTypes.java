@@ -6,8 +6,6 @@ import net.minecraft.core.registries.Registries;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-//import net.neoforged.neoforge.registries.NeoForgeRegistries;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.silverclaymore.mccourse.MCCourseMod;
 
 import java.util.function.UnaryOperator;
