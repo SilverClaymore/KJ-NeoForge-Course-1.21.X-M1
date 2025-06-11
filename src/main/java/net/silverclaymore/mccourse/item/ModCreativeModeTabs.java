@@ -99,8 +99,8 @@ public class ModCreativeModeTabs {
             }
     );
 
-    public static Supplier<CreativeModeTab> createCreativeTab(String tabKeyStart, DeferredItem<?> item ) {
-        return CREATIVE_MODE_TABS.register(tabKeyStart + "_items_tab", () -> CreativeModeTab.builder()
+    public static void createCreativeTab(String tabKeyStart, DeferredItem<?> item ) {
+        CREATIVE_MODE_TABS.register(tabKeyStart + "_items_tab", () -> CreativeModeTab.builder()
                 .title(Component.translatable("itemGroup.mccourse." + tabKeyStart + "_items_tab"))
                 .icon(() -> new ItemStack(item.get()))
                 .displayItems((pParameters, pOutput) -> addElements(pOutput, ITEM_GROUPS.get(tabKeyStart)))
@@ -108,8 +108,8 @@ public class ModCreativeModeTabs {
                 .build());
     }
 
-    public static Supplier<CreativeModeTab> createCreativeTab(String tabKeyStart, DeferredBlock<?> block ) {
-        return CREATIVE_MODE_TABS.register(tabKeyStart + "_blocks_tab", () -> CreativeModeTab.builder()
+    public static void createCreativeTab(String tabKeyStart, DeferredBlock<?> block ) {
+        CREATIVE_MODE_TABS.register(tabKeyStart + "_blocks_tab", () -> CreativeModeTab.builder()
                 .title(Component.translatable("itemGroup.mccourse." + tabKeyStart + "_blocks_tab"))
                 .icon(() -> new ItemStack(block.get()))
                 .displayItems((pParameters, pOutput) -> addElements(pOutput, BLOCK_GROUPS.get(tabKeyStart)))
@@ -117,31 +117,19 @@ public class ModCreativeModeTabs {
                 .build());
     }
 
-    public static final Supplier<CreativeModeTab> BLACK_OPAL_ITEMS_TAB =
-            createCreativeTab("black_opal", ModItems.BLACK_OPAL);
-
-    public static final Supplier<CreativeModeTab> BISMUTH_ITEMS_TAB =
-            createCreativeTab("bismuth", ModItems.BISMUTH);
-
-    public static final Supplier<CreativeModeTab> ALEXANDRITE_ITEMS_TAB =
-            createCreativeTab("alexandrite", ModItems.ALEXANDRITE);
-
-    public static final Supplier<CreativeModeTab> PINK_GARNET_ITEMS_TAB =
-            createCreativeTab("pink_garnet", ModItems.PINK_GARNET);
-
-    public static final Supplier<CreativeModeTab> BISMUTH_BLOCKS_TAB =
-            createCreativeTab("bismuth", ModBlocks.BISMUTH_BLOCK);
-
-    public static final Supplier<CreativeModeTab> BLACK_OPAL_BLOCKS_TAB =
-            createCreativeTab("black_opal", ModBlocks.BLACK_OPAL_BLOCK);
-
-    public static final Supplier<CreativeModeTab> PINK_GARNET_BLOCKS_TAB =
-            createCreativeTab("pink_garnet", ModBlocks.PINK_GARNET_BLOCK);
-
-    public static final Supplier<CreativeModeTab> ALEXANDRITE_BLOCKS_TAB =
-            createCreativeTab("alexandrite", ModBlocks.ALEXANDRITE_BLOCK);
-
     public static void register(IEventBus eventBus){
+        // Register item-based creative tabs
+        createCreativeTab("black_opal", ModItems.BLACK_OPAL);
+        createCreativeTab("bismuth", ModItems.BISMUTH);
+        createCreativeTab("alexandrite", ModItems.ALEXANDRITE);
+        createCreativeTab("pink_garnet", ModItems.PINK_GARNET);
+
+        // Register block-based creative tabs
+        createCreativeTab("bismuth", ModBlocks.BISMUTH_BLOCK);
+        createCreativeTab("black_opal", ModBlocks.BLACK_OPAL_BLOCK);
+        createCreativeTab("pink_garnet", ModBlocks.PINK_GARNET_BLOCK);
+        createCreativeTab("alexandrite", ModBlocks.ALEXANDRITE_BLOCK);
+
         CREATIVE_MODE_TABS.register(eventBus);
     }
 }
