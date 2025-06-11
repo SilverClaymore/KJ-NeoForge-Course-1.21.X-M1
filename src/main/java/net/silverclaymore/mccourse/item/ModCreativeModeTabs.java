@@ -14,7 +14,6 @@ import net.silverclaymore.mccourse.block.ModBlocks;
 import net.silverclaymore.mccourse.fluid.ModFluids;
 
 import java.util.Map;
-import java.util.function.Supplier;
 
 public class ModCreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
