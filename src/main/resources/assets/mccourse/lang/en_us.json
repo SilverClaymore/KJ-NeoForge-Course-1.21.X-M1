@@ -66,9 +66,9 @@
   "block.mccourse.black_opal_brick_block": "Black Opal Bricks",
 
   "block.mccourse.black_opal_64_block": "Block of Black Opal 64",
-  "block.mccourse.black_opal_brick_64_block": "Black Opal Bricks 64",
-  "block.mccourse.black_opal_pillar_64_block": "Black Opal Pillar 64",
-  "block.mccourse.black_opal_stone_brick_64_block": "Black Opal Stone Bricks 64",
+  "block.mccourse.black_opal_64_brick_block": "Black Opal Bricks 64",
+  "block.mccourse.black_opal_64_pillar_block": "Black Opal Pillar 64",
+  "block.mccourse.black_opal_64_stone_brick_block": "Black Opal Stone Bricks 64",
 
   "block.mccourse.bismuth_block": "Block of Bismuth",
   "block.mccourse.raw_bismuth_block": "Raw Bismuth Block",

@@ -22,6 +22,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.silverclaymore.mccourse.block.ModBlocks;
 import net.silverclaymore.mccourse.block.custom.TomatoCropBlock;
 import net.silverclaymore.mccourse.item.ModItems;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
@@ -52,7 +53,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
             },
             "black_opal_64", new DeferredBlock<?>[]{
-                    ModBlocks.BLACK_OPAL_64_BLOCK, ModBlocks.BLACK_OPAL_BRICK_64_BLOCK, ModBlocks.BLACK_OPAL_PILLAR_64_BLOCK, ModBlocks.BLACK_OPAL_STONE_BRICK_64_BLOCK
+                    ModBlocks.BLACK_OPAL_64_BLOCK, ModBlocks.BLACK_OPAL_64_BRICK_BLOCK, ModBlocks.BLACK_OPAL_64_PILLAR_BLOCK, ModBlocks.BLACK_OPAL_64_STONE_BRICK_BLOCK
             },
             "pink_garnet", new DeferredBlock<?>[]{
                     ModBlocks.PINK_GARNET_BLOCK, ModBlocks.RAW_PINK_GARNET_BLOCK, ModBlocks.PINK_GARNET_BRICK_BLOCK
@@ -155,7 +156,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
     }
 
     @Override
-    protected Iterable<Block> getKnownBlocks() {
+    protected @NotNull Iterable<Block> getKnownBlocks() {
         return ModBlocks.BLOCKS.getEntries().stream().map(Holder::value)::iterator;
     }
 

@@ -96,9 +96,9 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.MAGIC_BLOCK.get())
                 .add(ModBlocks.BLACK_OPAL_64_BLOCK.get())
-                .add(ModBlocks.BLACK_OPAL_BRICK_64_BLOCK.get())
-                .add(ModBlocks.BLACK_OPAL_PILLAR_64_BLOCK.get())
-                .add(ModBlocks.BLACK_OPAL_STONE_BRICK_64_BLOCK.get())
+                .add(ModBlocks.BLACK_OPAL_64_BRICK_BLOCK.get())
+                .add(ModBlocks.BLACK_OPAL_64_PILLAR_BLOCK.get())
+                .add(ModBlocks.BLACK_OPAL_64_STONE_BRICK_BLOCK.get())
         ;
 
         tag(BlockTags.PLANKS).add(ModBlocks.EBONY_PLANKS.get());

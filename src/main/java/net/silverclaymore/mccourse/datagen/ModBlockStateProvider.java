@@ -52,7 +52,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
                     , ModBlocks.BLACK_OPAL_BRICK_BLOCK
             )),
             Map.entry("black_opal_64", List.of(
-                    ModBlocks.BLACK_OPAL_64_BLOCK, ModBlocks.BLACK_OPAL_BRICK_64_BLOCK, ModBlocks.BLACK_OPAL_PILLAR_64_BLOCK, ModBlocks.BLACK_OPAL_STONE_BRICK_64_BLOCK
+                    ModBlocks.BLACK_OPAL_64_BLOCK, ModBlocks.BLACK_OPAL_64_BRICK_BLOCK, ModBlocks.BLACK_OPAL_64_PILLAR_BLOCK, ModBlocks.BLACK_OPAL_64_STONE_BRICK_BLOCK
             )),
             Map.entry("bismuth", List.of(
                       ModBlocks.BISMUTH_BLOCK, ModBlocks.RAW_BISMUTH_BLOCK, ModBlocks.BISMUTH_ORE, ModBlocks.BISMUTH_DEEPSLATE_ORE
@@ -69,7 +69,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
                     , ModBlocks.PINK_GARNET_BRICK_BLOCK
             ))
     );
-
 
     @Override
     protected void registerStatesAndModels() {
@@ -188,11 +187,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
                     }
                     case FenceBlock fence -> {
                         fenceBlock(fence, blockTexture(textureBlock));
-                        blockItem(block);
                     }
                     case WallBlock wall -> {
                         wallBlock(wall, blockTexture(textureBlock));
-                        blockItem(block);
                     }
                     case DoorBlock door -> {
                         doorBlockWithRenderType(door, modLoc("block/" + groupName + "_door_bottom"), modLoc("block/" + groupName + "_door_top"), "cutout");

@@ -34,17 +34,15 @@ public class ModBlocks {
             () -> new DropExperienceBlock(UniformInt.of(2 ,5),
                     BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
-
     //Extra experimental blocks under BLACK_OPAL
     public static final DeferredBlock<Block> BLACK_OPAL_64_BLOCK = registerBlock("black_opal_64_block",
             () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
-    public static final DeferredBlock<Block> BLACK_OPAL_BRICK_64_BLOCK = registerBlock("black_opal_brick_64_block",
+    public static final DeferredBlock<Block> BLACK_OPAL_64_BRICK_BLOCK = registerBlock("black_opal_64_brick_block",
             () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
-    public static final DeferredBlock<Block> BLACK_OPAL_PILLAR_64_BLOCK = registerBlock("black_opal_pillar_64_block",
+    public static final DeferredBlock<Block> BLACK_OPAL_64_PILLAR_BLOCK = registerBlock("black_opal_64_pillar_block",
             () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
-    public static final DeferredBlock<Block> BLACK_OPAL_STONE_BRICK_64_BLOCK = registerBlock("black_opal_stone_brick_64_block",
+    public static final DeferredBlock<Block> BLACK_OPAL_64_STONE_BRICK_BLOCK = registerBlock("black_opal_64_stone_brick_block",
             () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
-
 
     public static final DeferredBlock<Block> BLACK_OPAL_BRICK_BLOCK = registerBlock("black_opal_brick_block",
             () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
@@ -168,7 +166,6 @@ public class ModBlocks {
                     return 5;
                 }
             });
-
 
     public static final DeferredBlock<Block> BLACK_OPAL_STAIRS = registerBlock("black_opal_stairs",
             () -> new StairBlock(ModBlocks.BLACK_OPAL_BLOCK.get().defaultBlockState(),
@@ -325,8 +322,6 @@ public class ModBlocks {
             //() -> new SaplingBlock(ModTreeGrowers.EBONY, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
             () -> new ModSaplingBlock(ModTreeGrowers.EBONY, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING), Blocks.NETHERRACK));
 
-
-
     public static final DeferredBlock<Block> WALNUT_LOG = registerBlock("walnut_log",
             () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG)));
     public static final DeferredBlock<Block> WALNUT_WOOD = registerBlock("walnut_wood",
@@ -386,11 +381,6 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> BLOODWOOD_SAPLING = registerBlock("bloodwood_sapling",
             () -> new SaplingBlock(ModTreeGrowers.BLOODWOOD, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-
-
-
-
-
 
     private static <T extends Block>DeferredBlock<T> registerBlock(String name, Supplier<T> block){
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
