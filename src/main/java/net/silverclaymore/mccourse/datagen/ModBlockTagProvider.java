@@ -11,6 +11,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.silverclaymore.mccourse.MCCourseMod;
 import net.silverclaymore.mccourse.block.ModBlocks;
 import net.silverclaymore.mccourse.util.ModTags;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
@@ -61,7 +62,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider provider) {
+    protected void addTags(HolderLookup.@NotNull Provider provider) {
 
         tag(ModTags.Blocks.NEEDS_BLACK_OPAL_TOOL)
                 .addTag(BlockTags.NEEDS_IRON_TOOL);
