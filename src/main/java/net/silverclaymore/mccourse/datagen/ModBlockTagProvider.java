@@ -27,15 +27,20 @@ public class ModBlockTagProvider extends BlockTagsProvider {
     }
 
     protected void addCommonMineableTags() {
-        BLOCK_GROUPS.forEach((tag, blocks) -> {
-            blocks.forEach(block -> {
-                addCommonTag(tag, block);
+        BLOCK_GROUPS.forEach((tag, blocks) ->
+                blocks.forEach(block -> {
+                    addCommonTag(tag, block);
 
-                if (block.get() instanceof FenceBlock) this.tag(BlockTags.FENCES).add(block.get());
-                if (block.get() instanceof FenceGateBlock) this.tag(BlockTags.FENCE_GATES).add(block.get());
-                if (block.get() instanceof WallBlock) this.tag(BlockTags.WALLS).add(block.get());
-            });
-        });
+                    if (block.get() instanceof FenceBlock)
+                        this.tag(BlockTags.FENCES).add(block.get());
+
+                    if (block.get() instanceof FenceGateBlock)
+                        this.tag(BlockTags.FENCE_GATES).add(block.get());
+
+                    if (block.get() instanceof WallBlock)
+                        this.tag(BlockTags.WALLS).add(block.get());
+                })
+        );
     }
 
     protected void addCommonTag(TagKey<Block> mineableWith, DeferredBlock<Block> block){
