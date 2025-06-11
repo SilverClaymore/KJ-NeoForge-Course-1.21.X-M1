@@ -20,6 +20,7 @@ import net.silverclaymore.mccourse.block.custom.*;
 import net.silverclaymore.mccourse.item.ModItems;
 import net.silverclaymore.mccourse.sound.ModSounds;
 import net.silverclaymore.mccourse.worldgen.tree.ModTreeGrowers;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
@@ -116,17 +117,17 @@ public class ModBlocks {
     public static final DeferredBlock<Block> EBONY_PLANKS = registerBlock("ebony_planks",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)) {
                 @Override
-                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                public boolean isFlammable(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull Direction direction) {
                     return true;
                 }
 
                 @Override
-                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                public int getFlammability(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull Direction direction) {
                     return 20;
                 }
 
                 @Override
-                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                public int getFireSpreadSpeed(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull Direction direction) {
                     return 5;
                 }
             });
@@ -134,17 +135,17 @@ public class ModBlocks {
     public static final DeferredBlock<Block> WALNUT_PLANKS = registerBlock("walnut_planks",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)) {
                 @Override
-                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                public boolean isFlammable(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull Direction direction) {
                     return true;
                 }
 
                 @Override
-                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                public int getFlammability(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull Direction direction) {
                     return 20;
                 }
 
                 @Override
-                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                public int getFireSpreadSpeed(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull Direction direction) {
                     return 5;
                 }
             });
@@ -152,17 +153,17 @@ public class ModBlocks {
     public static final DeferredBlock<Block> BLOODWOOD_PLANKS = registerBlock("bloodwood_planks",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)) {
                 @Override
-                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                public boolean isFlammable(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull Direction direction) {
                     return true;
                 }
 
                 @Override
-                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                public int getFlammability(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull Direction direction) {
                     return 20;
                 }
 
                 @Override
-                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                public int getFireSpreadSpeed(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull Direction direction) {
                     return 5;
                 }
             });
@@ -303,17 +304,17 @@ public class ModBlocks {
     public static final DeferredBlock<Block> EBONY_LEAVES = registerBlock("ebony_leaves",
             () -> new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)) {
                 @Override
-                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                public boolean isFlammable(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull Direction direction) {
                     return true;
                 }
 
                 @Override
-                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                public int getFlammability(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull Direction direction) {
                     return 60;
                 }
 
                 @Override
-                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                public int getFireSpreadSpeed(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull Direction direction) {
                     return 30;
                 }
             });
@@ -334,17 +335,17 @@ public class ModBlocks {
     public static final DeferredBlock<Block> WALNUT_LEAVES = registerBlock("walnut_leaves",
             () -> new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)) {
                 @Override
-                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                public boolean isFlammable(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull Direction direction) {
                     return true;
                 }
 
                 @Override
-                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                public int getFlammability(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull Direction direction) {
                     return 60;
                 }
 
                 @Override
-                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                public int getFireSpreadSpeed(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull Direction direction) {
                     return 30;
                 }
             });
@@ -364,17 +365,17 @@ public class ModBlocks {
     public static final DeferredBlock<Block> BLOODWOOD_LEAVES = registerBlock("bloodwood_leaves",
             () -> new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)) {
                 @Override
-                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                public boolean isFlammable(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull Direction direction) {
                     return true;
                 }
 
                 @Override
-                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                public int getFlammability(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull Direction direction) {
                     return 60;
                 }
 
                 @Override
-                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                public int getFireSpreadSpeed(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull Direction direction) {
                     return 30;
                 }
             });
