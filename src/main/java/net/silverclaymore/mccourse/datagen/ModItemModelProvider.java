@@ -89,7 +89,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         withExistingParent(ModItems.PENGUIN_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
     }
 
-    public void flowerItem(DeferredBlock<Block> block) {
+    private void flowerItem(DeferredBlock<Block> block) {
         this.withExistingParent(block.getId().getPath(), mcLoc("item/generated"))
                 .texture("layer0",  ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID,
                         "block/" + block.getId().getPath()));
@@ -101,15 +101,15 @@ public class ModItemModelProvider extends ItemModelProvider {
                 ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, "block/" + item.getId().getPath()));
     }
 
-    public void buttonItem(DeferredBlock<Block> block, DeferredBlock<Block> baseBlock){
+    private void buttonItem(DeferredBlock<Block> block, DeferredBlock<Block> baseBlock){
         this.baseItem(block, baseBlock, "button", "texture");
     }
 
-    public void fenceItem(DeferredBlock<Block> block, DeferredBlock<Block> baseBlock){
+    private void fenceItem(DeferredBlock<Block> block, DeferredBlock<Block> baseBlock){
         this.baseItem(block, baseBlock, "fence", "texture");
     }
 
-    public void wallItem(DeferredBlock<Block> block, DeferredBlock<Block> baseBlock){
+    private void wallItem(DeferredBlock<Block> block, DeferredBlock<Block> baseBlock){
         this.baseItem(block, baseBlock, "wall", "wall");
     }
 
@@ -118,8 +118,8 @@ public class ModItemModelProvider extends ItemModelProvider {
                 .texture(key, ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, "block/" + baseBlock.getId().getPath()));
     }
 
-    private ItemModelBuilder handheldItem(DeferredItem<Item> item) {
-        return withExistingParent(item.getId().getPath(),
+    private void handheldItem(DeferredItem<Item> item) {
+        this.withExistingParent(item.getId().getPath(),
                 ResourceLocation.parse("item/handheld")).texture("layer0",
                 ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID,"item/" + item.getId().getPath()));
     }
