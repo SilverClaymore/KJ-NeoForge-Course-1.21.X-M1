@@ -95,8 +95,8 @@ public class ModItemModelProvider extends ItemModelProvider {
                         "block/" + block.getId().getPath()));
     }
 
-    private ItemModelBuilder saplingItem(DeferredBlock<Block> item) {
-        return withExistingParent(item.getId().getPath(),
+    private void saplingItem(DeferredBlock<Block> item) {
+        withExistingParent(item.getId().getPath(),
                 ResourceLocation.parse("item/generated")).texture("layer0",
                 ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, "block/" + item.getId().getPath()));
     }
