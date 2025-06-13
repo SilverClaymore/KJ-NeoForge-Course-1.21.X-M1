@@ -13,6 +13,7 @@ import net.silverclaymore.mccourse.block.ModBlocks;
 import net.silverclaymore.mccourse.entity.ModEntities;
 import net.silverclaymore.mccourse.item.custom.*;
 import net.silverclaymore.mccourse.sound.ModSounds;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -49,7 +50,7 @@ public class ModItems {
     public static final DeferredItem<Item> TOMATO =
             ITEMS.registerItem("tomato", properties -> new Item(properties) {
                 @Override
-                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+                public void appendHoverText(@NotNull ItemStack stack, @NotNull TooltipContext context, @NotNull List<Component> tooltipComponents, @NotNull TooltipFlag tooltipFlag) {
                     tooltipComponents.add(Component.translatable("tooltip.mccourse.tomato.tooltip.1"));
                     super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
                 }
