@@ -286,6 +286,12 @@ public class ModBlocks {
     public static final DeferredBlock<Block> POTTED_PETUNIA = BLOCKS.register("potted_petunia",
             () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), PETUNIA, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM)));
 
+    public static final DeferredBlock<Block> GOJI_BERRY_BUSH = BLOCKS.register("goji_berry_bush",
+            () -> new GojiBerryBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH)));
+    public static final DeferredBlock<Block> HONEY_BERRY_BUSH = BLOCKS.register("honey_berry_bush",
+            () -> new HoneyBerryBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH)));
+
+
     public static final DeferredBlock<Block> COLORED_LEAVES = registerBlock("colored_leaves",
             () -> new Block(BlockBehaviour.Properties.of().noOcclusion()));
 

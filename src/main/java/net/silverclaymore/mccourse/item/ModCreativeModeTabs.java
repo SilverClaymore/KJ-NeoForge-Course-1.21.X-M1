@@ -49,11 +49,13 @@ public class ModCreativeModeTabs {
                     , ModItems.BISMUTH_HOE, ModItems.BISMUTH_HAMMER
                     , ModItems.BISMUTH_HELMET, ModItems.BISMUTH_CHESTPLATE, ModItems.BISMUTH_LEGGINGS, ModItems.BISMUTH_BOOTS
                     , ModItems.BISMUTH_HORSE_ARMOR
+                    , ModItems.GOJI_BERRIES
             },
             "alexandrite", new DeferredItem<?>[]{
                       ModItems.ALEXANDRITE, ModItems.RAW_ALEXANDRITE
                     , ModItems.ALEXANDRITE_HELMET, ModItems.ALEXANDRITE_CHESTPLATE, ModItems.ALEXANDRITE_LEGGINGS, ModItems.ALEXANDRITE_BOOTS
                     , ModItems.ALEXANDRITE_HORSE_ARMOR
+                    , ModItems.HONEY_BERRIES
             },
             "pink_garnet", new DeferredItem<?>[]{
                     ModItems.PINK_GARNET, ModItems.RAW_PINK_GARNET

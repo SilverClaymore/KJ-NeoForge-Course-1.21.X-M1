@@ -3,6 +3,8 @@ package net.silverclaymore.mccourse.item;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
@@ -14,8 +16,10 @@ import net.silverclaymore.mccourse.entity.ModEntities;
 import net.silverclaymore.mccourse.item.custom.*;
 import net.silverclaymore.mccourse.sound.ModSounds;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MCCourseMod.MOD_ID);
@@ -56,14 +60,22 @@ public class ModItems {
                 }
             }, new Item.Properties().food(ModFoodProperties.TOMATO));
 
-    public static final DeferredItem<Item> TOMATO_SEEDS = ITEMS.register("tomato_seeds",
-            () -> new ItemNameBlockItem(ModBlocks.TOMATO_CROP.get(), new Item.Properties()));
-
     public static final DeferredItem<Item> FROSTFIRE_ICE =
             ITEMS.registerItem("frostfire_ice", properties -> new FuelItem(properties, 800), new Item.Properties());
 
     public static final DeferredItem<Item> BAR_BRAWL_MUSIC_DISC = ITEMS.registerItem("bar_brawl_music_disc",
             properties -> new Item(properties.jukeboxPlayable(ModSounds.BAR_BRAWL_KEY).stacksTo(1)));
+
+
+    public static final DeferredItem<Item> TOMATO_SEEDS =
+            registerSeedItem("tomato_seeds", ModBlocks.TOMATO_CROP, null);
+
+    public static final DeferredItem<Item> GOJI_BERRIES =
+            registerSeedItem("goji_berries", ModBlocks.GOJI_BERRY_BUSH, ModFoodProperties.GOJI_BERRY);
+
+    public static final DeferredItem<Item> HONEY_BERRIES =
+            registerSeedItem("honey_berries", ModBlocks.HONEY_BERRY_BUSH, ModFoodProperties.HONEY_BERRY);
+
 
     public static final DeferredItem<Item> BLACK_OPAL_SWORD = ITEMS.register("black_opal_sword",
             () -> new SwordItem(ModToolTiers.BLACK_OPAL,
@@ -199,6 +211,15 @@ public class ModItems {
     public static final DeferredItem<Item> PENGUIN_SPAWN_EGG = ITEMS.register("penguin_spawn_egg",
             () -> new DeferredSpawnEggItem(ModEntities.PENGUIN, 0xdebd47, 0xccbfbe,
                     new Item.Properties()));
+
+    private static DeferredItem<Item> registerSeedItem(String name, Supplier<Block> block, @Nullable FoodProperties food) {
+        return ITEMS.register(name, () ->
+                new ItemNameBlockItem(
+                        block.get(),
+                        food != null ? new Item.Properties().food(food) : new Item.Properties()
+                )
+        );
+    }
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

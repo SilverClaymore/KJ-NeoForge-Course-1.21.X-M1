@@ -12,6 +12,8 @@
   "item.mccourse.tomato": "Tomato",
   "item.mccourse.tomato_seeds": "Tomato Seeds",
   "item.mccourse.frostfire_ice": "Frostfire Ice",
+  "item.mccourse.goji_berries": "Goji Berries",
+  "item.mccourse.honey_berries": "Honey Berries",
 
   "item.mccourse.metal_detector": "Metal Detector",
   "item.mccourse.data_tablet": "Data Tablet",
@@ -148,6 +150,8 @@
   "block.mccourse.black_opal_lamp": "Black Opal Lamp",
 
   "block.mccourse.tomato_crop": "Tomato Crop",
+  "block.mccourse.goji_berry_bush": "Goji Berry Bush",
+  "block.mccourse.honey_berry_bush": "Honey Berry Bush",
 
   "block.mccourse.petunia": "Petunia",
   "block.mccourse.potted_petunia": "Potted Petunia",

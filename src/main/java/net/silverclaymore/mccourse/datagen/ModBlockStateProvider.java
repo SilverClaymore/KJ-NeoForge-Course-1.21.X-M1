@@ -5,6 +5,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
@@ -13,6 +14,8 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.silverclaymore.mccourse.MCCourseMod;
 import net.silverclaymore.mccourse.block.ModBlocks;
 import net.silverclaymore.mccourse.block.custom.BlackOpalLampBlock;
+import net.silverclaymore.mccourse.block.custom.GojiBerryBushBlock;
+import net.silverclaymore.mccourse.block.custom.HoneyBerryBushBlock;
 import net.silverclaymore.mccourse.block.custom.TomatoCropBlock;
 import org.apache.commons.lang3.tuple.Pair;
 
@@ -82,7 +85,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         customLamp();
 
-        makeCrop(((TomatoCropBlock) ModBlocks.TOMATO_CROP.get()), "tomato_crop_stage","tomato_crop_stage");
+        makeAgeBasedPlant(ModBlocks.TOMATO_CROP.get(), "tomato_crop_stage", "tomato_crop_stage", "crop");
+        makeAgeBasedPlant(ModBlocks.GOJI_BERRY_BUSH.get(), "goji_berry_bush_stage", "goji_berry_bush_stage", "cross");
+        makeAgeBasedPlant(ModBlocks.HONEY_BERRY_BUSH.get(), "honey_berry_bush_stage", "honey_berry_bush_stage", "cross");
 
         simpleBlock(ModBlocks.PETUNIA.get(),
                 models().cross(blockTexture(ModBlocks.PETUNIA.get()).getPath(), blockTexture(ModBlocks.PETUNIA.get())).renderType("cutout"));
@@ -102,20 +107,35 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(deferredBlock.get(), models().cross(BuiltInRegistries.BLOCK.getKey(deferredBlock.get()).getPath(), blockTexture(deferredBlock.get())).renderType("cutout"));
     }
 
-    public void makeCrop(CropBlock block, String modelName, String textureName) {
-        Function<BlockState, ConfiguredModel[]> function = state -> states(state, block, modelName, textureName);
+    public void makeAgeBasedPlant(Block block, String modelPrefix, String texturePrefix, String renderStyle) {
+        getVariantBuilder(block).forAllStates(state -> {
+            IntegerProperty ageProperty = resolveAgeProperty(block);
+            int age = state.getValue(ageProperty);
+            ModelFile model;
 
-        getVariantBuilder(block).forAllStates(function);
+            if (renderStyle.equals("crop")) {
+                model = models().crop(modelPrefix + age,
+                                ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, "block/" + texturePrefix + "_" + age))
+                        .renderType("cutout");
+            } else if (renderStyle.equals("cross")) {
+                model = models().cross(modelPrefix + age,
+                                ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, "block/" + texturePrefix + age))
+                        .renderType("cutout");
+            } else {
+                throw new IllegalArgumentException("Unsupported render style: " + renderStyle);
+            }
+
+            return new ConfiguredModel[] { new ConfiguredModel(model, 0, 0, false) };
+        });
     }
 
-    private ConfiguredModel[] states(BlockState state, CropBlock block, String modelName, String textureName) {
-        ConfiguredModel[] models = new ConfiguredModel[1];
-        models[0] = new ConfiguredModel(models().crop(modelName + state.getValue(((TomatoCropBlock) block).getAgeProperty()),
-                ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, "block/" + textureName + "_" +
-                        state.getValue(((TomatoCropBlock) block).getAgeProperty()))).renderType("cutout"));
-
-        return models;
+    private IntegerProperty resolveAgeProperty(Block block) {
+        if (block instanceof GojiBerryBushBlock) return GojiBerryBushBlock.AGE;
+        if (block instanceof HoneyBerryBushBlock) return HoneyBerryBushBlock.AGE;
+        if (block instanceof TomatoCropBlock) return TomatoCropBlock.AGE;
+        return SweetBerryBushBlock.AGE;  // Default if nothing specified
     }
+
 
     private void customLamp() {
         getVariantBuilder(ModBlocks.BLACK_OPAL_LAMP.get()).forAllStates(state -> {

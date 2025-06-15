@@ -70,6 +70,8 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         basicItem(ModItems.TOMATO.get());
         basicItem(ModItems.TOMATO_SEEDS.get());
+        basicItem(ModItems.GOJI_BERRIES.get());
+        basicItem(ModItems.HONEY_BERRIES.get());
         flowerItem(ModBlocks.PETUNIA);
 
         basicItem(ModItems.FROSTFIRE_ICE.get());
