@@ -1,10 +1,7 @@
 package net.silverclaymore.mccourse.block.custom;
 
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.phys.HitResult;
-import net.silverclaymore.mccourse.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
