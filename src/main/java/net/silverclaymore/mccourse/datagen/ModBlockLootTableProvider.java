@@ -109,52 +109,11 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         commonDrops(ModBlocks.EBONY_SLAB, null);
         //commonDrops(ModBlocks.WALNUT_SLAB, null);
 
-        HolderLookup.RegistryLookup<Enchantment> registrylookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+        HolderLookup.RegistryLookup<Enchantment> enchantments = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
 
-        this.add(ModBlocks.GOJI_BERRY_BUSH.get(), block -> this.applyExplosionDecay(
-                block, LootTable.lootTable().withPool(LootPool.lootPool().when(
-                                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.GOJI_BERRY_BUSH.get())
-                                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SweetBerryBushBlock.AGE, 3))
-                                ).add(LootItem.lootTableItem(ModItems.GOJI_BERRIES.get()))
-                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 3.0F)))
-                                .apply(ApplyBonusCount.addUniformBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE)))
-                ).withPool(LootPool.lootPool().when(
-                                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.GOJI_BERRY_BUSH.get())
-                                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SweetBerryBushBlock.AGE, 2))
-                                ).add(LootItem.lootTableItem(ModItems.GOJI_BERRIES.get()))
-                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))
-                                .apply(ApplyBonusCount.addUniformBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE)))
-                )));
-
-        this.add(ModBlocks.HONEY_BERRY_BUSH.get(), block -> this.applyExplosionDecay(
-                block, LootTable.lootTable().withPool(LootPool.lootPool().when(
-                                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.HONEY_BERRY_BUSH.get())
-                                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SweetBerryBushBlock.AGE, 3))
-                                ).add(LootItem.lootTableItem(ModItems.HONEY_BERRIES.get()))
-                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 3.0F)))
-                                .apply(ApplyBonusCount.addUniformBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE)))
-                ).withPool(LootPool.lootPool().when(
-                                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.HONEY_BERRY_BUSH.get())
-                                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SweetBerryBushBlock.AGE, 2))
-                                ).add(LootItem.lootTableItem(ModItems.HONEY_BERRIES.get()))
-                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))
-                                .apply(ApplyBonusCount.addUniformBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE)))
-                )));
-
-        this.add(ModBlocks.PINK_BERRY_BUSH.get(), block -> this.applyExplosionDecay(
-                block, LootTable.lootTable().withPool(LootPool.lootPool().when(
-                                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.PINK_BERRY_BUSH.get())
-                                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SweetBerryBushBlock.AGE, 3))
-                                ).add(LootItem.lootTableItem(ModItems.PINK_BERRIES.get()))
-                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 3.0F)))
-                                .apply(ApplyBonusCount.addUniformBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE)))
-                ).withPool(LootPool.lootPool().when(
-                                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.PINK_BERRY_BUSH.get())
-                                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SweetBerryBushBlock.AGE, 2))
-                                ).add(LootItem.lootTableItem(ModItems.PINK_BERRIES.get()))
-                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))
-                                .apply(ApplyBonusCount.addUniformBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE)))
-                )));
+        addBerryBushLoot(ModBlocks.GOJI_BERRY_BUSH.get(), ModItems.GOJI_BERRIES.get(), enchantments);
+        addBerryBushLoot(ModBlocks.HONEY_BERRY_BUSH.get(), ModItems.HONEY_BERRIES.get(), enchantments);
+        addBerryBushLoot(ModBlocks.PINK_BERRY_BUSH.get(), ModItems.PINK_BERRIES.get(), enchantments);
     }
 
     protected void addOreDrops() {
@@ -202,6 +161,24 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
                 block, LootItem.lootTableItem(item)
                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(minDrops, maxDrops)))
                         .apply(ApplyBonusCount.addOreBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE)))));
+    }
+
+    private void addBerryBushLoot(Block block, Item berryItem, HolderLookup.RegistryLookup<Enchantment> enchantments) {
+        LootPool.Builder age3 = LootPool.lootPool()
+                .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SweetBerryBushBlock.AGE, 3)))
+                .add(LootItem.lootTableItem(berryItem))
+                .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 3.0F)))
+                .apply(ApplyBonusCount.addUniformBonusCount(enchantments.getOrThrow(Enchantments.FORTUNE)));
+
+        LootPool.Builder age2 = LootPool.lootPool()
+                .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SweetBerryBushBlock.AGE, 2)))
+                .add(LootItem.lootTableItem(berryItem))
+                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))
+                .apply(ApplyBonusCount.addUniformBonusCount(enchantments.getOrThrow(Enchantments.FORTUNE)));
+
+        this.add(block, b -> applyExplosionDecay(b, LootTable.lootTable().withPool(age3).withPool(age2)));
     }
 
     @Override
