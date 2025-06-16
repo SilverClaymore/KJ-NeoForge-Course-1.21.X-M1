@@ -13,9 +13,8 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.silverclaymore.mccourse.MCCourseMod;
 import net.silverclaymore.mccourse.block.ModBlocks;
+import net.silverclaymore.mccourse.block.custom.BerryBushBlock;
 import net.silverclaymore.mccourse.block.custom.BlackOpalLampBlock;
-import net.silverclaymore.mccourse.block.custom.GojiBerryBushBlock;
-import net.silverclaymore.mccourse.block.custom.HoneyBerryBushBlock;
 import net.silverclaymore.mccourse.block.custom.TomatoCropBlock;
 import org.apache.commons.lang3.tuple.Pair;
 
@@ -130,12 +129,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     private IntegerProperty resolveAgeProperty(Block block) {
-        if (block instanceof GojiBerryBushBlock) return GojiBerryBushBlock.AGE;
-        if (block instanceof HoneyBerryBushBlock) return HoneyBerryBushBlock.AGE;
+        if (block instanceof BerryBushBlock) return BerryBushBlock.AGE;
         if (block instanceof TomatoCropBlock) return TomatoCropBlock.AGE;
         return SweetBerryBushBlock.AGE;  // Default if nothing specified
     }
-
 
     private void customLamp() {
         getVariantBuilder(ModBlocks.BLACK_OPAL_LAMP.get()).forAllStates(state -> {
