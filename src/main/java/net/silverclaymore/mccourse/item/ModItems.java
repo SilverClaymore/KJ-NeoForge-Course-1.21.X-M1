@@ -76,6 +76,8 @@ public class ModItems {
     public static final DeferredItem<Item> HONEY_BERRIES =
             registerSeedItem("honey_berries", ModBlocks.HONEY_BERRY_BUSH, ModFoodProperties.HONEY_BERRY);
 
+    public static final DeferredItem<Item> PINK_BERRIES =
+            registerSeedItem("pink_berries", ModBlocks.PINK_BERRY_BUSH, ModFoodProperties.PINK_BERRY);
 
     public static final DeferredItem<Item> BLACK_OPAL_SWORD = ITEMS.register("black_opal_sword",
             () -> new SwordItem(ModToolTiers.BLACK_OPAL,

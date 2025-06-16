@@ -13,4 +13,6 @@ public class ModFoodProperties {
             .saturationModifier(0.15f).fast().build();
     public static final FoodProperties HONEY_BERRY = new FoodProperties.Builder().nutrition(2)
             .saturationModifier(0.15f).fast().build();
+    public static final FoodProperties PINK_BERRY = new FoodProperties.Builder().nutrition(2)
+            .saturationModifier(0.15f).fast().build();
 }

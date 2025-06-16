@@ -290,6 +290,8 @@ public class ModBlocks {
             () -> new BerryBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH), ModItems.GOJI_BERRIES));
     public static final DeferredBlock<Block> HONEY_BERRY_BUSH = BLOCKS.register("honey_berry_bush",
             () -> new BerryBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH), ModItems.HONEY_BERRIES));
+    public static final DeferredBlock<Block> PINK_BERRY_BUSH = BLOCKS.register("pink_berry_bush",
+            () -> new BerryBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH), ModItems.PINK_BERRIES));
 
     public static final DeferredBlock<Block> COLORED_LEAVES = registerBlock("colored_leaves",
             () -> new Block(BlockBehaviour.Properties.of().noOcclusion()));

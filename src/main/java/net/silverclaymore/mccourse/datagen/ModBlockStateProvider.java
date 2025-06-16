@@ -87,6 +87,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         makeAgeBasedPlant(ModBlocks.TOMATO_CROP.get(), "tomato_crop_stage", "tomato_crop_stage", "crop");
         makeAgeBasedPlant(ModBlocks.GOJI_BERRY_BUSH.get(), "goji_berry_bush_stage", "goji_berry_bush_stage", "cross");
         makeAgeBasedPlant(ModBlocks.HONEY_BERRY_BUSH.get(), "honey_berry_bush_stage", "honey_berry_bush_stage", "cross");
+        makeAgeBasedPlant(ModBlocks.PINK_BERRY_BUSH.get(), "pink_berry_bush_stage", "pink_berry_bush_stage", "cross");
 
         simpleBlock(ModBlocks.PETUNIA.get(),
                 models().cross(blockTexture(ModBlocks.PETUNIA.get()).getPath(), blockTexture(ModBlocks.PETUNIA.get())).renderType("cutout"));

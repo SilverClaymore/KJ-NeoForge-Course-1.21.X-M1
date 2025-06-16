@@ -32,7 +32,7 @@ public class ModCreativeModeTabs {
     }
 
     private static final Map<String, DeferredItem<?>[]> ITEM_GROUPS = Map.of(
-            "black_opal", new DeferredItem<?>[]{
+            "black_opal", new DeferredItem<?>[]{ //From Neoforge mccourse
                       ModItems.BLACK_OPAL, ModItems.RAW_BLACK_OPAL, ModItems.BLACK_OPAL_SWORD
                     , ModItems.BLACK_OPAL_PICKAXE, ModItems.BLACK_OPAL_AXE, ModItems.BLACK_OPAL_SHOVEL
                     , ModItems.BLACK_OPAL_HOE, ModItems.BLACK_OPAL_PAXEL, ModItems.BLACK_OPAL_HAMMER
@@ -43,7 +43,7 @@ public class ModCreativeModeTabs {
                     , ModItems.DATA_TABLET, ModItems.KAUPEN_BOW, ModItems.RADIATION_STAFF, ModItems.PENGUIN_SPAWN_EGG
                     , ModFluids.BLACK_OPAL_WATER_BUCKET
             },
-            "bismuth", new DeferredItem<?>[]{
+            "bismuth", new DeferredItem<?>[]{ //From Neoforge Modding Tutorial
                       ModItems.BISMUTH, ModItems.RAW_BISMUTH, ModItems.BISMUTH_SWORD
                     , ModItems.BISMUTH_PICKAXE, ModItems.BISMUTH_AXE, ModItems.BISMUTH_SHOVEL
                     , ModItems.BISMUTH_HOE, ModItems.BISMUTH_HAMMER
@@ -51,16 +51,17 @@ public class ModCreativeModeTabs {
                     , ModItems.BISMUTH_HORSE_ARMOR
                     , ModItems.GOJI_BERRIES
             },
-            "alexandrite", new DeferredItem<?>[]{
+            "alexandrite", new DeferredItem<?>[]{ //From Forge Modding Tutorial
                       ModItems.ALEXANDRITE, ModItems.RAW_ALEXANDRITE
                     , ModItems.ALEXANDRITE_HELMET, ModItems.ALEXANDRITE_CHESTPLATE, ModItems.ALEXANDRITE_LEGGINGS, ModItems.ALEXANDRITE_BOOTS
                     , ModItems.ALEXANDRITE_HORSE_ARMOR
                     , ModItems.HONEY_BERRIES
             },
-            "pink_garnet", new DeferredItem<?>[]{
+            "pink_garnet", new DeferredItem<?>[]{ //From Fabric Modding Tutorial
                     ModItems.PINK_GARNET, ModItems.RAW_PINK_GARNET
                     , ModItems.PINK_GARNET_HELMET, ModItems.PINK_GARNET_CHESTPLATE, ModItems.PINK_GARNET_LEGGINGS, ModItems.PINK_GARNET_BOOTS
                     , ModItems.PINK_GARNET_HORSE_ARMOR
+                    , ModItems.PINK_BERRIES // Changed color from Fabric Modding Tutorial to make them Pink
             }
     );
 
