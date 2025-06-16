@@ -53,7 +53,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                       ModBlocks.BLACK_OPAL_BLOCK, ModBlocks.RAW_BLACK_OPAL_BLOCK, ModBlocks.BLACK_OPAL_ORE, ModBlocks.BLACK_OPAL_DEEPSLATE_ORE, ModBlocks.BLACK_OPAL_END_ORE, ModBlocks.BLACK_OPAL_NETHER_ORE
                     , ModBlocks.BLACK_OPAL_STAIRS, ModBlocks.BLACK_OPAL_SLAB, ModBlocks.BLACK_OPAL_PRESSURE_PLATE, ModBlocks.BLACK_OPAL_BUTTON
                     , ModBlocks.BLACK_OPAL_FENCE, ModBlocks.BLACK_OPAL_FENCE_GATE, ModBlocks.BLACK_OPAL_WALL, ModBlocks.BLACK_OPAL_DOOR, ModBlocks.BLACK_OPAL_TRAPDOOR
-                    , ModBlocks.MAGIC_BLOCK, ModBlocks.BLACK_OPAL_64_BLOCK, ModBlocks.BLACK_OPAL_64_BRICK_BLOCK, ModBlocks.BLACK_OPAL_64_PILLAR_BLOCK, ModBlocks.BLACK_OPAL_64_STONE_BRICK_BLOCK
+                    , ModBlocks.MAGIC_BLOCK
+                    , ModBlocks.BLACK_OPAL_64_BLOCK, ModBlocks.BLACK_OPAL_BRICK_BLOCK, ModBlocks.BLACK_OPAL_64_BRICK_BLOCK, ModBlocks.BLACK_OPAL_64_PILLAR_BLOCK, ModBlocks.BLACK_OPAL_64_STONE_BRICK_BLOCK
                     // Bismuth
                     , ModBlocks.BISMUTH_BLOCK, ModBlocks.RAW_BISMUTH_BLOCK, ModBlocks.BISMUTH_ORE
                     , ModBlocks.BISMUTH_STAIRS, ModBlocks.BISMUTH_SLAB, ModBlocks.BISMUTH_PRESSURE_PLATE, ModBlocks.BISMUTH_BUTTON

@@ -25,7 +25,6 @@ import net.silverclaymore.mccourse.block.ModBlocks;
 import net.silverclaymore.mccourse.block.custom.TomatoCropBlock;
 import net.silverclaymore.mccourse.item.ModItems;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
 import java.util.Set;
@@ -184,9 +183,5 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
     @Override
     protected @NotNull Iterable<Block> getKnownBlocks() {
         return ModBlocks.BLOCKS.getEntries().stream().map(Holder::value)::iterator;
-    }
-
-    protected void dropSelf(@Nullable DeferredBlock<Block> block) {
-        if (block != null) this.dropOther(block.get(), block.get());
     }
 }
