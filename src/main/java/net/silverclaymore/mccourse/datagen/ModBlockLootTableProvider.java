@@ -22,6 +22,9 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.silverclaymore.mccourse.block.ModBlocks;
+import net.silverclaymore.mccourse.block.custom.CauliflowerCropBlock;
+import net.silverclaymore.mccourse.block.custom.KohlrabiCropBlock;
+import net.silverclaymore.mccourse.block.custom.RadishCropBlock;
 import net.silverclaymore.mccourse.block.custom.TomatoCropBlock;
 import net.silverclaymore.mccourse.item.ModItems;
 import org.jetbrains.annotations.NotNull;
@@ -90,9 +93,24 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         addOreDrops(); // Ores defined in ORE_BLOCKS
 
         LootItemCondition.Builder lootItemConditionBuilder = LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.TOMATO_CROP.get())
-                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(TomatoCropBlock.AGE, 5));
+                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(TomatoCropBlock.AGE, TomatoCropBlock.MAX_AGE));
         this.add(ModBlocks.TOMATO_CROP.get(), this.createCropDrops(ModBlocks.TOMATO_CROP.get(),
                 ModItems.TOMATO.get(), ModItems.TOMATO_SEEDS.asItem(), lootItemConditionBuilder));
+
+        LootItemCondition.Builder cauliflowerCondition = LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.CAULIFLOWER_CROP.get())
+                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CauliflowerCropBlock.AGE, CauliflowerCropBlock.MAX_AGE));
+        this.add(ModBlocks.CAULIFLOWER_CROP.get(), this.createCropDrops(ModBlocks.CAULIFLOWER_CROP.get(),
+                ModItems.CAULIFLOWER.get(), ModItems.CAULIFLOWER_SEEDS.asItem(), cauliflowerCondition));
+
+        LootItemCondition.Builder radishCondition = LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.RADISH_CROP.get())
+                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(RadishCropBlock.AGE, RadishCropBlock.MAX_AGE));
+        this.add(ModBlocks.RADISH_CROP.get(), this.createCropDrops(ModBlocks.RADISH_CROP.get(),
+                ModItems.RADISH.get(), ModItems.RADISH_SEEDS.asItem(), radishCondition));
+
+        LootItemCondition.Builder kohlrabiCondition = LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.KOHLRABI_CROP.get())
+                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(KohlrabiCropBlock.AGE, KohlrabiCropBlock.MAX_AGE));
+        this.add(ModBlocks.KOHLRABI_CROP.get(), this.createCropDrops(ModBlocks.KOHLRABI_CROP.get(),
+                ModItems.KOHLRABI.get(), ModItems.KOHLRABI_SEEDS.asItem(), kohlrabiCondition));
 
         commonDropSelf();
 

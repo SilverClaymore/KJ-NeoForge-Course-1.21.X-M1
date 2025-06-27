@@ -50,18 +50,21 @@ public class ModCreativeModeTabs {
                     , ModItems.BISMUTH_HELMET, ModItems.BISMUTH_CHESTPLATE, ModItems.BISMUTH_LEGGINGS, ModItems.BISMUTH_BOOTS
                     , ModItems.BISMUTH_HORSE_ARMOR
                     , ModItems.GOJI_BERRIES
+                    , ModItems.RADISH, ModItems.RADISH_SEEDS
             },
             "alexandrite", new DeferredItem<?>[]{ //From Forge Modding Tutorial
                       ModItems.ALEXANDRITE, ModItems.RAW_ALEXANDRITE
                     , ModItems.ALEXANDRITE_HELMET, ModItems.ALEXANDRITE_CHESTPLATE, ModItems.ALEXANDRITE_LEGGINGS, ModItems.ALEXANDRITE_BOOTS
                     , ModItems.ALEXANDRITE_HORSE_ARMOR
                     , ModItems.HONEY_BERRIES
+                    , ModItems.KOHLRABI, ModItems.KOHLRABI_SEEDS
             },
             "pink_garnet", new DeferredItem<?>[]{ //From Fabric Modding Tutorial
                     ModItems.PINK_GARNET, ModItems.RAW_PINK_GARNET
                     , ModItems.PINK_GARNET_HELMET, ModItems.PINK_GARNET_CHESTPLATE, ModItems.PINK_GARNET_LEGGINGS, ModItems.PINK_GARNET_BOOTS
                     , ModItems.PINK_GARNET_HORSE_ARMOR
                     , ModItems.PINK_BERRIES // Changed color from Fabric Modding Tutorial to make them Pink
+                    , ModItems.CAULIFLOWER, ModItems.CAULIFLOWER_SEEDS
             }
     );
 

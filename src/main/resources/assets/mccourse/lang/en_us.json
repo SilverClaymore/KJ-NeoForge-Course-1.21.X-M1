@@ -11,6 +11,12 @@
   "item.mccourse.chainsaw": "Chainsaw",
   "item.mccourse.tomato": "Tomato",
   "item.mccourse.tomato_seeds": "Tomato Seeds",
+  "item.mccourse.cauliflower": "Cauliflower",
+  "item.mccourse.cauliflower_seeds": "Cauliflower Seeds",
+  "item.mccourse.radish": "Radish",
+  "item.mccourse.radish_seeds": "Radish Seeds",
+  "item.mccourse.kohlrabi": "Kohlrabi",
+  "item.mccourse.kohlrabi_seeds": "Kohlrabi Seeds",
   "item.mccourse.frostfire_ice": "Frostfire Ice",
   "item.mccourse.goji_berries": "Goji Berries",
   "item.mccourse.honey_berries": "Honey Berries",
@@ -151,6 +157,9 @@
   "block.mccourse.black_opal_lamp": "Black Opal Lamp",
 
   "block.mccourse.tomato_crop": "Tomato Crop",
+  "block.mccourse.cauliflower_crop": "Cauliflower Crop",
+  "block.mccourse.radish_crop": "Radish Crop",
+  "block.mccourse.kohlrabi_crop": "Kohlrabi Crop",
   "block.mccourse.goji_berry_bush": "Goji Berry Bush",
   "block.mccourse.honey_berry_bush": "Honey Berry Bush",
 

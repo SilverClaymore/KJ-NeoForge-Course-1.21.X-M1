@@ -60,6 +60,16 @@ public class ModItems {
                 }
             }, new Item.Properties().food(ModFoodProperties.TOMATO));
 
+    // Simple definition without custom tooltip
+    public static final DeferredItem<Item> CAULIFLOWER =
+            ITEMS.registerItem("cauliflower", Item::new, new Item.Properties().food(ModFoodProperties.CAULIFLOWER));
+
+    public static final DeferredItem<Item> RADISH =
+            ITEMS.registerItem("radish", Item::new, new Item.Properties().food(ModFoodProperties.RADISH));
+    public static final DeferredItem<Item> KOHLRABI =
+            ITEMS.registerItem("kohlrabi", Item::new, new Item.Properties().food(ModFoodProperties.KOHLRABI));
+
+
     public static final DeferredItem<Item> FROSTFIRE_ICE =
             ITEMS.registerItem("frostfire_ice", properties -> new FuelItem(properties, 800), new Item.Properties());
 
@@ -69,6 +79,13 @@ public class ModItems {
 
     public static final DeferredItem<Item> TOMATO_SEEDS =
             registerSeedItem("tomato_seeds", ModBlocks.TOMATO_CROP, null);
+    public static final DeferredItem<Item> CAULIFLOWER_SEEDS =
+            registerSeedItem("cauliflower_seeds", ModBlocks.CAULIFLOWER_CROP, null);
+    public static final DeferredItem<Item> RADISH_SEEDS =
+            registerSeedItem("radish_seeds", ModBlocks.RADISH_CROP, null);
+    public static final DeferredItem<Item> KOHLRABI_SEEDS =
+            registerSeedItem("kohlrabi_seeds", ModBlocks.KOHLRABI_CROP, null);
+
 
     public static final DeferredItem<Item> GOJI_BERRIES =
             registerSeedItem("goji_berries", ModBlocks.GOJI_BERRY_BUSH, ModFoodProperties.GOJI_BERRY);

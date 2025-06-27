@@ -12,9 +12,7 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.silverclaymore.mccourse.MCCourseMod;
 import net.silverclaymore.mccourse.block.ModBlocks;
-import net.silverclaymore.mccourse.block.custom.BerryBushBlock;
-import net.silverclaymore.mccourse.block.custom.BlackOpalLampBlock;
-import net.silverclaymore.mccourse.block.custom.TomatoCropBlock;
+import net.silverclaymore.mccourse.block.custom.*;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.List;
@@ -83,6 +81,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
         customLamp();
 
         makeAgeBasedPlant(ModBlocks.TOMATO_CROP.get(), "tomato_crop_stage", "tomato_crop_stage", "crop");
+        makeAgeBasedPlant(ModBlocks.CAULIFLOWER_CROP.get(), "cauliflower_crop_stage", "cauliflower_crop_stage", "crop");
+        makeAgeBasedPlant(ModBlocks.RADISH_CROP.get(), "radish_crop_stage", "radish_crop_stage", "crop");
+        makeAgeBasedPlant(ModBlocks.KOHLRABI_CROP.get(), "kohlrabi_crop_stage", "kohlrabi_crop_stage", "crop");
         makeAgeBasedPlant(ModBlocks.GOJI_BERRY_BUSH.get(), "goji_berry_bush_stage", "goji_berry_bush_stage", "cross");
         makeAgeBasedPlant(ModBlocks.HONEY_BERRY_BUSH.get(), "honey_berry_bush_stage", "honey_berry_bush_stage", "cross");
         makeAgeBasedPlant(ModBlocks.PINK_BERRY_BUSH.get(), "pink_berry_bush_stage", "pink_berry_bush_stage", "cross");
@@ -113,7 +114,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
             if (renderStyle.equals("crop")) {
                 model = models().crop(modelPrefix + age,
-                                ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, "block/" + texturePrefix + "_" + age))
+                                ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, "block/" + texturePrefix + age))
                         .renderType("cutout");
             } else if (renderStyle.equals("cross")) {
                 model = models().cross(modelPrefix + age,
@@ -130,6 +131,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
     private IntegerProperty resolveAgeProperty(Block block) {
         if (block instanceof BerryBushBlock) return BerryBushBlock.AGE;
         if (block instanceof TomatoCropBlock) return TomatoCropBlock.AGE;
+        if (block instanceof CauliflowerCropBlock) return CauliflowerCropBlock.AGE;
+        if (block instanceof RadishCropBlock) return RadishCropBlock.AGE;
+        if (block instanceof KohlrabiCropBlock) return KohlrabiCropBlock.AGE;
         return SweetBerryBushBlock.AGE;  // Default if nothing specified
     }
 
